@@ -30,12 +30,12 @@
         {
             this.Form_tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_data = new System.Windows.Forms.TabPage();
-            this.tabPage_usability = new System.Windows.Forms.TabPage();
-            this.Form_comboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Form_panel = new System.Windows.Forms.Panel();
             this.btn_show = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Form_comboBox_tablename = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage_usability = new System.Windows.Forms.TabPage();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.действияtoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.подключитьсяКБазеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,8 +47,8 @@
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Form_tabControl.SuspendLayout();
             this.tabPage_data.SuspendLayout();
-            this.Form_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Form_panel.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             this.Form_tabControl.Location = new System.Drawing.Point(1, 27);
             this.Form_tabControl.Name = "Form_tabControl";
             this.Form_tabControl.SelectedIndex = 0;
-            this.Form_tabControl.Size = new System.Drawing.Size(785, 489);
+            this.Form_tabControl.Size = new System.Drawing.Size(785, 429);
             this.Form_tabControl.TabIndex = 0;
             // 
             // tabPage_data
@@ -70,55 +70,26 @@
             this.tabPage_data.Location = new System.Drawing.Point(4, 22);
             this.tabPage_data.Name = "tabPage_data";
             this.tabPage_data.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_data.Size = new System.Drawing.Size(777, 463);
+            this.tabPage_data.Size = new System.Drawing.Size(777, 403);
             this.tabPage_data.TabIndex = 0;
             this.tabPage_data.Text = "Данные";
             this.tabPage_data.UseVisualStyleBackColor = true;
             // 
-            // tabPage_usability
+            // dataGridView1
             // 
-            this.tabPage_usability.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_usability.Name = "tabPage_usability";
-            this.tabPage_usability.Size = new System.Drawing.Size(777, 463);
-            this.tabPage_usability.TabIndex = 1;
-            this.tabPage_usability.Text = "Типовые действия";
-            this.tabPage_usability.UseVisualStyleBackColor = true;
-            // 
-            // Form_comboBox
-            // 
-            this.Form_comboBox.FormattingEnabled = true;
-            this.Form_comboBox.Items.AddRange(new object[] {
-            "",
-            "Гарантийный журнал",
-            "Гарантийный талон",
-            "Заказ для Клиента",
-            "Клиент",
-            "Кредитный договор",
-            "Поставщик",
-            "Продажа",
-            "Сервисный центр",
-            "Сотрудник",
-            "Товар"});
-            this.Form_comboBox.Location = new System.Drawing.Point(7, 19);
-            this.Form_comboBox.Name = "Form_comboBox";
-            this.Form_comboBox.Size = new System.Drawing.Size(207, 21);
-            this.Form_comboBox.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Выберите таблицу";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(-4, 46);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(781, 360);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form_panel
             // 
             this.Form_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Form_panel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Form_panel.Controls.Add(this.btn_show);
-            this.Form_panel.Controls.Add(this.Form_comboBox);
+            this.Form_panel.Controls.Add(this.Form_comboBox_tablename);
             this.Form_panel.Controls.Add(this.label1);
             this.Form_panel.Location = new System.Drawing.Point(0, 0);
             this.Form_panel.Name = "Form_panel";
@@ -133,14 +104,45 @@
             this.btn_show.TabIndex = 2;
             this.btn_show.Text = "Загрузить данные";
             this.btn_show.UseVisualStyleBackColor = true;
+            this.btn_show.Click += new System.EventHandler(this.btn_show_Click);
             // 
-            // dataGridView1
+            // Form_comboBox_tablename
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-4, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(784, 447);
-            this.dataGridView1.TabIndex = 3;
+            this.Form_comboBox_tablename.FormattingEnabled = true;
+            this.Form_comboBox_tablename.Items.AddRange(new object[] {
+            "",
+            "Гарантийный журнал",
+            "Гарантийный талон",
+            "Заказ для Клиента",
+            "Клиент",
+            "Кредитный договор",
+            "Поставщик",
+            "Продажа",
+            "Сервисный центр",
+            "Сотрудник",
+            "Товар"});
+            this.Form_comboBox_tablename.Location = new System.Drawing.Point(7, 19);
+            this.Form_comboBox_tablename.Name = "Form_comboBox_tablename";
+            this.Form_comboBox_tablename.Size = new System.Drawing.Size(207, 21);
+            this.Form_comboBox_tablename.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(57, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Выберите таблицу";
+            // 
+            // tabPage_usability
+            // 
+            this.tabPage_usability.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_usability.Name = "tabPage_usability";
+            this.tabPage_usability.Size = new System.Drawing.Size(777, 403);
+            this.tabPage_usability.TabIndex = 1;
+            this.tabPage_usability.Text = "Типовые действия";
+            this.tabPage_usability.UseVisualStyleBackColor = true;
             // 
             // menuStrip
             // 
@@ -168,18 +170,21 @@
             this.подключитьсяКБазеToolStripMenuItem.Name = "подключитьсяКБазеToolStripMenuItem";
             this.подключитьсяКБазеToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.подключитьсяКБазеToolStripMenuItem.Text = "Подключиться к Базе";
+            this.подключитьсяКБазеToolStripMenuItem.Click += new System.EventHandler(this.подключитьсяКБазеToolStripMenuItem_Click);
             // 
             // отключитьсяОтБазыToolStripMenuItem
             // 
             this.отключитьсяОтБазыToolStripMenuItem.Name = "отключитьсяОтБазыToolStripMenuItem";
             this.отключитьсяОтБазыToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.отключитьсяОтБазыToolStripMenuItem.Text = "Отключиться от Базы";
+            this.отключитьсяОтБазыToolStripMenuItem.Click += new System.EventHandler(this.отключитьсяОтБазыToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // данныеToolStripMenuItem
             // 
@@ -194,35 +199,39 @@
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
+            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.изменитьToolStripMenuItem.Text = "Изменить";
+            this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 440);
+            this.ClientSize = new System.Drawing.Size(782, 454);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.Form_tabControl);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Form_tabControl.ResumeLayout(false);
             this.tabPage_data.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Form_panel.ResumeLayout(false);
             this.Form_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -238,7 +247,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel Form_panel;
         private System.Windows.Forms.Button btn_show;
-        private System.Windows.Forms.ComboBox Form_comboBox;
+        private System.Windows.Forms.ComboBox Form_comboBox_tablename;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem действияtoolStripMenu;
