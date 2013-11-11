@@ -7,14 +7,13 @@ namespace УПСиОП
 {
     public partial class MainForm : Form
     {
-        private DBFacade _DB = null;
-
+        private DBFacade _DB;
+        private string _cur_table_name;
         public MainForm()
         {
             InitializeComponent();
             отключитьсяОтБазыToolStripMenuItem.Enabled=false;
         }
-
         private void подключитьсяКБазеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _DB=new DBFacade();
@@ -37,17 +36,23 @@ namespace УПСиОП
         {
 
         }
-
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
-
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string[] keyFieldNames =_DB.GetKeyFields(_cur_table_name);
+            object[] keyFieldValues = new object[keyFieldNames.Length];
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                 for (int i=0; i<keyFieldNames.Length; i++)
+                 {
+                    keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
+                 }
+                 _DB.DeleteRow(keyFieldNames, keyFieldValues,_cur_table_name);
+            }
         }
-
         private void btn_show_Click(object sender, EventArgs e)
         {
             if (_DB==null)
@@ -116,18 +121,9 @@ namespace УПСиОП
                 }
                 #endregion
             }
-
-            System.Data.DataTable ds=_DB.GetInfo_table(tablename);
+            _cur_table_name=tablename;
+            System.Data.DataTable ds=_DB.GetData_table(tablename);
             dataGridView1.DataSource=ds;
-        }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
     }

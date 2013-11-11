@@ -47,6 +47,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses\Гарантийный_журнал.cs" />
+    <Compile Include="DataClasses\Гарантийный_талон.cs" />
+    <Compile Include="DataClasses\Заказ_Товар_Поставщик.cs" />
+    <Compile Include="DataClasses\Клиент.cs" />
+    <Compile Include="DataClasses\Кредитный_договор.cs" />
+    <Compile Include="DataClasses\Поставщик.cs" />
+    <Compile Include="DataClasses\Продажа.cs" />
+    <Compile Include="DataClasses\Сервисный_центр.cs" />
+    <Compile Include="DataClasses\Сотрудник.cs" />
+    <Compile Include="DataClasses\Товар.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
