@@ -31,9 +31,23 @@ namespace УПСиОП
         {
             _table=(dataGridView_editing.DataSource as DataTable).Copy();
             if (_forediting)
-                Program._DB.UpdateRow(_tablename, _table);
+                try 
+            	{
+                    Program._DB.UpdateRow(_tablename, _table);
+	            }
+	            catch (System.Exception exc)
+	            {
+                    MessageBox.Show(exc.Message);
+	            }
             else
+                try
+                {
                 Program._DB.InsertRow(_tablename, _table);
+                }
+	            catch (System.Exception exc)
+	            {
+                    MessageBox.Show(exc.Message);
+	            }
         }
         private void btn_exit_Click(object sender, System.EventArgs e)
         {

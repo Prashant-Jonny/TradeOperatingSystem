@@ -155,7 +155,7 @@ namespace Core
                 break;
                 case "Гарантийный_талон":
                 {
-                    queryString=String.Format("UPDATE {0} SET Дата_время='{1}',Номер_паспорта_сотрудника='{2}',Серийный_номер_экземпляра='{3}' Where(Код_гарантийного_талона='{4}'",
+                    queryString=String.Format("UPDATE {0} SET Дата_время='{1}',Номер_паспорта_сотрудника='{2}',Серийный_номер_экземпляра='{3}' Where(Код_гарантийного_талона='{4}')",
                                               tableName, table.Rows[0].ItemArray[0], table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[2]);
                 }
                 break;
@@ -167,7 +167,7 @@ namespace Core
                 break;
                 case "Клиент":
                 {
-                    queryString=String.Format("UPDATE {0} SET ФИО_клиента='{1}',Дата_рождения='{2}',Адрес_клиента='{3}',Телефон_домашний='{4}',Телефон_мобильный='{5}' Where (Номер_паспорта_клиента = '{6}'",
+                    queryString=String.Format("UPDATE {0} SET ФИО_клиента='{1}',Дата_рождения='{2}',Адрес_клиента='{3}',Телефон_домашний='{4}',Телефон_мобильный='{5}' Where (Номер_паспорта_клиента = '{6}')",
                          tableName, table.Rows[0].ItemArray[0], table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[5]);
                 }
                 break;
@@ -186,7 +186,7 @@ namespace Core
                 break;
                 case "Продажа":
                 {
-                     queryString=String.Format("UPDATE {0} SET Цена='{1}',Количество='{2}',Код_договора='{3}',Тип_оплаты='{4}' Where (ID_товара='{5}' AND Код_гарантийного_талона='{6}'",
+                     queryString=String.Format("UPDATE {0} SET Цена='{1}',Количество='{2}',Код_договора='{3}',Тип_оплаты='{4}' Where (ID_товара='{5}' AND Код_гарантийного_талона='{6}')",
                           tableName, table.Rows[0].ItemArray[0],table.Rows[0].ItemArray[1],table.Rows[0].ItemArray[3],table.Rows[0].ItemArray[4],table.Rows[0].ItemArray[2],table.Rows[0].ItemArray[5]);
                 }
                 break;
