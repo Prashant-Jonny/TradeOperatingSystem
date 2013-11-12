@@ -33,7 +33,12 @@ namespace УПСиОП
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();                             ////////////////!!!!!!!!!!!!!!!!!!!!!
+            string[] keyFieldNames=Program._DB.GetKeyFields(_cur_table_name);
+            object[] keyFieldValues=new object[keyFieldNames.Length];
+
+            DataTable table = Program._DB.GetRow(keyFieldNames, keyFieldValues, _cur_table_name);
+            FormEdit frm = (new FormEdit(_cur_table_name));
+            frm.Show();
         }
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
