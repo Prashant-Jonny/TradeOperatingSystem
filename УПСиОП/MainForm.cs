@@ -7,7 +7,6 @@ namespace УПСиОП
 {
     public partial class MainForm : Form
     {
-        private DBFacade _DB;
         private string _cur_table_name;
         public MainForm()
         {
@@ -16,13 +15,13 @@ namespace УПСиОП
         }
         private void подключитьсяКБазеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _DB=new DBFacade();
+            Program._DB=new DBFacade();
             подключитьсяКБазеToolStripMenuItem.Enabled=false;
             отключитьсяОтБазыToolStripMenuItem.Enabled=true;
         }
         private void отключитьсяОтБазыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _DB=null;
+            Program._DB=null;
             отключитьсяОтБазыToolStripMenuItem.Enabled=false;
             подключитьсяКБазеToolStripMenuItem.Enabled=true; 
             
@@ -34,15 +33,27 @@ namespace УПСиОП
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            throw new NotImplementedException();                             ////////////////!!!!!!!!!!!!!!!!!!!!!
         }
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.SelectedRows.Count==1)
+            {
+                string[] keyFieldNames=Program._DB.GetKeyFields(_cur_table_name);
+                object[] keyFieldValues=new object[keyFieldNames.Length];
+                for (int i=0; i<keyFieldNames.Length; i++)
+                {
+                    keyFieldValues[i]=dataGridView1.SelectedRows[0].Cells[keyFieldNames[i]].Value;
+                }
+                DataTable table=Program._DB.GetRow(keyFieldNames, keyFieldValues, _cur_table_name);
+                FormEdit frm=(new FormEdit(ref table, keyFieldNames, _cur_table_name));
+                frm.Show();
+
+            }
         }
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string[] keyFieldNames =_DB.GetKeyFields(_cur_table_name);
+            string[] keyFieldNames =Program._DB.GetKeyFields(_cur_table_name);
             object[] keyFieldValues = new object[keyFieldNames.Length];
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -50,12 +61,12 @@ namespace УПСиОП
                  {
                     keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
                  }
-                 _DB.DeleteRow(keyFieldNames, keyFieldValues,_cur_table_name);
+                 Program._DB.DeleteRow(keyFieldNames, keyFieldValues,_cur_table_name);
             }
         }
         private void btn_show_Click(object sender, EventArgs e)
         {
-            if (_DB==null)
+            if (Program._DB==null)
             {
                 MessageBox.Show("Сначала нужно подключиться к базе");
                 return;
@@ -122,7 +133,7 @@ namespace УПСиОП
                 #endregion
             }
             _cur_table_name=tablename;
-            System.Data.DataTable ds=_DB.GetData_table(tablename);
+            System.Data.DataTable ds=Program._DB.GetData_table(tablename);
             dataGridView1.DataSource=ds;
         }
 

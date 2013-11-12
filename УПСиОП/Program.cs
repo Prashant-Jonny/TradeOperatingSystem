@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
+using Core;
 
 namespace УПСиОП
 {
-    static class Program
+   public static class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
-        [STAThread]
+        public static DBFacade _DB; 
         static void Main()
         {
             Application.EnableVisualStyles();
