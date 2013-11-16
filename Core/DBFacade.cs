@@ -240,62 +240,62 @@ namespace Core
                 #region vars
                 case "Гарантийный_журнал":
                 {
-                   queryString =String.Format("Insert Into {0}.(Статус_обслуживания,Примечание,Причина_направления_на_замену,Дата_время,Код_гарантийного_талона) Values('{0}','{1}','{2}','{3}','{4}','{5}')",
+                   queryString =String.Format("Insert Into {0}.(Статус_обслуживания,Примечание,Причина_направления_на_замену,Дата_время,Код_гарантийного_талона) Values('{1}','{2}','{3}','{4}','{5}')",
                                 tableName, table.Rows[0].ItemArray[0], table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4]);
                 }
                 break;
                 case "Гарантийный_талон":
                 {
-                    queryString=String.Format("Insert Into {0}.(Дата_время,Номер_паспорта_сотрудника,Серийный_номер_экземпляра,Код_гарантийного_талона) VALUES ('{0}','{1}','{2}','{3}','{4}')",
+                    queryString=String.Format("Insert Into {0}.(Дата_время,Номер_паспорта_сотрудника,Серийный_номер_экземпляра,Код_гарантийного_талона) VALUES ('{1}','{2}','{3}','{4}')",
                                               tableName, table.Rows[0].ItemArray[0], table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[2]);
                 }
                 break;
                 case "Заказ_Товар_Поставщик":
                 {
-                    queryString=String.Format("Insert Into {0}.(Код_поставщика,Количество_заказано,ID_товара,Дата_заказа,Номер_паспорта_клиента,ID_Заказа) Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                    queryString=String.Format("Insert Into {0}.(Код_поставщика,Количество_заказано,ID_товара,Дата_заказа,Номер_паспорта_клиента,ID_Заказа) Values ('{1}','{2}','{3}','{4}','{5}','{6}')",
                                             tableName, table.Rows[0].ItemArray[0], table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[5], table.Rows[0].ItemArray[3]);
                 }
                 break;
                 case "Клиент":
                 {
-                    queryString=String.Format("Insert Into {0}.(ФИО_клиента,Дата_рождения,Адрес_клиента,Телефон_домашний,Телефон_мобильный,Номер_паспорта_клиента) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                    queryString=String.Format("Insert Into {0}.(ФИО_клиента,Дата_рождения,Адрес_клиента,Телефон_домашний,Телефон_мобильный,Номер_паспорта_клиента) VALUES('{1}','{2}','{3}','{4}','{5}','{6}')",
                          tableName, table.Rows[0].ItemArray[0], table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[5]);
                 }
                 break;
                 case "Кредитный_договор":
                 {
-                    queryString=String.Format("Insert Into {0}.( Ежемесячная_выплата, Первоначальный_взнос,Срок_оплаты,Номер_паспорта_клиента,Код_договора) Values ('{0}','{1}','{2}','{3}','{4}','{5}')",
+                    queryString=String.Format("Insert Into {0}.( Ежемесячная_выплата, Первоначальный_взнос,Срок_оплаты,Номер_паспорта_клиента,Код_договора) Values ('{1}','{2}','{3}','{4}','{5}')",
                         tableName, table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[0]);
                 }
                 break;
                 case "Поставщик":
                 {
-                    queryString=String.Format("Insert Into {0}.(Название_поставщика,Адрес_поставщика,Телефон_поставщика,Описание,Код_поставщика) Values ('{0}','{1}','{2}','{3}','{4}','{5}')",
+                    queryString=String.Format("Insert Into {0}.(Название_поставщика,Адрес_поставщика,Телефон_поставщика,Описание,Код_поставщика) Values ('{1}','{2}','{3}','{4}','{5}')",
                         tableName, table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[0]);
                 
                 }
                 break;
                 case "Продажа":
                 {
-                    queryString=String.Format("Insert Into {0}.(Цена,Количество,Код_договора,Тип_оплаты,ID_товара, Код_гарантийного_талона) Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                    queryString=String.Format("Insert Into {0}.(Цена,Количество,Код_договора,Тип_оплаты,ID_товара, Код_гарантийного_талона) Values ('{1}','{2}','{3}','{4}','{5}','{6}')",
                           tableName, table.Rows[0].ItemArray[0],table.Rows[0].ItemArray[1],table.Rows[0].ItemArray[3],table.Rows[0].ItemArray[4],table.Rows[0].ItemArray[2],table.Rows[0].ItemArray[5]);
                 }
                 break;
                 case "Сервисный_центр":
                 {
-                    queryString=String.Format("Insert Into {0}.(Код_сервисного_центра,Название_сервисного_центра,Адрес,Телефон) VALUES ('{0}','{1}','{2}','{3}','{4}')",
-                         tableName, table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[0]);
+                    queryString=String.Format("Insert Into {0} (Название_сервисного_центра,Адрес,Телефон) VALUES ('{1}','{2}','{3}')",
+                         tableName, table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3]);
                 }
                 break;
                 case "Сотрудник":
                 {
-                    queryString=String.Format("Insert Into {0}.(ФИО_сотрудника,Дата_рождения,Адрес_сотрудника,Телефон_домашний,Телефон_мобильный,Должность,Номер_паспорта_сотрудника) Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                    queryString=String.Format("Insert Into {0}.(ФИО_сотрудника,Дата_рождения,Адрес_сотрудника,Телефон_домашний,Телефон_мобильный,Должность,Номер_паспорта_сотрудника) Values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
                         tableName, table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[5], table.Rows[0].ItemArray[6], table.Rows[0].ItemArray[0]);
                 }
                 break;
                 case "Товар":
                 {
-                    queryString=String.Format("Insert Into {0}.( Название_товара,Категория,Количество_склад,Цена,Количество_магазин,Срок_гарантии, Код_сервисного_центра,ID_товара) Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+                    queryString=String.Format("Insert Into {0}.( Название_товара,Категория,Количество_склад,Цена,Количество_магазин,Срок_гарантии, Код_сервисного_центра,ID_товара) Values ('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
                     tableName, table.Rows[0].ItemArray[1], table.Rows[0].ItemArray[2], table.Rows[0].ItemArray[3], table.Rows[0].ItemArray[4], table.Rows[0].ItemArray[5], table.Rows[0].ItemArray[6], table.Rows[0].ItemArray[7], table.Rows[0].ItemArray[0]);
                 }
                 break;
