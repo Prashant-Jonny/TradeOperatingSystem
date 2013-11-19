@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,6 +67,12 @@
     <Compile Include="FormEdit.Designer.cs">
       <DependentUpon>FormEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_view_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_view_table.Designer.cs">
+      <DependentUpon>Form_view_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,8 +81,83 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInsertForms\FormAddToWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormAddToWarehouse.Designer.cs">
+      <DependentUpon>FormAddToWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormEnterGarancyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormEnterGarancyList.Designer.cs">
+      <DependentUpon>FormEnterGarancyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormGarancyChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormGarancyChange.Designer.cs">
+      <DependentUpon>FormGarancyChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormGoodExists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormGoodExists.Designer.cs">
+      <DependentUpon>FormGoodExists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormInsertClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormInsertClient.Designer.cs">
+      <DependentUpon>FormInsertClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormInsertCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormInsertCredit.Designer.cs">
+      <DependentUpon>FormInsertCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormInsertTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormInsertTicket.Designer.cs">
+      <DependentUpon>FormInsertTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormOrder_buying.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormOrder_buying.Designer.cs">
+      <DependentUpon>FormOrder_buying.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormPreorderGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormPreorderGood.Designer.cs">
+      <DependentUpon>FormPreorderGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormRepairResultsInsertion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormRepairResultsInsertion.Designer.cs">
+      <DependentUpon>FormRepairResultsInsertion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormSellsStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormSellsStat.Designer.cs">
+      <DependentUpon>FormSellsStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInsertForms\FormTransferToShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormTransferToShop.Designer.cs">
+      <DependentUpon>FormTransferToShop.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormEdit.resx">
       <DependentUpon>FormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_view_table.resx">
+      <DependentUpon>Form_view_table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -90,6 +172,42 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserInsertForms\FormAddToWarehouse.resx">
+      <DependentUpon>FormAddToWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormEnterGarancyList.resx">
+      <DependentUpon>FormEnterGarancyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormGarancyChange.resx">
+      <DependentUpon>FormGarancyChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormGoodExists.resx">
+      <DependentUpon>FormGoodExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormInsertClient.resx">
+      <DependentUpon>FormInsertClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormInsertCredit.resx">
+      <DependentUpon>FormInsertCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormInsertTicket.resx">
+      <DependentUpon>FormInsertTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormOrder_buying.resx">
+      <DependentUpon>FormOrder_buying.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormPreorderGood.resx">
+      <DependentUpon>FormPreorderGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormRepairResultsInsertion.resx">
+      <DependentUpon>FormRepairResultsInsertion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormSellsStat.resx">
+      <DependentUpon>FormSellsStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormTransferToShop.resx">
+      <DependentUpon>FormTransferToShop.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

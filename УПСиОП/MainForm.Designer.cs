@@ -36,6 +36,26 @@
             this.Form_comboBox_tablename = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage_usability = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_garancy_change = new System.Windows.Forms.Button();
+            this.btn_insert_in_Garancy_list = new System.Windows.Forms.Button();
+            this.btn_insert_repair_results = new System.Windows.Forms.Button();
+            this.btn_num_for_repair = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_insert_talon = new System.Windows.Forms.Button();
+            this.btn_insert_credit = new System.Windows.Forms.Button();
+            this.btn_good_exists = new System.Windows.Forms.Button();
+            this.btn_insert_client = new System.Windows.Forms.Button();
+            this.btn_order_buing = new System.Windows.Forms.Button();
+            this.btn_transfer_to_shop = new System.Windows.Forms.Button();
+            this.btn_good_preorder = new System.Windows.Forms.Button();
+            this.btn_Insert_goods = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_sells_for_Month_year = new System.Windows.Forms.Button();
+            this.btn_GetPriceList = new System.Windows.Forms.Button();
+            this.btn_show_nearest_preorders = new System.Windows.Forms.Button();
+            this.btn_sells_for_year = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.действияtoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.подключитьсяКБазеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +69,11 @@
             this.tabPage_data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Form_panel.SuspendLayout();
+            this.tabPage_usability.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,8 +85,9 @@
             this.Form_tabControl.Location = new System.Drawing.Point(1, 27);
             this.Form_tabControl.Name = "Form_tabControl";
             this.Form_tabControl.SelectedIndex = 0;
-            this.Form_tabControl.Size = new System.Drawing.Size(785, 429);
+            this.Form_tabControl.Size = new System.Drawing.Size(785, 520);
             this.Form_tabControl.TabIndex = 0;
+            this.Form_tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.Form_tabControl_Selecting);
             // 
             // tabPage_data
             // 
@@ -70,7 +96,7 @@
             this.tabPage_data.Location = new System.Drawing.Point(4, 22);
             this.tabPage_data.Name = "tabPage_data";
             this.tabPage_data.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_data.Size = new System.Drawing.Size(777, 403);
+            this.tabPage_data.Size = new System.Drawing.Size(777, 494);
             this.tabPage_data.TabIndex = 0;
             this.tabPage_data.Text = "Данные";
             this.tabPage_data.UseVisualStyleBackColor = true;
@@ -81,7 +107,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(-4, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(781, 360);
+            this.dataGridView1.Size = new System.Drawing.Size(781, 445);
             this.dataGridView1.TabIndex = 3;
             // 
             // Form_panel
@@ -137,12 +163,244 @@
             // 
             // tabPage_usability
             // 
+            this.tabPage_usability.Controls.Add(this.panel1);
             this.tabPage_usability.Location = new System.Drawing.Point(4, 22);
             this.tabPage_usability.Name = "tabPage_usability";
-            this.tabPage_usability.Size = new System.Drawing.Size(777, 403);
+            this.tabPage_usability.Size = new System.Drawing.Size(777, 494);
             this.tabPage_usability.TabIndex = 1;
             this.tabPage_usability.Text = "Типовые действия";
             this.tabPage_usability.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(777, 491);
+            this.panel1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btn_garancy_change);
+            this.groupBox3.Controls.Add(this.btn_insert_in_Garancy_list);
+            this.groupBox3.Controls.Add(this.btn_insert_repair_results);
+            this.groupBox3.Controls.Add(this.btn_num_for_repair);
+            this.groupBox3.Location = new System.Drawing.Point(444, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(248, 485);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Гарантия";
+            // 
+            // btn_garancy_change
+            // 
+            this.btn_garancy_change.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_garancy_change.Location = new System.Drawing.Point(20, 48);
+            this.btn_garancy_change.Name = "btn_garancy_change";
+            this.btn_garancy_change.Size = new System.Drawing.Size(205, 23);
+            this.btn_garancy_change.TabIndex = 5;
+            this.btn_garancy_change.Text = "Замена по гарантии";
+            this.btn_garancy_change.UseVisualStyleBackColor = true;
+            this.btn_garancy_change.Click += new System.EventHandler(this.btn_garancy_change_Click);
+            // 
+            // btn_insert_in_Garancy_list
+            // 
+            this.btn_insert_in_Garancy_list.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_insert_in_Garancy_list.Location = new System.Drawing.Point(20, 19);
+            this.btn_insert_in_Garancy_list.Name = "btn_insert_in_Garancy_list";
+            this.btn_insert_in_Garancy_list.Size = new System.Drawing.Size(205, 23);
+            this.btn_insert_in_Garancy_list.TabIndex = 9;
+            this.btn_insert_in_Garancy_list.Text = "Записать в гарантийный журнал";
+            this.btn_insert_in_Garancy_list.UseVisualStyleBackColor = true;
+            this.btn_insert_in_Garancy_list.Click += new System.EventHandler(this.btn_insert_in_Garancy_list_Click);
+            // 
+            // btn_insert_repair_results
+            // 
+            this.btn_insert_repair_results.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_insert_repair_results.Location = new System.Drawing.Point(20, 77);
+            this.btn_insert_repair_results.Name = "btn_insert_repair_results";
+            this.btn_insert_repair_results.Size = new System.Drawing.Size(205, 23);
+            this.btn_insert_repair_results.TabIndex = 13;
+            this.btn_insert_repair_results.Text = "Зафиксировать результаты ремонта";
+            this.btn_insert_repair_results.UseVisualStyleBackColor = true;
+            this.btn_insert_repair_results.Click += new System.EventHandler(this.btn_insert_repair_results_Click);
+            // 
+            // btn_num_for_repair
+            // 
+            this.btn_num_for_repair.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_num_for_repair.Location = new System.Drawing.Point(20, 107);
+            this.btn_num_for_repair.Name = "btn_num_for_repair";
+            this.btn_num_for_repair.Size = new System.Drawing.Size(205, 34);
+            this.btn_num_for_repair.TabIndex = 15;
+            this.btn_num_for_repair.Text = "Количество гарантийного ремонта по категории";
+            this.btn_num_for_repair.UseVisualStyleBackColor = true;
+            this.btn_num_for_repair.Click += new System.EventHandler(this.btn_num_for_repair_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_insert_talon);
+            this.groupBox2.Controls.Add(this.btn_insert_credit);
+            this.groupBox2.Controls.Add(this.btn_good_exists);
+            this.groupBox2.Controls.Add(this.btn_insert_client);
+            this.groupBox2.Controls.Add(this.btn_order_buing);
+            this.groupBox2.Controls.Add(this.btn_transfer_to_shop);
+            this.groupBox2.Controls.Add(this.btn_good_preorder);
+            this.groupBox2.Controls.Add(this.btn_Insert_goods);
+            this.groupBox2.Location = new System.Drawing.Point(7, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(225, 485);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Покупка";
+            // 
+            // btn_insert_talon
+            // 
+            this.btn_insert_talon.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_insert_talon.Location = new System.Drawing.Point(6, 19);
+            this.btn_insert_talon.Name = "btn_insert_talon";
+            this.btn_insert_talon.Size = new System.Drawing.Size(194, 23);
+            this.btn_insert_talon.TabIndex = 1;
+            this.btn_insert_talon.Text = "Выписать гарантийный талон";
+            this.btn_insert_talon.UseVisualStyleBackColor = true;
+            this.btn_insert_talon.Click += new System.EventHandler(this.btn_insert_talon_Click);
+            // 
+            // btn_insert_credit
+            // 
+            this.btn_insert_credit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_insert_credit.Location = new System.Drawing.Point(6, 48);
+            this.btn_insert_credit.Name = "btn_insert_credit";
+            this.btn_insert_credit.Size = new System.Drawing.Size(194, 23);
+            this.btn_insert_credit.TabIndex = 2;
+            this.btn_insert_credit.Text = "Заключить кредитный договор";
+            this.btn_insert_credit.UseVisualStyleBackColor = true;
+            this.btn_insert_credit.Click += new System.EventHandler(this.btn_insert_credit_Click);
+            // 
+            // btn_good_exists
+            // 
+            this.btn_good_exists.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_good_exists.Location = new System.Drawing.Point(6, 222);
+            this.btn_good_exists.Name = "btn_good_exists";
+            this.btn_good_exists.Size = new System.Drawing.Size(194, 23);
+            this.btn_good_exists.TabIndex = 12;
+            this.btn_good_exists.Text = "Есть ли товар";
+            this.btn_good_exists.UseVisualStyleBackColor = true;
+            this.btn_good_exists.Click += new System.EventHandler(this.btn_good_exists_Click);
+            // 
+            // btn_insert_client
+            // 
+            this.btn_insert_client.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_insert_client.Location = new System.Drawing.Point(6, 77);
+            this.btn_insert_client.Name = "btn_insert_client";
+            this.btn_insert_client.Size = new System.Drawing.Size(194, 23);
+            this.btn_insert_client.TabIndex = 3;
+            this.btn_insert_client.Text = "Зарегистрировать Клиента";
+            this.btn_insert_client.UseVisualStyleBackColor = true;
+            this.btn_insert_client.Click += new System.EventHandler(this.btn_insert_client_Click);
+            // 
+            // btn_order_buing
+            // 
+            this.btn_order_buing.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_order_buing.Location = new System.Drawing.Point(6, 106);
+            this.btn_order_buing.Name = "btn_order_buing";
+            this.btn_order_buing.Size = new System.Drawing.Size(194, 23);
+            this.btn_order_buing.TabIndex = 4;
+            this.btn_order_buing.Text = "Оформить покупку";
+            this.btn_order_buing.UseVisualStyleBackColor = true;
+            this.btn_order_buing.Click += new System.EventHandler(this.btn_order_buing_Click);
+            // 
+            // btn_transfer_to_shop
+            // 
+            this.btn_transfer_to_shop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_transfer_to_shop.Location = new System.Drawing.Point(6, 164);
+            this.btn_transfer_to_shop.Name = "btn_transfer_to_shop";
+            this.btn_transfer_to_shop.Size = new System.Drawing.Size(194, 23);
+            this.btn_transfer_to_shop.TabIndex = 14;
+            this.btn_transfer_to_shop.Text = "Отправить в магазин";
+            this.btn_transfer_to_shop.UseVisualStyleBackColor = true;
+            this.btn_transfer_to_shop.Click += new System.EventHandler(this.btn_transfer_to_shop_Click);
+            // 
+            // btn_good_preorder
+            // 
+            this.btn_good_preorder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_good_preorder.Location = new System.Drawing.Point(6, 135);
+            this.btn_good_preorder.Name = "btn_good_preorder";
+            this.btn_good_preorder.Size = new System.Drawing.Size(194, 23);
+            this.btn_good_preorder.TabIndex = 6;
+            this.btn_good_preorder.Text = "Оформить заказ товара";
+            this.btn_good_preorder.UseVisualStyleBackColor = true;
+            this.btn_good_preorder.Click += new System.EventHandler(this.btn_good_preorder_Click);
+            // 
+            // btn_Insert_goods
+            // 
+            this.btn_Insert_goods.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Insert_goods.Location = new System.Drawing.Point(6, 193);
+            this.btn_Insert_goods.Name = "btn_Insert_goods";
+            this.btn_Insert_goods.Size = new System.Drawing.Size(194, 23);
+            this.btn_Insert_goods.TabIndex = 8;
+            this.btn_Insert_goods.Text = "Приёмка Товара";
+            this.btn_Insert_goods.UseVisualStyleBackColor = true;
+            this.btn_Insert_goods.Click += new System.EventHandler(this.btn_Insert_goods_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_sells_for_Month_year);
+            this.groupBox1.Controls.Add(this.btn_GetPriceList);
+            this.groupBox1.Controls.Add(this.btn_show_nearest_preorders);
+            this.groupBox1.Controls.Add(this.btn_sells_for_year);
+            this.groupBox1.Location = new System.Drawing.Point(238, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 485);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Статистика";
+            // 
+            // btn_sells_for_Month_year
+            // 
+            this.btn_sells_for_Month_year.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_sells_for_Month_year.Location = new System.Drawing.Point(15, 106);
+            this.btn_sells_for_Month_year.Name = "btn_sells_for_Month_year";
+            this.btn_sells_for_Month_year.Size = new System.Drawing.Size(170, 23);
+            this.btn_sells_for_Month_year.TabIndex = 10;
+            this.btn_sells_for_Month_year.Text = "Продажи за Месяц Года";
+            this.btn_sells_for_Month_year.UseVisualStyleBackColor = true;
+            this.btn_sells_for_Month_year.Click += new System.EventHandler(this.btn_sells_for_Month_year_Click);
+            // 
+            // btn_GetPriceList
+            // 
+            this.btn_GetPriceList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_GetPriceList.Location = new System.Drawing.Point(15, 48);
+            this.btn_GetPriceList.Name = "btn_GetPriceList";
+            this.btn_GetPriceList.Size = new System.Drawing.Size(170, 23);
+            this.btn_GetPriceList.TabIndex = 11;
+            this.btn_GetPriceList.Text = "Сформировать прайс";
+            this.btn_GetPriceList.UseVisualStyleBackColor = true;
+            this.btn_GetPriceList.Click += new System.EventHandler(this.btn_GetPriceList_Click);
+            // 
+            // btn_show_nearest_preorders
+            // 
+            this.btn_show_nearest_preorders.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_show_nearest_preorders.Location = new System.Drawing.Point(15, 19);
+            this.btn_show_nearest_preorders.Name = "btn_show_nearest_preorders";
+            this.btn_show_nearest_preorders.Size = new System.Drawing.Size(170, 23);
+            this.btn_show_nearest_preorders.TabIndex = 7;
+            this.btn_show_nearest_preorders.Text = "Показать Ближайшие Заказы";
+            this.btn_show_nearest_preorders.UseVisualStyleBackColor = true;
+            this.btn_show_nearest_preorders.Click += new System.EventHandler(this.btn_show_nearest_preorders_Click);
+            // 
+            // btn_sells_for_year
+            // 
+            this.btn_sells_for_year.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_sells_for_year.Location = new System.Drawing.Point(15, 77);
+            this.btn_sells_for_year.Name = "btn_sells_for_year";
+            this.btn_sells_for_year.Size = new System.Drawing.Size(170, 23);
+            this.btn_sells_for_year.TabIndex = 9;
+            this.btn_sells_for_year.Text = "Продажи за Год";
+            this.btn_sells_for_year.UseVisualStyleBackColor = true;
+            this.btn_sells_for_year.Click += new System.EventHandler(this.btn_sells_for_year_Click);
             // 
             // menuStrip
             // 
@@ -221,7 +479,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 454);
+            this.ClientSize = new System.Drawing.Size(782, 540);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.Form_tabControl);
             this.Name = "MainForm";
@@ -231,6 +489,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Form_panel.ResumeLayout(false);
             this.Form_panel.PerformLayout();
+            this.tabPage_usability.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -257,6 +520,26 @@
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.Button btn_insert_in_Garancy_list;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_Insert_goods;
+        private System.Windows.Forms.Button btn_show_nearest_preorders;
+        private System.Windows.Forms.Button btn_good_preorder;
+        private System.Windows.Forms.Button btn_garancy_change;
+        private System.Windows.Forms.Button btn_order_buing;
+        private System.Windows.Forms.Button btn_insert_client;
+        private System.Windows.Forms.Button btn_insert_credit;
+        private System.Windows.Forms.Button btn_insert_talon;
+        private System.Windows.Forms.Button btn_num_for_repair;
+        private System.Windows.Forms.Button btn_transfer_to_shop;
+        private System.Windows.Forms.Button btn_insert_repair_results;
+        private System.Windows.Forms.Button btn_good_exists;
+        private System.Windows.Forms.Button btn_GetPriceList;
+        private System.Windows.Forms.Button btn_sells_for_Month_year;
+        private System.Windows.Forms.Button btn_sells_for_year;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
