@@ -300,5 +300,87 @@ namespace УПСиОП
         #endregion
 
         #endregion
+
+        #region views
+        
+        private void btn_absent_goods_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров")
+                ).Show();
+        }
+        private void btn_least_count_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Детали_наименьшего_количества")
+                ).Show();
+        }
+        private void btn_balance_price_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Прайс")
+                ).Show();
+        }
+        private void btn_50_nearest_orders_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Показать_50_Ближайших_Заказов")
+                ).Show();
+        }
+        private void btn_max_price_category_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Max_Цены_по_категориям")
+                ).Show();
+        }
+        private void btn_AVG_prices_category_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Средняя_Цена_по_категории")
+                ).Show();
+        }
+        private void btn_credit_part_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Доля_покупок_по_кредитному_договору")
+                ).Show();
+        }
+        private void btn_client_info_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Информация_о_Клиенте")
+                ).Show();
+        }
+        private void btn_employer_info_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Информация_о_Сотруднике")
+                ).Show();
+        }
+        private void btn_clients_by_age_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Клиенты_по_возрасту")
+                ).Show();
+        }
+        private void btn_money_per_this_month_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Продажи_за_текущий_месяц")
+                ).Show();
+        }
+        private void btn_often_repairs_list_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Товары_с_частой_поломкой")
+                ).Show();
+        }
+        private void btn_list_garancy_safe_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program._DB.GetData_table("Список_вещей_на_гарантийной_замене")
+                ).Show();
+        }
+        #endregion
     }
 }

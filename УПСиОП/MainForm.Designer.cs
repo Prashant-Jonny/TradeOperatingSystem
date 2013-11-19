@@ -38,6 +38,8 @@
             this.tabPage_usability = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_list_garancy_safe = new System.Windows.Forms.Button();
+            this.btn_often_repairs_list = new System.Windows.Forms.Button();
             this.btn_garancy_change = new System.Windows.Forms.Button();
             this.btn_insert_in_Garancy_list = new System.Windows.Forms.Button();
             this.btn_insert_repair_results = new System.Windows.Forms.Button();
@@ -51,11 +53,24 @@
             this.btn_transfer_to_shop = new System.Windows.Forms.Button();
             this.btn_good_preorder = new System.Windows.Forms.Button();
             this.btn_Insert_goods = new System.Windows.Forms.Button();
+            this.btn_balance_price = new System.Windows.Forms.Button();
+            this.btn_50_nearest_orders = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_AVG_prices_category = new System.Windows.Forms.Button();
+            this.btn_money_of_employer = new System.Windows.Forms.Button();
+            this.btn_money_per_this_month = new System.Windows.Forms.Button();
+            this.btn_clients_by_age = new System.Windows.Forms.Button();
+            this.btn_employer_info = new System.Windows.Forms.Button();
+            this.btn_money_per_this_year = new System.Windows.Forms.Button();
+            this.btn_credit_part = new System.Windows.Forms.Button();
+            this.btn_client_info = new System.Windows.Forms.Button();
+            this.btn_max_price_category = new System.Windows.Forms.Button();
             this.btn_sells_for_Month_year = new System.Windows.Forms.Button();
             this.btn_GetPriceList = new System.Windows.Forms.Button();
             this.btn_show_nearest_preorders = new System.Windows.Forms.Button();
             this.btn_sells_for_year = new System.Windows.Forms.Button();
+            this.btn_absent_goods = new System.Windows.Forms.Button();
+            this.btn_least_count = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.действияtoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.подключитьсяКБазеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,7 +191,11 @@
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.btn_balance_price);
+            this.panel1.Controls.Add(this.btn_50_nearest_orders);
             this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.btn_absent_goods);
+            this.panel1.Controls.Add(this.btn_least_count);
             this.panel1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -185,16 +204,38 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_list_garancy_safe);
+            this.groupBox3.Controls.Add(this.btn_often_repairs_list);
             this.groupBox3.Controls.Add(this.btn_garancy_change);
             this.groupBox3.Controls.Add(this.btn_insert_in_Garancy_list);
             this.groupBox3.Controls.Add(this.btn_insert_repair_results);
             this.groupBox3.Controls.Add(this.btn_num_for_repair);
             this.groupBox3.Location = new System.Drawing.Point(444, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(248, 485);
+            this.groupBox3.Size = new System.Drawing.Size(248, 382);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Гарантия";
+            // 
+            // btn_list_garancy_safe
+            // 
+            this.btn_list_garancy_safe.Location = new System.Drawing.Point(20, 258);
+            this.btn_list_garancy_safe.Name = "btn_list_garancy_safe";
+            this.btn_list_garancy_safe.Size = new System.Drawing.Size(205, 23);
+            this.btn_list_garancy_safe.TabIndex = 21;
+            this.btn_list_garancy_safe.Text = "Вещи на гарантийной замене";
+            this.btn_list_garancy_safe.UseVisualStyleBackColor = true;
+            this.btn_list_garancy_safe.Click += new System.EventHandler(this.btn_list_garancy_safe_Click);
+            // 
+            // btn_often_repairs_list
+            // 
+            this.btn_often_repairs_list.Location = new System.Drawing.Point(20, 229);
+            this.btn_often_repairs_list.Name = "btn_often_repairs_list";
+            this.btn_often_repairs_list.Size = new System.Drawing.Size(205, 23);
+            this.btn_often_repairs_list.TabIndex = 23;
+            this.btn_often_repairs_list.Text = "Товары с частой поломкой";
+            this.btn_often_repairs_list.UseVisualStyleBackColor = true;
+            this.btn_often_repairs_list.Click += new System.EventHandler(this.btn_often_repairs_list_Click);
             // 
             // btn_garancy_change
             // 
@@ -252,7 +293,7 @@
             this.groupBox2.Controls.Add(this.btn_Insert_goods);
             this.groupBox2.Location = new System.Drawing.Point(7, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(225, 485);
+            this.groupBox2.Size = new System.Drawing.Size(225, 256);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Покупка";
@@ -345,8 +386,38 @@
             this.btn_Insert_goods.UseVisualStyleBackColor = true;
             this.btn_Insert_goods.Click += new System.EventHandler(this.btn_Insert_goods_Click);
             // 
+            // btn_balance_price
+            // 
+            this.btn_balance_price.Location = new System.Drawing.Point(7, 352);
+            this.btn_balance_price.Name = "btn_balance_price";
+            this.btn_balance_price.Size = new System.Drawing.Size(200, 23);
+            this.btn_balance_price.TabIndex = 21;
+            this.btn_balance_price.Text = "Балансовый Прайс";
+            this.btn_balance_price.UseVisualStyleBackColor = true;
+            this.btn_balance_price.Click += new System.EventHandler(this.btn_balance_price_Click);
+            // 
+            // btn_50_nearest_orders
+            // 
+            this.btn_50_nearest_orders.Location = new System.Drawing.Point(7, 381);
+            this.btn_50_nearest_orders.Name = "btn_50_nearest_orders";
+            this.btn_50_nearest_orders.Size = new System.Drawing.Size(200, 23);
+            this.btn_50_nearest_orders.TabIndex = 20;
+            this.btn_50_nearest_orders.Text = "Показать 50 Ближайших Заказов";
+            this.btn_50_nearest_orders.UseVisualStyleBackColor = true;
+            this.btn_50_nearest_orders.Click += new System.EventHandler(this.btn_50_nearest_orders_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Silver;
+            this.groupBox1.Controls.Add(this.btn_AVG_prices_category);
+            this.groupBox1.Controls.Add(this.btn_money_of_employer);
+            this.groupBox1.Controls.Add(this.btn_money_per_this_month);
+            this.groupBox1.Controls.Add(this.btn_clients_by_age);
+            this.groupBox1.Controls.Add(this.btn_employer_info);
+            this.groupBox1.Controls.Add(this.btn_money_per_this_year);
+            this.groupBox1.Controls.Add(this.btn_credit_part);
+            this.groupBox1.Controls.Add(this.btn_client_info);
+            this.groupBox1.Controls.Add(this.btn_max_price_category);
             this.groupBox1.Controls.Add(this.btn_sells_for_Month_year);
             this.groupBox1.Controls.Add(this.btn_GetPriceList);
             this.groupBox1.Controls.Add(this.btn_show_nearest_preorders);
@@ -357,6 +428,94 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика";
+            // 
+            // btn_AVG_prices_category
+            // 
+            this.btn_AVG_prices_category.Location = new System.Drawing.Point(15, 239);
+            this.btn_AVG_prices_category.Name = "btn_AVG_prices_category";
+            this.btn_AVG_prices_category.Size = new System.Drawing.Size(170, 23);
+            this.btn_AVG_prices_category.TabIndex = 22;
+            this.btn_AVG_prices_category.Text = "Средняя Цена по категории";
+            this.btn_AVG_prices_category.UseVisualStyleBackColor = true;
+            this.btn_AVG_prices_category.Click += new System.EventHandler(this.btn_AVG_prices_category_Click);
+            // 
+            // btn_money_of_employer
+            // 
+            this.btn_money_of_employer.Location = new System.Drawing.Point(15, 446);
+            this.btn_money_of_employer.Name = "btn_money_of_employer";
+            this.btn_money_of_employer.Size = new System.Drawing.Size(170, 23);
+            this.btn_money_of_employer.TabIndex = 20;
+            this.btn_money_of_employer.Text = "Прибыль по сотрудникам";
+            this.btn_money_of_employer.UseVisualStyleBackColor = true;
+            // 
+            // btn_money_per_this_month
+            // 
+            this.btn_money_per_this_month.Location = new System.Drawing.Point(15, 388);
+            this.btn_money_per_this_month.Name = "btn_money_per_this_month";
+            this.btn_money_per_this_month.Size = new System.Drawing.Size(170, 23);
+            this.btn_money_per_this_month.TabIndex = 19;
+            this.btn_money_per_this_month.Text = "Продажи за текущий месяц";
+            this.btn_money_per_this_month.UseVisualStyleBackColor = true;
+            this.btn_money_per_this_month.Click += new System.EventHandler(this.btn_money_per_this_month_Click);
+            // 
+            // btn_clients_by_age
+            // 
+            this.btn_clients_by_age.Location = new System.Drawing.Point(15, 359);
+            this.btn_clients_by_age.Name = "btn_clients_by_age";
+            this.btn_clients_by_age.Size = new System.Drawing.Size(170, 23);
+            this.btn_clients_by_age.TabIndex = 18;
+            this.btn_clients_by_age.Text = "Клиенты по возрасту";
+            this.btn_clients_by_age.UseVisualStyleBackColor = true;
+            this.btn_clients_by_age.Click += new System.EventHandler(this.btn_clients_by_age_Click);
+            // 
+            // btn_employer_info
+            // 
+            this.btn_employer_info.Location = new System.Drawing.Point(15, 330);
+            this.btn_employer_info.Name = "btn_employer_info";
+            this.btn_employer_info.Size = new System.Drawing.Size(170, 23);
+            this.btn_employer_info.TabIndex = 17;
+            this.btn_employer_info.Text = "Информация о Сотруднике";
+            this.btn_employer_info.UseVisualStyleBackColor = true;
+            this.btn_employer_info.Click += new System.EventHandler(this.btn_employer_info_Click);
+            // 
+            // btn_money_per_this_year
+            // 
+            this.btn_money_per_this_year.Location = new System.Drawing.Point(15, 417);
+            this.btn_money_per_this_year.Name = "btn_money_per_this_year";
+            this.btn_money_per_this_year.Size = new System.Drawing.Size(170, 23);
+            this.btn_money_per_this_year.TabIndex = 15;
+            this.btn_money_per_this_year.Text = "Продажи за текущий год";
+            this.btn_money_per_this_year.UseVisualStyleBackColor = true;
+            // 
+            // btn_credit_part
+            // 
+            this.btn_credit_part.Location = new System.Drawing.Point(15, 268);
+            this.btn_credit_part.Name = "btn_credit_part";
+            this.btn_credit_part.Size = new System.Drawing.Size(170, 23);
+            this.btn_credit_part.TabIndex = 16;
+            this.btn_credit_part.Text = "Доля покупок в кредит";
+            this.btn_credit_part.UseVisualStyleBackColor = true;
+            this.btn_credit_part.Click += new System.EventHandler(this.btn_credit_part_Click);
+            // 
+            // btn_client_info
+            // 
+            this.btn_client_info.Location = new System.Drawing.Point(15, 301);
+            this.btn_client_info.Name = "btn_client_info";
+            this.btn_client_info.Size = new System.Drawing.Size(170, 23);
+            this.btn_client_info.TabIndex = 14;
+            this.btn_client_info.Text = "Информация о Клиенте";
+            this.btn_client_info.UseVisualStyleBackColor = true;
+            this.btn_client_info.Click += new System.EventHandler(this.btn_client_info_Click);
+            // 
+            // btn_max_price_category
+            // 
+            this.btn_max_price_category.Location = new System.Drawing.Point(15, 214);
+            this.btn_max_price_category.Name = "btn_max_price_category";
+            this.btn_max_price_category.Size = new System.Drawing.Size(170, 23);
+            this.btn_max_price_category.TabIndex = 12;
+            this.btn_max_price_category.Text = "Max Цены по категориям";
+            this.btn_max_price_category.UseVisualStyleBackColor = true;
+            this.btn_max_price_category.Click += new System.EventHandler(this.btn_max_price_category_Click);
             // 
             // btn_sells_for_Month_year
             // 
@@ -401,6 +560,26 @@
             this.btn_sells_for_year.Text = "Продажи за Год";
             this.btn_sells_for_year.UseVisualStyleBackColor = true;
             this.btn_sells_for_year.Click += new System.EventHandler(this.btn_sells_for_year_Click);
+            // 
+            // btn_absent_goods
+            // 
+            this.btn_absent_goods.Location = new System.Drawing.Point(7, 281);
+            this.btn_absent_goods.Name = "btn_absent_goods";
+            this.btn_absent_goods.Size = new System.Drawing.Size(205, 36);
+            this.btn_absent_goods.TabIndex = 19;
+            this.btn_absent_goods.Text = "Количество видов отсутствующих на складе товаров";
+            this.btn_absent_goods.UseVisualStyleBackColor = true;
+            this.btn_absent_goods.Click += new System.EventHandler(this.btn_absent_goods_Click);
+            // 
+            // btn_least_count
+            // 
+            this.btn_least_count.Location = new System.Drawing.Point(7, 323);
+            this.btn_least_count.Name = "btn_least_count";
+            this.btn_least_count.Size = new System.Drawing.Size(205, 23);
+            this.btn_least_count.TabIndex = 13;
+            this.btn_least_count.Text = "Детали наименьшего количества";
+            this.btn_least_count.UseVisualStyleBackColor = true;
+            this.btn_least_count.Click += new System.EventHandler(this.btn_least_count_Click);
             // 
             // menuStrip
             // 
@@ -540,6 +719,21 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btn_balance_price;
+        private System.Windows.Forms.Button btn_50_nearest_orders;
+        private System.Windows.Forms.Button btn_absent_goods;
+        private System.Windows.Forms.Button btn_clients_by_age;
+        private System.Windows.Forms.Button btn_employer_info;
+        private System.Windows.Forms.Button btn_credit_part;
+        private System.Windows.Forms.Button btn_money_per_this_year;
+        private System.Windows.Forms.Button btn_client_info;
+        private System.Windows.Forms.Button btn_least_count;
+        private System.Windows.Forms.Button btn_max_price_category;
+        private System.Windows.Forms.Button btn_often_repairs_list;
+        private System.Windows.Forms.Button btn_AVG_prices_category;
+        private System.Windows.Forms.Button btn_list_garancy_safe;
+        private System.Windows.Forms.Button btn_money_of_employer;
+        private System.Windows.Forms.Button btn_money_per_this_month;
     }
 }
 
