@@ -24,7 +24,7 @@ namespace УПСиОП
             InitializeComponent();
             _forediting=false;
             this._tablename=_cur_table_name;
-            dataGridView_editing.DataSource=Program._DB.GetTableScheme(_cur_table_name);
+            dataGridView_editing.DataSource=Program.DB.GetTableScheme(_cur_table_name);
 
         }
         private void btn_save_Click(object sender, System.EventArgs e)
@@ -33,7 +33,7 @@ namespace УПСиОП
             if (_forediting)
                 try 
             	{
-                    Program._DB.UpdateRow(_tablename, _table);
+                    Program.DB.UpdateRow(_tablename, _table);
 	            }
 	            catch (System.Exception exc)
 	            {
@@ -42,7 +42,7 @@ namespace УПСиОП
             else
                 try
                 {
-                Program._DB.InsertRow(_tablename, _table);
+                Program.DB.InsertRow(_tablename, _table);
                 }
 	            catch (System.Exception exc)
 	            {

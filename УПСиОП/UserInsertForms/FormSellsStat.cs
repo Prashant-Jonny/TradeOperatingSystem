@@ -9,11 +9,12 @@ namespace УПСиОП.UserInsertForms
         public FormSellsStat()
         {
             InitializeComponent();
-            this.Name="Продажи";
         }
 
         public FormSellsStat(int mode)
         {
+            InitializeComponent();
+            this.Name="Продажи";
             _mode=mode;
            if (_mode==1)
                numericUpDown_month.Visible=false;      
@@ -28,14 +29,14 @@ namespace УПСиОП.UserInsertForms
                 case 1:
                 {
                     int НомерГода=(int)numericUpDown_year.Value;
-                   sum= Program._DB.Показать_продажи_за_год(НомерГода);
+                   sum= Program.DB.Показать_продажи_за_год(НомерГода);
                 }
                 break;
                 case 2:
                 {
                     int НомерГода=(int)numericUpDown_year.Value,
                         НомерМесяца=(int)numericUpDown_month.Value;
-                   sum= Program._DB.Показать_продажи_за_месяц_года(НомерМесяца, НомерГода);
+                   sum= Program.DB.Показать_продажи_за_месяц_года(НомерМесяца, НомерГода);
                 }
                 break;
             }

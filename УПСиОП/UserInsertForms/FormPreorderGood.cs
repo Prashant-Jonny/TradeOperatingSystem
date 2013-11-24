@@ -9,8 +9,8 @@ namespace УПСиОП.UserInsertForms
         {
             InitializeComponent();
             this.Name="Заказ товаров";
-            comboBox_goodName.Items.AddRange(Program._DB.GetGoodNames());
-            comboBox_FIO.Items.AddRange(Program._DB.GetAllClients());
+            comboBox_goodName.Items.AddRange(Program.DB.GetGoodNames());
+            comboBox_FIO.Items.AddRange(Program.DB.GetAllClients());
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -20,7 +20,7 @@ namespace УПСиОП.UserInsertForms
                      /*, Поставщик=string.Empty*/  ;
             int Количество=(int)numericUpDown_count.Value;
 
-            Program._DB.Вставить_заказ(Название_товара, ФИО_клиента,
+            Program.DB.Вставить_заказ(Название_товара, ФИО_клиента,
                // Поставщик,
                  Количество);
                  /* @ФИО_клиента nvarchar(20),

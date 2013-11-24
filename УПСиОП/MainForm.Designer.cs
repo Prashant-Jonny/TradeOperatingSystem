@@ -199,7 +199,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(777, 491);
+            this.panel1.Size = new System.Drawing.Size(777, 440);
             this.panel1.TabIndex = 0;
             // 
             // groupBox3
@@ -212,7 +212,7 @@
             this.groupBox3.Controls.Add(this.btn_num_for_repair);
             this.groupBox3.Location = new System.Drawing.Point(444, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(248, 382);
+            this.groupBox3.Size = new System.Drawing.Size(248, 299);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Гарантия";
@@ -424,14 +424,14 @@
             this.groupBox1.Controls.Add(this.btn_sells_for_year);
             this.groupBox1.Location = new System.Drawing.Point(238, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 485);
+            this.groupBox1.Size = new System.Drawing.Size(200, 434);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика";
             // 
             // btn_AVG_prices_category
             // 
-            this.btn_AVG_prices_category.Location = new System.Drawing.Point(15, 239);
+            this.btn_AVG_prices_category.Location = new System.Drawing.Point(15, 196);
             this.btn_AVG_prices_category.Name = "btn_AVG_prices_category";
             this.btn_AVG_prices_category.Size = new System.Drawing.Size(170, 23);
             this.btn_AVG_prices_category.TabIndex = 22;
@@ -441,16 +441,17 @@
             // 
             // btn_money_of_employer
             // 
-            this.btn_money_of_employer.Location = new System.Drawing.Point(15, 446);
+            this.btn_money_of_employer.Location = new System.Drawing.Point(15, 403);
             this.btn_money_of_employer.Name = "btn_money_of_employer";
             this.btn_money_of_employer.Size = new System.Drawing.Size(170, 23);
             this.btn_money_of_employer.TabIndex = 20;
             this.btn_money_of_employer.Text = "Прибыль по сотрудникам";
             this.btn_money_of_employer.UseVisualStyleBackColor = true;
+            this.btn_money_of_employer.Click += new System.EventHandler(this.btn_money_of_employer_Click);
             // 
             // btn_money_per_this_month
             // 
-            this.btn_money_per_this_month.Location = new System.Drawing.Point(15, 388);
+            this.btn_money_per_this_month.Location = new System.Drawing.Point(15, 345);
             this.btn_money_per_this_month.Name = "btn_money_per_this_month";
             this.btn_money_per_this_month.Size = new System.Drawing.Size(170, 23);
             this.btn_money_per_this_month.TabIndex = 19;
@@ -460,7 +461,7 @@
             // 
             // btn_clients_by_age
             // 
-            this.btn_clients_by_age.Location = new System.Drawing.Point(15, 359);
+            this.btn_clients_by_age.Location = new System.Drawing.Point(15, 316);
             this.btn_clients_by_age.Name = "btn_clients_by_age";
             this.btn_clients_by_age.Size = new System.Drawing.Size(170, 23);
             this.btn_clients_by_age.TabIndex = 18;
@@ -470,7 +471,7 @@
             // 
             // btn_employer_info
             // 
-            this.btn_employer_info.Location = new System.Drawing.Point(15, 330);
+            this.btn_employer_info.Location = new System.Drawing.Point(15, 287);
             this.btn_employer_info.Name = "btn_employer_info";
             this.btn_employer_info.Size = new System.Drawing.Size(170, 23);
             this.btn_employer_info.TabIndex = 17;
@@ -480,16 +481,17 @@
             // 
             // btn_money_per_this_year
             // 
-            this.btn_money_per_this_year.Location = new System.Drawing.Point(15, 417);
+            this.btn_money_per_this_year.Location = new System.Drawing.Point(15, 374);
             this.btn_money_per_this_year.Name = "btn_money_per_this_year";
             this.btn_money_per_this_year.Size = new System.Drawing.Size(170, 23);
             this.btn_money_per_this_year.TabIndex = 15;
             this.btn_money_per_this_year.Text = "Продажи за текущий год";
             this.btn_money_per_this_year.UseVisualStyleBackColor = true;
+            this.btn_money_per_this_year.Click += new System.EventHandler(this.btn_money_per_this_year_Click);
             // 
             // btn_credit_part
             // 
-            this.btn_credit_part.Location = new System.Drawing.Point(15, 268);
+            this.btn_credit_part.Location = new System.Drawing.Point(15, 225);
             this.btn_credit_part.Name = "btn_credit_part";
             this.btn_credit_part.Size = new System.Drawing.Size(170, 23);
             this.btn_credit_part.TabIndex = 16;
@@ -499,7 +501,7 @@
             // 
             // btn_client_info
             // 
-            this.btn_client_info.Location = new System.Drawing.Point(15, 301);
+            this.btn_client_info.Location = new System.Drawing.Point(15, 258);
             this.btn_client_info.Name = "btn_client_info";
             this.btn_client_info.Size = new System.Drawing.Size(170, 23);
             this.btn_client_info.TabIndex = 14;
@@ -509,7 +511,7 @@
             // 
             // btn_max_price_category
             // 
-            this.btn_max_price_category.Location = new System.Drawing.Point(15, 214);
+            this.btn_max_price_category.Location = new System.Drawing.Point(15, 171);
             this.btn_max_price_category.Name = "btn_max_price_category";
             this.btn_max_price_category.Size = new System.Drawing.Size(170, 23);
             this.btn_max_price_category.TabIndex = 12;
@@ -658,7 +660,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 540);
+            this.ClientSize = new System.Drawing.Size(782, 490);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.Form_tabControl);
             this.Name = "MainForm";

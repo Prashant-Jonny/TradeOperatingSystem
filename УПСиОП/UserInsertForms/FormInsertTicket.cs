@@ -9,7 +9,7 @@ namespace УПСиОП.UserInsertForms
         {
             InitializeComponent();
             this.Name="Выписать гарантийный талон";
-            comboBox_Names.Items.AddRange(Program._DB.GetAllEmployers());
+            comboBox_Names.Items.AddRange(Program.DB.GetAllEmployers());
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -17,7 +17,7 @@ namespace УПСиОП.UserInsertForms
             string Серийный_номер_экземпляра=textBox_serialNum.Text,
                 ФИО_сотрудника=comboBox_Names.SelectedValue.ToString();
 
-            Program._DB.Вставить_Талон(Серийный_номер_экземпляра, ФИО_сотрудника);
+            Program.DB.Вставить_Талон(Серийный_номер_экземпляра, ФИО_сотрудника);
         }
 
         //Серийный_номер_экземпляра, ФИО_сотрудника

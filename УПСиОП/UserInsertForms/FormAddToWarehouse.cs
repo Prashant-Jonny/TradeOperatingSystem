@@ -15,9 +15,9 @@ namespace УПСиОП.UserInsertForms
         {
             InitializeComponent();
             this.Name="Приёмка Товара";
-            comboBox_goodName.Items.AddRange(Program._DB.GetGoodNames());
-            comboBox_category.Items.AddRange(Program._DB.GetCategories());
-            comboBox_service_center.Items.AddRange(Program._DB.GetServiceCenterNames());
+            comboBox_goodName.Items.AddRange(Program.DB.GetGoodNames());
+            comboBox_category.Items.AddRange(Program.DB.GetCategories());
+            comboBox_service_center.Items.AddRange(Program.DB.GetServiceCenterNames());
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace УПСиОП.UserInsertForms
             int Количество_Прибывшего_склад=(int)(numericUpDown_num_to_warehouse.Value),
                 Срок_гарантии=(int)(numericUpDown_garancy.Value);
             double Цена=double.Parse(textBox_price.Text);
-            Program._DB.Вставить_Товар(Название_товара,
+            Program.DB.Вставить_Товар(Название_товара,
               Категория, Количество_Прибывшего_склад,
               Цена, Срок_гарантии, Название_сервисного_центра);
         }

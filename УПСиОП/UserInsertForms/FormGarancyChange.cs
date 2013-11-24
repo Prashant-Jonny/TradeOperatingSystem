@@ -9,7 +9,7 @@ namespace УПСиОП.UserInsertForms
         {
             InitializeComponent();
             this.Name="Зафиксировать замену по гарантии";
-            comboBox_goodName.Items.AddRange(Program._DB.GetGoodNames());
+            comboBox_goodName.Items.AddRange(Program.DB.GetGoodNames());
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -17,7 +17,7 @@ namespace УПСиОП.UserInsertForms
             string Название_товара=comboBox_goodName.SelectedItem.ToString().Split(' ')[0];
             int Код_гарантийного_талона=int.Parse(textBox_garancy_code.Text);
 
-            Program._DB.Обновить_на_гарантийную_замену(Название_товара, Код_гарантийного_талона);
+            Program.DB.Обновить_на_гарантийную_замену(Название_товара, Код_гарантийного_талона);
         }
     }
 }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-
-
 namespace Core
 {
     public class DBFacade
@@ -17,6 +15,7 @@ namespace Core
         public DataTable GetData_table(string tablename)             //used in views and tables
         {
             System.Data.DataTable dt=new System.Data.DataTable();
+            dt.TableName=tablename;
             string queryString="SELECT * FROM dbo."+tablename;
             using (SqlConnection conn=new SqlConnection(_connstr))
             {
@@ -44,7 +43,7 @@ namespace Core
                 return dt;
             }
         }
-        public DataTable GetData_select_storedProcedure(string procedurename,SqlParameter[] parameters)
+        public DataTable GetData_select_storedProcedure(string procedurename, SqlParameter[] parameters)
         {
             System.Data.DataTable dt=new System.Data.DataTable();
             using (SqlConnection conn=new SqlConnection(_connstr))
@@ -541,7 +540,6 @@ namespace Core
                 }
             }
         }
-
         public object[] GetCategories()
         {
             List<object> list=new List<object>();
@@ -561,7 +559,6 @@ namespace Core
                 }
             }
         }
-
         public object[] GetServiceCenterNames()
         {
             List<object> list=new List<object>();
@@ -581,6 +578,31 @@ namespace Core
                 }
             }
         }
+
+        public string AuthorizeClient(string UserName, string Password)
+        {
+            string usergroup=null;
+            string queryString="GetUserGROUP";
+            using (SqlCommand cmd=new SqlCommand(queryString, new SqlConnection(_connstr)))
+                {
+                    cmd.Parameters.AddRange(new SqlParameter[]
+                          {
+                            new SqlParameter("@Username",UserName),
+                            new SqlParameter("@Password",Password)
+                          });
+
+                    cmd.CommandType=CommandType.StoredProcedure;
+                    cmd.Connection.Open();
+                    SqlDataReader reader=cmd.ExecuteReader();
+                    if (reader.HasRows)
+                        while (reader.Read())
+                        {
+                            usergroup=reader.GetString(0);                            
+                        }
+                    return usergroup;
+                }
+        }
+
     }
 }
 

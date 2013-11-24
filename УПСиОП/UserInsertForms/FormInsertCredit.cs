@@ -11,7 +11,7 @@ namespace УПСиОП.UserInsertForms
             InitializeComponent();
 
             this.Name="Заключить кредитный договор";
-           comboBox_Names.Items.AddRange(Program._DB.GetAllClients());
+           comboBox_Names.Items.AddRange(Program.DB.GetAllClients());
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -21,7 +21,7 @@ namespace УПСиОП.UserInsertForms
             int Срок_оплаты=int.Parse(textBox_period.Text);
             string ФИО_клиента=comboBox_Names.SelectedItem.ToString().Split(' ').FirstOrDefault();           
 
-            Program._DB.Вставить_кредитный_договор(Ежемесячная_выплата, Первоначальный_взнос, Срок_оплаты, ФИО_клиента);
+            Program.DB.Вставить_кредитный_договор(Ежемесячная_выплата, Первоначальный_взнос, Срок_оплаты, ФИО_клиента);
            
             /*
             @Ежемесячная выплата money,

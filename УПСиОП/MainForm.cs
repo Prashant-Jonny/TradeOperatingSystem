@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Core;
 using System.Data;
-
 namespace УПСиОП
 {
     public partial class MainForm : Form
@@ -10,7 +8,6 @@ namespace УПСиОП
         Form_view_table _form;
         private void Form_tabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-
             if (Form_tabControl.SelectedTab.Name=="tabPage_data")
                 данныеToolStripMenuItem.Visible=true;
             else
@@ -19,35 +16,39 @@ namespace УПСиОП
 
         #region tabpage_data
         private string _cur_table_name;
-        public MainForm()
+        public MainForm(string usergroup)
         {
             InitializeComponent();
-            отключитьсяОтБазыToolStripMenuItem.Enabled=false;
+            if (usergroup!="admin")
+                this.Form_tabControl.TabPages.RemoveAt(0);
+            подключитьсяКБазеToolStripMenuItem.Enabled=false;
+            отключитьсяОтБазыToolStripMenuItem.Enabled=true;
         }
         private void подключитьсяКБазеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program._DB=new DBFacade();
+            Program.ConnectToBase();
             подключитьсяКБазеToolStripMenuItem.Enabled=false;
             отключитьсяОтБазыToolStripMenuItem.Enabled=true;
         }
         private void отключитьсяОтБазыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program._DB=null;
+            Program.DisconnectBase();
             отключитьсяОтБазыToolStripMenuItem.Enabled=false;
             подключитьсяКБазеToolStripMenuItem.Enabled=true;
 
         }
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Program.DisconnectBase();
             this.Close();
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string[] keyFieldNames=Program._DB.GetKeyFields(_cur_table_name);
+            string[] keyFieldNames=Program.DB.GetKeyFields(_cur_table_name);
             object[] keyFieldValues=new object[keyFieldNames.Length];
 
-            DataTable table=Program._DB.GetRow(keyFieldNames, keyFieldValues, _cur_table_name);
+            DataTable table=Program.DB.GetRow(keyFieldNames, keyFieldValues, _cur_table_name);
             FormEdit frm=(new FormEdit(_cur_table_name));
             frm.Show();
         }
@@ -55,13 +56,13 @@ namespace УПСиОП
         {
             if (dataGridView1.SelectedRows.Count==1)
             {
-                string[] keyFieldNames=Program._DB.GetKeyFields(_cur_table_name);
+                string[] keyFieldNames=Program.DB.GetKeyFields(_cur_table_name);
                 object[] keyFieldValues=new object[keyFieldNames.Length];
                 for (int i=0; i<keyFieldNames.Length; i++)
                 {
                     keyFieldValues[i]=dataGridView1.SelectedRows[0].Cells[keyFieldNames[i]].Value;
                 }
-                DataTable table=Program._DB.GetRow(keyFieldNames, keyFieldValues, _cur_table_name);
+                DataTable table=Program.DB.GetRow(keyFieldNames, keyFieldValues, _cur_table_name);
                 FormEdit frm=(new FormEdit(ref table, keyFieldNames, _cur_table_name));
                 frm.Show();
 
@@ -69,7 +70,7 @@ namespace УПСиОП
         }
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string[] keyFieldNames=Program._DB.GetKeyFields(_cur_table_name);
+            string[] keyFieldNames=Program.DB.GetKeyFields(_cur_table_name);
             object[] keyFieldValues=new object[keyFieldNames.Length];
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -77,12 +78,12 @@ namespace УПСиОП
                 {
                     keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
                 }
-                Program._DB.DeleteRow(keyFieldNames, keyFieldValues, _cur_table_name);
+                Program.DB.DeleteRow(keyFieldNames, keyFieldValues, _cur_table_name);
             }
         }
         private void btn_show_Click(object sender, EventArgs e)
         {
-            if (Program._DB==null)
+            if (Program.DB==null)
             {
                 MessageBox.Show("Сначала нужно подключиться к базе");
                 return;
@@ -150,7 +151,7 @@ namespace УПСиОП
                 #endregion
             }
             _cur_table_name=tablename;
-            System.Data.DataTable ds=Program._DB.GetData_table(tablename);
+            System.Data.DataTable ds=Program.DB.GetData_table(tablename);
             dataGridView1.DataSource=ds;
         }
         #endregion
@@ -243,13 +244,13 @@ namespace УПСиОП
         #region panel_stat
         private void btn_show_nearest_preorders_Click(object sender, EventArgs e)
         {
-            _form=new Form_view_table(Program._DB.GetData_select_storedProcedure("Показать_Ближайшие_Заказы"));
+            _form=new Form_view_table(Program.DB.GetData_select_storedProcedure("Показать_Ближайшие_Заказы"));
             _form.Show();
             _form=null;
         }
         private void btn_GetPriceList_Click(object sender, EventArgs e)
         {
-            _form=new Form_view_table(Program._DB.GetData_select_storedProcedure("Сформировать_прайс"));
+            _form=new Form_view_table(Program.DB.GetData_select_storedProcedure("Сформировать_прайс"));
             _form.Show();
             _form=null;
         }
@@ -291,9 +292,12 @@ namespace УПСиОП
             //@Код_гарантийного_талона int,
             //@Статус_обслуживания nvarchar(20)
         }
-        private void btn_num_for_repair_Click(object sender, EventArgs e)
+        private void btn_num_for_repair_Click(object sender, EventArgs e)// add params
         {
-            _form=new Form_view_table(Program._DB.GetData_select_storedProcedure("Количество_гарантийного_ремонта_по_категории"));
+            _form=new Form_view_table(
+                Program.DB.GetData_select_storedProcedure
+                ("Количество_гарантийного_ремонта_по_категории")
+                );
             _form.Show();
             _form=null;
         }
@@ -306,81 +310,96 @@ namespace УПСиОП
         private void btn_absent_goods_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров")
+                Program.DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров")
                 ).Show();
         }
         private void btn_least_count_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Детали_наименьшего_количества")
+                Program.DB.GetData_table("Детали_наименьшего_количества")
                 ).Show();
         }
         private void btn_balance_price_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Прайс")
+                Program.DB.GetData_table("Прайс")
                 ).Show();
         }
         private void btn_50_nearest_orders_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Показать_50_Ближайших_Заказов")
+                Program.DB.GetData_table("Показать_50_Ближайших_Заказов")
                 ).Show();
         }
         private void btn_max_price_category_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Max_Цены_по_категориям")
+                Program.DB.GetData_table("Max_Цены_по_категориям")
                 ).Show();
         }
         private void btn_AVG_prices_category_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Средняя_Цена_по_категории")
+                Program.DB.GetData_table("Средняя_Цена_по_категории")
                 ).Show();
         }
         private void btn_credit_part_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Доля_покупок_по_кредитному_договору")
+                Program.DB.GetData_table("Доля_покупок_по_кредитному_договору")
                 ).Show();
         }
         private void btn_client_info_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Информация_о_Клиенте")
+                Program.DB.GetData_table("Информация_о_Клиенте")
                 ).Show();
         }
         private void btn_employer_info_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Информация_о_Сотруднике")
+                Program.DB.GetData_table("Информация_о_Сотруднике")
                 ).Show();
         }
         private void btn_clients_by_age_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Клиенты_по_возрасту")
+                Program.DB.GetData_table("Клиенты_по_возрасту")
                 ).Show();
         }
         private void btn_money_per_this_month_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Продажи_за_текущий_месяц")
+                Program.DB.GetData_table("Продажи_за_текущий_месяц")
                 ).Show();
         }
         private void btn_often_repairs_list_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Товары_с_частой_поломкой")
+                Program.DB.GetData_table("Товары_с_частой_поломкой")
                 ).Show();
         }
         private void btn_list_garancy_safe_Click(object sender, EventArgs e)
         {
             new Form_view_table(
-                Program._DB.GetData_table("Список_вещей_на_гарантийной_замене")
+                Program.DB.GetData_table("Список_вещей_на_гарантийной_замене")
+                ).Show();
+        }
+        private void btn_money_per_this_year_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program.DB.GetData_table("Продажи_за_текущий_год")
+                ).Show();
+        }
+        private void btn_money_of_employer_Click(object sender, EventArgs e)
+        {
+            new Form_view_table(
+                Program.DB.GetData_table("Сотрудник_Прибыль")
                 ).Show();
         }
         #endregion
+
+
+
     }
 }

@@ -14,7 +14,7 @@ namespace УПСиОП.UserInsertForms
         private void btn_search_Click(object sender, EventArgs e)
         {
             String Часть_Названия=textBox_name.Text;
-            dataGridView1.DataSource=(Program._DB.Товар_существует(Часть_Названия));
+            dataGridView1.DataSource=(Program.DB.Товар_существует(Часть_Названия));
         }
     }
 }
