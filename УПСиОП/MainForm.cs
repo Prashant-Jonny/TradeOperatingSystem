@@ -75,10 +75,17 @@ namespace УПСиОП
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 for (int i=0; i<keyFieldNames.Length; i++)
+                   keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
+                
+                try
                 {
-                    keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
-                }
                 Program.DB.DeleteRow(keyFieldNames, keyFieldValues, _cur_table_name);
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                    return;
+                }
             }
         }
         private void btn_show_Click(object sender, EventArgs e)
@@ -268,7 +275,6 @@ namespace УПСиОП
             //Продажи_за_Месяц_Года
         }
         #endregion
-
         #region panel_garancy
         private void btn_insert_in_Garancy_list_Click(object sender, EventArgs e)
         {

@@ -20,9 +20,16 @@ namespace УПСиОП.UserInsertForms
                Адрес_клиента=textBox_adress.Text,
                Телефон_домашний=textBox_homephone.Text,
                Телефон_мобильный=textBox_mobPhone.Text;
-
-            Program.DB.Вставить_клиента(Номер_паспорта_клиента, ФИО_клиента,
-              Дата_рождения, Адрес_клиента, Телефон_домашний, Телефон_мобильный);
+            try
+            {
+                Program.DB.Вставить_клиента(Номер_паспорта_клиента, ФИО_клиента,
+                  Дата_рождения, Адрес_клиента, Телефон_домашний, Телефон_мобильный);
+            }
+            catch (Exception exc)
+            {
+               MessageBox.Show(exc.Message);
+               return;
+            }
         }
     }
 }

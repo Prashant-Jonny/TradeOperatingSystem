@@ -49,8 +49,12 @@
             // 
             this.txtbox_pass.Location = new System.Drawing.Point(26, 86);
             this.txtbox_pass.Name = "txtbox_pass";
+            this.txtbox_pass.PasswordChar = '*';
             this.txtbox_pass.Size = new System.Drawing.Size(100, 20);
             this.txtbox_pass.TabIndex = 1;
+            this.txtbox_pass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtbox_pass.UseSystemPasswordChar = true;
+            this.txtbox_pass.WordWrap = false;
             // 
             // txtbox_login
             // 
