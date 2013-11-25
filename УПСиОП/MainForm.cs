@@ -75,11 +75,11 @@ namespace УПСиОП
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 for (int i=0; i<keyFieldNames.Length; i++)
-                   keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
-                
+                    keyFieldValues[i]=row.Cells[keyFieldNames[i]].Value;
+
                 try
                 {
-                Program.DB.DeleteRow(keyFieldNames, keyFieldValues, _cur_table_name);
+                    Program.DB.DeleteRow(keyFieldNames, keyFieldValues, _cur_table_name);
                 }
                 catch (Exception exc)
                 {
@@ -175,12 +175,12 @@ namespace УПСиОП
         private void btn_insert_credit_Click(object sender, EventArgs e)
         {
             (new UserInsertForms.FormInsertCredit()).Show();
-           /*
-             @Ежемесячная_выплата money,
-            @Первоначальный_взнос money,
-            @Срок_оплаты int,
-            @ФИО_клиента nvarchar(50)	
-             */
+            /*
+              @Ежемесячная_выплата money,
+             @Первоначальный_взнос money,
+             @Срок_оплаты int,
+             @ФИО_клиента nvarchar(50)	
+              */
         }
         private void btn_insert_client_Click(object sender, EventArgs e)
         {
@@ -196,7 +196,7 @@ namespace УПСиОП
         }
         private void btn_order_buing_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormOrder_buying()).Show(); 
+            (new UserInsertForms.FormOrder_buying()).Show();
             /*
                 @Название_товара as nvarchar(50),
                 @Количество as int,
@@ -229,21 +229,21 @@ namespace УПСиОП
         }
         private void btn_Insert_goods_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormAddToWarehouse()).Show(); 
+            (new UserInsertForms.FormAddToWarehouse()).Show();
             /*
-	            @Название_товара [nvarchar](150),
-	            @Категория [nvarchar](75),
-	            @Количество_Прибывшего_склад int,
-	            @Цена money,
-	            @Срок_гарантии int,
-	            @Название_сервисного_центра [nvarchar](50)
+                @Название_товара [nvarchar](150),
+                @Категория [nvarchar](75),
+                @Количество_Прибывшего_склад int,
+                @Цена money,
+                @Срок_гарантии int,
+                @Название_сервисного_центра [nvarchar](50)
              
                  Приёмка_Товара
              */
         }
         private void btn_good_exists_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormGoodExists()).Show(); 
+            (new UserInsertForms.FormGoodExists()).Show();
             //  @Часть_Названия nvarchar(50)   Есть_ли_товар
         }
         #endregion
@@ -265,7 +265,7 @@ namespace УПСиОП
         {
             (new UserInsertForms.FormSellsStat(1)).Show();
             //        @НомерГода int    Продажи_за_Год
-            
+
         }
         private void btn_sells_for_Month_year_Click(object sender, EventArgs e)
         {
@@ -278,7 +278,7 @@ namespace УПСиОП
         #region panel_garancy
         private void btn_insert_in_Garancy_list_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormEnterGarancyList()).Show(); 
+            (new UserInsertForms.FormEnterGarancyList()).Show();
             //[Занести_запись_в_гарантийный_журнал]
             //@Код_гарантийного_талона nvarchar(10),
             //@Статус_обслуживания nvarchar(20),
@@ -312,100 +312,216 @@ namespace УПСиОП
         #endregion
 
         #region views
-        
+
         private void btn_absent_goods_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров")
-                ).Show();
+            try
+            {
+                new Form_view_table(Program.DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров"))
+                    .Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
         }
         private void btn_least_count_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
+            try
+            {
+                new Form_view_table(
                 Program.DB.GetData_table("Детали_наименьшего_количества")
                 ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
         }
         private void btn_balance_price_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Прайс")
+            try
+            {
+                new Form_view_table(
+                Program.DB.GetData_select_storedProcedure("CURSOR_Сформировать_прайс")
                 ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
         }
         private void btn_50_nearest_orders_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Показать_50_Ближайших_Заказов")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("CURSOR_Показать_Ближайшие_Заказы")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_max_price_category_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Max_Цены_по_категориям")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("CURSOR_Максимальная_цена_категории")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_AVG_prices_category_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Средняя_Цена_по_категории")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Средняя_Цена_по_категории")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_credit_part_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Доля_покупок_по_кредитному_договору")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Доля_покупок_по_кредитному_договору")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_client_info_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Информация_о_Клиенте")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Информация_о_Клиенте")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_employer_info_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Информация_о_Сотруднике")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Информация_о_Сотруднике")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_clients_by_age_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Клиенты_по_возрасту")
-                ).Show();
+            try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_table("Клиенты_по_возрасту")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_money_per_this_month_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Продажи_за_текущий_месяц")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Продажи_за_текущий_месяц")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_often_repairs_list_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Товары_с_частой_поломкой")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("CURSOR_Товары_с_частой_поломкой")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_list_garancy_safe_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Список_вещей_на_гарантийной_замене")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Список_вещей_на_гарантийной_замене")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_money_per_this_year_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Продажи_за_текущий_год")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("CURSOR_Продажи_за_Год")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void btn_money_of_employer_Click(object sender, EventArgs e)
         {
-            new Form_view_table(
-                Program.DB.GetData_table("Сотрудник_Прибыль")
-                ).Show();
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Сотрудник_Прибыль")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         #endregion
-
-
 
     }
 }
