@@ -612,7 +612,7 @@ namespace Core
                 new SqlParameter ("ФИО_сотрудника",ФИО_сотрудника)
             };
             DataTable table= this.GetData_select_storedProcedure("Получить_номер_гарантийного_талона", pars);
-           return table.Rows[0].ToString();
+           return (table.Rows[0].ItemArray[0].ToString() );
         }
     }
 }
