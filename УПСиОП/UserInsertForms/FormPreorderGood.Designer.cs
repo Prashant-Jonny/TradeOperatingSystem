@@ -35,6 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox_FIO = new System.Windows.Forms.ComboBox();
             this.numericUpDown_count = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_releasers = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_count)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 122);
+            this.label4.Location = new System.Drawing.Point(13, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 5;
@@ -93,16 +95,35 @@
             // 
             // numericUpDown_count
             // 
-            this.numericUpDown_count.Location = new System.Drawing.Point(12, 139);
+            this.numericUpDown_count.Location = new System.Drawing.Point(12, 174);
             this.numericUpDown_count.Name = "numericUpDown_count";
             this.numericUpDown_count.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown_count.TabIndex = 7;
+            // 
+            // comboBox_releasers
+            // 
+            this.comboBox_releasers.FormattingEnabled = true;
+            this.comboBox_releasers.Location = new System.Drawing.Point(11, 133);
+            this.comboBox_releasers.Name = "comboBox_releasers";
+            this.comboBox_releasers.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_releasers.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Поставщик";
             // 
             // FormPreorderGood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(263, 219);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBox_releasers);
             this.Controls.Add(this.numericUpDown_count);
             this.Controls.Add(this.comboBox_FIO);
             this.Controls.Add(this.label4);
@@ -127,5 +148,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox_FIO;
         private System.Windows.Forms.NumericUpDown numericUpDown_count;
+        private System.Windows.Forms.ComboBox comboBox_releasers;
+        private System.Windows.Forms.Label label3;
     }
 }

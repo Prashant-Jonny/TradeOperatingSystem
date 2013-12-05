@@ -44,7 +44,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(102, 248);
+            this.btn_save.Location = new System.Drawing.Point(123, 252);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(125, 40);
             this.btn_save.TabIndex = 0;
@@ -91,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 205);
+            this.label5.Location = new System.Drawing.Point(13, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 5;
@@ -124,7 +124,7 @@
             // 
             // numericUpDown_count
             // 
-            this.numericUpDown_count.Location = new System.Drawing.Point(16, 222);
+            this.numericUpDown_count.Location = new System.Drawing.Point(16, 224);
             this.numericUpDown_count.Name = "numericUpDown_count";
             this.numericUpDown_count.Size = new System.Drawing.Size(155, 20);
             this.numericUpDown_count.TabIndex = 9;
@@ -141,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 294);
+            this.ClientSize = new System.Drawing.Size(260, 298);
             this.Controls.Add(this.comboBox_goodName);
             this.Controls.Add(this.numericUpDown_count);
             this.Controls.Add(this.textBox_code);

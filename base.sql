@@ -1,13 +1,10 @@
 USE [master]
 GO
-/****** Object:  Database [ComputerFirm]    Script Date: 12/03/2013 05:52:29 ******/
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'ComputerFirm')
-BEGIN
+/****** Object:  Database [ComputerFirm]    Script Date: 12/05/2013 20:13:02 ******/
 CREATE DATABASE [ComputerFirm] ON  PRIMARY 
-( NAME = N'ComputerFirm', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\ComputerFirm.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'ComputerFirm', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\ComputerFirm.mdf' , SIZE = 2304KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'ComputerFirm_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\ComputerFirm_log.ldf' , SIZE = 4672KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
-END
+( NAME = N'ComputerFirm_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\ComputerFirm_log.LDF' , SIZE = 576KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 ALTER DATABASE [ComputerFirm] SET COMPATIBILITY_LEVEL = 100
 GO
@@ -46,7 +43,7 @@ ALTER DATABASE [ComputerFirm] SET QUOTED_IDENTIFIER OFF
 GO
 ALTER DATABASE [ComputerFirm] SET RECURSIVE_TRIGGERS OFF
 GO
-ALTER DATABASE [ComputerFirm] SET  DISABLE_BROKER
+ALTER DATABASE [ComputerFirm] SET  ENABLE_BROKER
 GO
 ALTER DATABASE [ComputerFirm] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
 GO
@@ -76,271 +73,11 @@ EXEC sys.sp_db_vardecimal_storage_format N'ComputerFirm', N'ON'
 GO
 USE [ComputerFirm]
 GO
-/****** Object:  ForeignKey [Relationship_484]    Script Date: 12/03/2013 05:52:29 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_484]') AND parent_object_id = OBJECT_ID(N'[dbo].[Товар]'))
-ALTER TABLE [dbo].[Товар] DROP CONSTRAINT [Relationship_484]
-GO
-/****** Object:  ForeignKey [заключает]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Кредитный_договор]'))
-ALTER TABLE [dbo].[Кредитный_договор] DROP CONSTRAINT [заключает]
-GO
-/****** Object:  ForeignKey [R_23]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_23]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] DROP CONSTRAINT [R_23]
-GO
-/****** Object:  ForeignKey [R_24]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_24]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] DROP CONSTRAINT [R_24]
-GO
-/****** Object:  ForeignKey [Relationship_456]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_456]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] DROP CONSTRAINT [Relationship_456]
-GO
-/****** Object:  ForeignKey [выдается_при]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
-ALTER TABLE [dbo].[Продажа] DROP CONSTRAINT [выдается_при]
-GO
-/****** Object:  ForeignKey [заключается_при]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
-ALTER TABLE [dbo].[Продажа] DROP CONSTRAINT [заключается_при]
-GO
-/****** Object:  ForeignKey [участвует_в]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[участвует_в]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
-ALTER TABLE [dbo].[Продажа] DROP CONSTRAINT [участвует_в]
-GO
-/****** Object:  ForeignKey [выдает]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_талон]'))
-ALTER TABLE [dbo].[Гарантийный_талон] DROP CONSTRAINT [выдает]
-GO
-/****** Object:  ForeignKey [R_16]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_16]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_журнал]'))
-ALTER TABLE [dbo].[Гарантийный_журнал] DROP CONSTRAINT [R_16]
-GO
-/****** Object:  StoredProcedure [dbo].[GetUserGROUP]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetUserGROUP]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[GetUserGROUP]
-GO
-/****** Object:  Table [dbo].[UserAccess]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserAccess]') AND type in (N'U'))
-DROP TABLE [dbo].[UserAccess]
-GO
-/****** Object:  StoredProcedure [dbo].[Аннулировать_заявку_на_ремонт]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Аннулировать_заявку_на_ремонт]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Аннулировать_заявку_на_ремонт]
-GO
-/****** Object:  StoredProcedure [dbo].[Выписать_гарантийный_талон]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Выписать_гарантийный_талон]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Выписать_гарантийный_талон]
-GO
-/****** Object:  StoredProcedure [dbo].[Зафиксировать_замену_по_гарантии]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зафиксировать_замену_по_гарантии]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Зафиксировать_замену_по_гарантии]
-GO
-/****** Object:  StoredProcedure [dbo].[Занести_запись_в_гарантийный_журнал]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Занести_запись_в_гарантийный_журнал]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Занести_запись_в_гарантийный_журнал]
-GO
-/****** Object:  StoredProcedure [dbo].[Зафиксировать_результаты_ремонта]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зафиксировать_результаты_ремонта]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Зафиксировать_результаты_ремонта]
-GO
-/****** Object:  StoredProcedure [dbo].[Количество_гарантийного_ремонта_по_категории]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Количество_гарантийного_ремонта_по_категории]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Количество_гарантийного_ремонта_по_категории]
-GO
-/****** Object:  View [dbo].[Список_вещей_на_гарантийной_замене]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Список_вещей_на_гарантийной_замене]'))
-DROP VIEW [dbo].[Список_вещей_на_гарантийной_замене]
-GO
-/****** Object:  View [dbo].[Товары_с_частой_поломкой]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Товары_с_частой_поломкой]'))
-DROP VIEW [dbo].[Товары_с_частой_поломкой]
-GO
-/****** Object:  Table [dbo].[Гарантийный_журнал]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_16]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_журнал]'))
-ALTER TABLE [dbo].[Гарантийный_журнал] DROP CONSTRAINT [R_16]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Гарантийный_журнал]') AND type in (N'U'))
-DROP TABLE [dbo].[Гарантийный_журнал]
-GO
-/****** Object:  StoredProcedure [dbo].[Зарегистрировать_покупку]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зарегистрировать_покупку]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Зарегистрировать_покупку]
-GO
-/****** Object:  StoredProcedure [dbo].[Продажи_за_Год]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_Год]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Продажи_за_Год]
-GO
-/****** Object:  StoredProcedure [dbo].[Продажи_за_Месяц_Года]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_Месяц_Года]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Продажи_за_Месяц_Года]
-GO
-/****** Object:  View [dbo].[Продажи_за_текущий_год]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_текущий_год]'))
-DROP VIEW [dbo].[Продажи_за_текущий_год]
-GO
-/****** Object:  View [dbo].[Продажи_за_текущий_месяц]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_текущий_месяц]'))
-DROP VIEW [dbo].[Продажи_за_текущий_месяц]
-GO
-/****** Object:  View [dbo].[Сотрудник_Прибыль]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Сотрудник_Прибыль]'))
-DROP VIEW [dbo].[Сотрудник_Прибыль]
-GO
-/****** Object:  View [dbo].[Детали_наименьшего_количества]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Детали_наименьшего_количества]'))
-DROP VIEW [dbo].[Детали_наименьшего_количества]
-GO
-/****** Object:  View [dbo].[Заемщики]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Заемщики]'))
-DROP VIEW [dbo].[Заемщики]
-GO
-/****** Object:  StoredProcedure [dbo].[CURSOR_Показать_Ближайшие_Заказы]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CURSOR_Показать_Ближайшие_Заказы]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[CURSOR_Показать_Ближайшие_Заказы]
-GO
-/****** Object:  StoredProcedure [dbo].[Оформить_заказ_товара]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Оформить_заказ_товара]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Оформить_заказ_товара]
-GO
-/****** Object:  Table [dbo].[Поставщик]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Поставщик]') AND type in (N'U'))
-DROP TABLE [dbo].[Поставщик]
-GO
-/****** Object:  StoredProcedure [dbo].[Заключить_кредитный_договор]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Заключить_кредитный_договор]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Заключить_кредитный_договор]
-GO
-/****** Object:  StoredProcedure [dbo].[Зарегистрировать_Клиента]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зарегистрировать_Клиента]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Зарегистрировать_Клиента]
-GO
-/****** Object:  View [dbo].[Информация_о_Клиенте]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Информация_о_Клиенте]'))
-DROP VIEW [dbo].[Информация_о_Клиенте]
-GO
-/****** Object:  View [dbo].[Информация_о_Сотруднике]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Информация_о_Сотруднике]'))
-DROP VIEW [dbo].[Информация_о_Сотруднике]
-GO
-/****** Object:  View [dbo].[Клиенты_по_возрасту]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Клиенты_по_возрасту]'))
-DROP VIEW [dbo].[Клиенты_по_возрасту]
-GO
-/****** Object:  View [dbo].[Количество_видов_отсутствующих_на_складе_товаров]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Количество_видов_отсутствующих_на_складе_товаров]'))
-DROP VIEW [dbo].[Количество_видов_отсутствующих_на_складе_товаров]
-GO
-/****** Object:  StoredProcedure [dbo].[Обновить_параметры_товаров]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Обновить_параметры_товаров]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Обновить_параметры_товаров]
-GO
-/****** Object:  StoredProcedure [dbo].[Отправить_в_магазин]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Отправить_в_магазин]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Отправить_в_магазин]
-GO
-/****** Object:  StoredProcedure [dbo].[Поиск_названия_товара]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Поиск_названия_товара]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Поиск_названия_товара]
-GO
-/****** Object:  View [dbo].[Прайс_фирмы]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Прайс_фирмы]'))
-DROP VIEW [dbo].[Прайс_фирмы]
-GO
-/****** Object:  StoredProcedure [dbo].[Приёмка_Товара]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Приёмка_Товара]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Приёмка_Товара]
-GO
-/****** Object:  Table [dbo].[Сотрудник]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Сотрудник]') AND type in (N'U'))
-DROP TABLE [dbo].[Сотрудник]
-GO
-/****** Object:  Table [dbo].[Гарантийный_талон]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_талон]'))
-ALTER TABLE [dbo].[Гарантийный_талон] DROP CONSTRAINT [выдает]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Гарантийный_талон]') AND type in (N'U'))
-DROP TABLE [dbo].[Гарантийный_талон]
-GO
-/****** Object:  Table [dbo].[Продажа]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
-ALTER TABLE [dbo].[Продажа] DROP CONSTRAINT [выдается_при]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
-ALTER TABLE [dbo].[Продажа] DROP CONSTRAINT [заключается_при]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[участвует_в]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
-ALTER TABLE [dbo].[Продажа] DROP CONSTRAINT [участвует_в]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Продажа]') AND type in (N'U'))
-DROP TABLE [dbo].[Продажа]
-GO
-/****** Object:  Table [dbo].[Кредитный_договор]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Кредитный_договор]'))
-ALTER TABLE [dbo].[Кредитный_договор] DROP CONSTRAINT [заключает]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Кредитный_договор]') AND type in (N'U'))
-DROP TABLE [dbo].[Кредитный_договор]
-GO
-/****** Object:  Table [dbo].[Клиент]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Клиент]') AND type in (N'U'))
-DROP TABLE [dbo].[Клиент]
-GO
-/****** Object:  Table [dbo].[Заказ_Товар_Поставщик]    Script Date: 12/03/2013 05:52:31 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_23]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] DROP CONSTRAINT [R_23]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_24]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] DROP CONSTRAINT [R_24]
-GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_456]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] DROP CONSTRAINT [Relationship_456]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]') AND type in (N'U'))
-DROP TABLE [dbo].[Заказ_Товар_Поставщик]
-GO
-/****** Object:  Table [dbo].[Сервисный_центр]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Сервисный_центр]') AND type in (N'U'))
-DROP TABLE [dbo].[Сервисный_центр]
-GO
-/****** Object:  StoredProcedure [dbo].[Средняя_цена_категории]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Средняя_цена_категории]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Средняя_цена_категории]
-GO
-/****** Object:  View [dbo].[Средняя_Цена_по_категории]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Средняя_Цена_по_категории]'))
-DROP VIEW [dbo].[Средняя_Цена_по_категории]
-GO
-/****** Object:  StoredProcedure [dbo].[CURSOR_Сформировать_Балансовый_отчёт]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CURSOR_Сформировать_Балансовый_отчёт]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[CURSOR_Сформировать_Балансовый_отчёт]
-GO
-/****** Object:  View [dbo].[Max_Цены_по_категориям]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Max_Цены_по_категориям]'))
-DROP VIEW [dbo].[Max_Цены_по_категориям]
-GO
-/****** Object:  View [dbo].[Товары_без_гарантии]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Товары_без_гарантии]'))
-DROP VIEW [dbo].[Товары_без_гарантии]
-GO
-/****** Object:  StoredProcedure [dbo].[Удалить_товар]    Script Date: 12/03/2013 05:52:30 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Удалить_товар]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[Удалить_товар]
-GO
-/****** Object:  Table [dbo].[Товар]    Script Date: 12/03/2013 05:52:29 ******/
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_484]') AND parent_object_id = OBJECT_ID(N'[dbo].[Товар]'))
-ALTER TABLE [dbo].[Товар] DROP CONSTRAINT [Relationship_484]
-GO
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Товар]') AND type in (N'U'))
-DROP TABLE [dbo].[Товар]
-GO
-/****** Object:  Table [dbo].[Товар]    Script Date: 12/03/2013 05:52:29 ******/
+/****** Object:  Table [dbo].[Товар]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Товар]') AND type in (N'U'))
-BEGIN
 CREATE TABLE [dbo].[Товар](
 	[ID_товара] [nvarchar](20) NOT NULL,
 	[Название_товара] [nvarchar](150) NOT NULL,
@@ -355,7 +92,6 @@ CREATE TABLE [dbo].[Товар](
 	[ID_товара] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-END
 GO
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'COCAMF3010', N'МФУ A4 Canon i-SENSYS MF3010 (МФУ)', N'Монохромные_лазерные_МФУ', 18, 1880500.0000, 9, 12, 5)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'COCAMF4410', N'МФУ A4 Canon i-SENSYS MF4410 (МФУ)', N'Монохромные_лазерные_МФУ', 15, 2172000.0000, 6, 12, 5)
@@ -472,23 +208,23 @@ INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_с
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRSMY407S', N'Картридж Samsung CLT-Y407S для CLP-320/320N/325/ CLX-3185/3185N/3185FN  1000стр.', N'Расходные_материалы', 7, 446000.0000, 5, 0, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRSMY409S', N'Картридж Samsung CLT-Y409S для CLP-310/315/ CLX-3170/3175  1000стр.', N'Расходные_материалы', 10, 510000.0000, 6, 0, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2103', N'D-Link Сетевая камера DCS-2103', N'IP-камеры', 7, 1110000.0000, 19, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2130', N'D-Link Сетевая камера DCS-2130', N'IP-камеры', 11, 1404000.0000, 7, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2132L', N'D-Link Сетевая камера DCS-2132L', N'IP-камеры', 15, 1723000.0000, 13, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2210', N'D-Link Сетевая камера DCS-2103', N'IP-камеры', 5, 2276000.0000, NULL, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2230', N'D-Link Сетевая камера DCS-2230', N'IP-камеры', 4, 2151000.0000, 1, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2310L', N'D-Link Сетевая камера DCS-2310L', N'IP-камеры', 8, 2412000.0000, 4, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS5222L', N'D-Link Сетевая камера DCS-5222L', N'IP-камеры', 9, 2412000.0000, NULL, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS7110', N'D-Link Сетевая камера DCS-7110', N'IP-камеры', 12, 3674500.0000, 3, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS930L', N'D-Link Сетевая камера DCS-930L', N'IP-камеры', 17, 539000.0000, 10, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS932L', N'D-Link Сетевая камера DCS-932L', N'IP-камеры', 21, 738000.0000, 4, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS942L', N'D-Link Сетевая камера DCS-942L', N'IP-камеры', 11, 1085500.0000, 4, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTNIP312', N'TrendNet Сетевая камера TV-IP312', N'IP-камеры', 15, 1888000.0000, 5, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTNIP512WN', N'TrendNet Сетевая камера TV-IP512WN', N'IP-камеры', 24, 1945000.0000, 4, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3130', N'TP-Link Сетевая камера TL-SC3130', N'IP-камеры', 24, 1025000.0000, 9, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3130G', N'TP-Link Сетевая камера TL-SC3130G', N'IP-камеры', 12, 1147000.0000, 2, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3171', N'TP-Link Сетевая камера TL-SC3171', N'IP-камеры', 10, 1337500.0000, 9, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3430', N'TP-Link Сетевая камера TL-SC3430', N'IP-камеры', 12, 1376500.0000, 5, 12, 1)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC4171G', N'TP-Link Сетевая камера TL-SC4171G', N'IP-камеры', 8, 2722500.0000, 4, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2130', N'D-Link Сетевая камера DCS-2130', N'IP-камера', 11, 1404000.0000, 7, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2132L', N'D-Link Сетевая камера DCS-2132L', N'IP-камера', 15, 1723000.0000, 13, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2210', N'D-Link Сетевая камера DCS-2103', N'IP-камера', 5, 2276000.0000, NULL, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2230', N'D-Link Сетевая камера DCS-2230', N'IP-камера', 4, 2151000.0000, 1, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS2310L', N'D-Link Сетевая камера DCS-2310L', N'IP-камера', 8, 2412000.0000, 4, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS5222L', N'D-Link Сетевая камера DCS-5222L', N'IP-камера', 9, 2412000.0000, NULL, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS7110', N'D-Link Сетевая камера DCS-7110', N'IP-камера', 12, 3674500.0000, 3, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS930L', N'D-Link Сетевая камера DCS-930L', N'IP-камера', 17, 539000.0000, 10, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS932L', N'D-Link Сетевая камера DCS-932L', N'IP-камера', 21, 738000.0000, 4, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMDLDCS942L', N'D-Link Сетевая камера DCS-942L', N'IP-камера', 11, 1085500.0000, 4, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTNIP312', N'TrendNet Сетевая камера TV-IP312', N'IP-камера', 15, 1888000.0000, 5, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTNIP512WN', N'TrendNet Сетевая камера TV-IP512WN', N'IP-камера', 24, 1945000.0000, 4, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3130', N'TP-Link Сетевая камера TL-SC3130', N'IP-камера', 24, 1025000.0000, 9, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3130G', N'TP-Link Сетевая камера TL-SC3130G', N'IP-камера', 12, 1147000.0000, 2, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3171', N'TP-Link Сетевая камера TL-SC3171', N'IP-камера', 10, 1337500.0000, 9, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC3430', N'TP-Link Сетевая камера TL-SC3430', N'IP-камера', 12, 1376500.0000, 5, 12, 1)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'IPCAMTPLSC4171G', N'TP-Link Сетевая камера TL-SC4171G', N'IP-камера', 8, 2722500.0000, 4, 12, 1)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'MFSMCLP-365', N' Samsung Color CLP-365', N'Цветные_лазерные_принтеры', 14, 2019500.0000, 10, 12, 1)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'MFSMCLP-365W', N' Samsung Color CLP-365W', N'Цветные_лазерные_принтеры', 19, 2474500.0000, 4, 12, 1)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'MFSMCLP-415N', N' Samsung Color CLP-415N', N'Цветные_лазерные_принтеры', 16, 2950000.0000, 12, 12, 1)
@@ -552,183 +288,82 @@ INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_с
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'SFMSWinPro7_box', N'FQC-00265 Windows Pro 7 Russian DVD  / FQC-05347 Win Pro 7 Russian Russia Only DVD', N'Операционные_Системы', 22, 2433000.0000, 13, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'SFMSWinUlt7_64bit', N'ПО MS Win Ultimate 7 SP1 64-bit Russian 1pk DSP OEI DVD (GLC-01860)', N'Операционные_Системы', 14, 1957500.0000, 14, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'SFMSWS2008_R2', N'P73-05121 Windows Server Std 2008 R2 w/SP1 x64 Russian 1pk DSP OEI DVD 1-4CPU 5 Clt', N'Операционные_Системы', 16, 7266000.0000, 8, 12, NULL)
-/****** Object:  StoredProcedure [dbo].[Удалить_товар]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  StoredProcedure [dbo].[Удалить_товар]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Удалить_товар]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Удалить_товар]
+CREATE PROCEDURE [dbo].[Удалить_товар]
 @ID_товара nvarchar(20)
 AS
 BEGIN
 	Delete from Товар
 		Where (ID_товара=@ID_товара)
 END
-' 
-END
 GO
-/****** Object:  View [dbo].[Товары_без_гарантии]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  View [dbo].[Товары_без_гарантии]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Товары_без_гарантии]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Товары_без_гарантии]
+CREATE VIEW [dbo].[Товары_без_гарантии]
 AS
 SELECT     TOP (100) PERCENT Название_товара, Цена
 FROM         dbo.Товар
 WHERE     (Срок_гарантии = 0) OR
                       (Срок_гарантии IS NULL)
 ORDER BY Название_товара
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Товары_без_гарантии', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 125
-               Right = 252
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 2145
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Товары_без_гарантии'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Товары_без_гарантии', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Товары_без_гарантии'
-GO
-/****** Object:  View [dbo].[Max_Цены_по_категориям]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  Trigger [tD_Товар]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Max_Цены_по_категориям]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Max_Цены_по_категориям]
+CREATE TRIGGER [dbo].[tD_Товар] ON [dbo].[Товар] FOR DELETE AS
+/* ERwin Builtin Trigger */
+/* DELETE trigger on Товар */
+BEGIN
+  DECLARE  @errno   int,
+           @errmsg  varchar(255)
+/* ERwin Builtin Trigger */
+/* Товар  Заказ_Товар_Поставщик on parent delete set default */
+/* ERWIN_RELATION:CHECKSUM="00014114", PARENT_OWNER="dbo", PARENT_TABLE="Товар"
+    CHILD_OWNER="dbo", CHILD_TABLE="Заказ_Товар_Поставщик"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_23", FK_COLUMNS="ID_товара" */
+/* Application specific.  Left out intentionally. */
+/* ERwin Builtin Trigger */
+/* Товар  Продажа on parent delete set default */
+/* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="dbo", PARENT_TABLE="Товар"
+    CHILD_OWNER="dbo", CHILD_TABLE="Продажа"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="участвует_в", FK_COLUMNS="ID_товара" */
+/* Application specific.  Left out intentionally. */
+
+    /* ERwin Builtin Trigger */
+    RETURN
+ERROR:
+    raiserror @errno @errmsg
+    rollback transaction
+END
+GO
+/****** Object:  View [dbo].[Max_Цены_по_категориям]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[Max_Цены_по_категориям]
 AS
 SELECT     MAX(Цена) AS [Max Цена], Категория
 FROM         dbo.Товар
 GROUP BY Категория
-'
 GO
-/****** Object:  StoredProcedure [dbo].[CURSOR_Сформировать_Балансовый_отчёт]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  StoredProcedure [dbo].[CURSOR_Сформировать_Балансовый_отчёт]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CURSOR_Сформировать_Балансовый_отчёт]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[CURSOR_Сформировать_Балансовый_отчёт]
+CREATE PROCEDURE [dbo].[CURSOR_Сформировать_Балансовый_отчёт]
 AS
 BEGIN
 Declare price cursor local FORWARD_ONLY
@@ -754,169 +389,201 @@ Declare price cursor local FORWARD_ONLY
 CLOSE price
 DEALLOCATE price
 END
-' 
-END
 GO
-/****** Object:  View [dbo].[Средняя_Цена_по_категории]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  View [dbo].[Средняя_Цена_по_категории]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Средняя_Цена_по_категории]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Средняя_Цена_по_категории]
+CREATE VIEW [dbo].[Средняя_Цена_по_категории]
 AS
 SELECT     Категория, AVG(Цена) AS [Средняя цена]
 FROM         dbo.Товар
 GROUP BY Категория
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Средняя_Цена_по_категории', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 303
-               Bottom = 125
-               Right = 517
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 12
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Средняя_Цена_по_категории'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Средняя_Цена_по_категории', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Средняя_Цена_по_категории'
-GO
-/****** Object:  StoredProcedure [dbo].[Средняя_цена_категории]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  Table [dbo].[Заказ_Товар_Поставщик]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Средняя_цена_категории]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Средняя_цена_категории]
-	@Категория_товара [nvarchar](75)
-AS
-BEGIN
-	SELECT AVG([Товар].[Цена]) FROM dbo.[Товар] WHERE (@Категория_товара=Категория)
-END
-' 
-END
+CREATE TABLE [dbo].[Заказ_Товар_Поставщик](
+	[Код_поставщика] [int] NOT NULL,
+	[Количество_заказано] [int] NULL,
+	[ID_товара] [nvarchar](20) NOT NULL,
+	[ID_Заказа] [int] IDENTITY(1,1) NOT NULL,
+	[Дата_заказа] [datetime] NULL,
+	[Номер_паспорта_клиента] [nvarchar](15) NULL,
+ CONSTRAINT [XPKЗаказ_Товар_Поставщик] PRIMARY KEY CLUSTERED 
+(
+	[ID_Заказа] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Сервисный_центр]    Script Date: 12/03/2013 05:52:30 ******/
+SET IDENTITY_INSERT [dbo].[Заказ_Товар_Поставщик] ON
+INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (2, 1, N'COCAMF4450', 1, CAST(0x0000A28B013017DE AS DateTime), N'kb1532550')
+INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (2, 1, N'COCAMF4450', 2, CAST(0x0000A28B013017DE AS DateTime), N'kb1532550')
+INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (6, 1, N'CRHPC8771HE', 3, CAST(0x0000A28B013017DE AS DateTime), N'qw2332422')
+SET IDENTITY_INSERT [dbo].[Заказ_Товар_Поставщик] OFF
+/****** Object:  Table [dbo].[Клиент]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Сервисный_центр]') AND type in (N'U'))
+CREATE TABLE [dbo].[Клиент](
+	[ФИО_клиента] [nvarchar](20) NULL,
+	[Дата_рождения] [datetime] NULL,
+	[Адрес_клиента] [nvarchar](100) NULL,
+	[Телефон_домашний] [nvarchar](15) NULL,
+	[Телефон_мобильный] [nvarchar](20) NULL,
+	[Номер_паспорта_клиента] [nvarchar](15) NOT NULL,
+ CONSTRAINT [XPKКлиент] PRIMARY KEY CLUSTERED 
+(
+	[Номер_паспорта_клиента] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'Жуков Р.С.', CAST(0x000084DE00000000 AS DateTime), N'МОгилёв', N'1242342342423', N'2342424234', N'kb1532550')
+INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'НОВЫЙ ЧЕЛОВЕК', CAST(0x0000836E00000000 AS DateTime), N'Могилёв', N'486158', N'375296587681', N'qe1412414')
+INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'КРАВЦОВ И.С.', CAST(0x0000798E00000000 AS DateTime), N'Могилёв', N'461546', N'37529654825', N'qw2332422')
+/****** Object:  Table [dbo].[Кредитный_договор]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Кредитный_договор](
+	[Код_договора] [int] IDENTITY(1,1) NOT NULL,
+	[Ежемесячная_выплата] [money] NULL,
+	[Первоначальный_взнос] [money] NULL,
+	[Срок_оплаты] [int] NULL,
+	[Номер_паспорта_клиента] [nvarchar](15) NOT NULL,
+ CONSTRAINT [XPKКредитный_договор] PRIMARY KEY CLUSTERED 
+(
+	[Код_договора] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Кредитный_договор] ON
+INSERT [dbo].[Кредитный_договор] ([Код_договора], [Ежемесячная_выплата], [Первоначальный_взнос], [Срок_оплаты], [Номер_паспорта_клиента]) VALUES (3, 2414142.0000, 123123.0000, 10, N'kb1532550')
+INSERT [dbo].[Кредитный_договор] ([Код_договора], [Ежемесячная_выплата], [Первоначальный_взнос], [Срок_оплаты], [Номер_паспорта_клиента]) VALUES (4, 23423424.0000, 324242.0000, 12, N'qe1412414')
+SET IDENTITY_INSERT [dbo].[Кредитный_договор] OFF
+/****** Object:  Table [dbo].[Продажа]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Продажа](
+	[Цена] [money] NULL,
+	[Количество] [int] NULL,
+	[ID_товара] [nvarchar](20) NOT NULL,
+	[Код_договора] [int] NULL,
+	[Тип_оплаты] [nvarchar](30) NULL,
+	[Код_гарантийного_талона] [int] NOT NULL,
+ CONSTRAINT [XPKПродажа] PRIMARY KEY CLUSTERED 
+(
+	[Код_гарантийного_талона] ASC,
+	[ID_товара] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (392000.0000, 1, N'CRHP51645A', NULL, N'Наличный', 7)
+/****** Object:  Table [dbo].[Гарантийный_талон]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Гарантийный_талон](
+	[Дата_время] [datetime] NOT NULL,
+	[Номер_паспорта_сотрудника] [nvarchar](15) NULL,
+	[Код_гарантийного_талона] [int] IDENTITY(1,1) NOT NULL,
+	[Серийный_номер_экземпляра] [nvarchar](20) NULL,
+ CONSTRAINT [XPKГарантийный_талон] PRIMARY KEY CLUSTERED 
+(
+	[Код_гарантийного_талона] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Гарантийный_талон] ON
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E100000000 AS DateTime), N'КВ1532550', 4, N'UI37YFG38FHB3IFN')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E500000000 AS DateTime), N'КВ1532550', 5, N'G39VBWRUJ74BF93N')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E300000000 AS DateTime), N'КВ1532550', 6, N'832TBW875NWFEOW3')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E400000000 AS DateTime), N'КВ1532550', 7, N'123')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1EE00000000 AS DateTime), N'КВ1532550', 8, N'04HBG8WEKG74KRY4')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E100000000 AS DateTime), N'КВ1532550', 9, N'9VE67G3IYG238N8W')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E200000000 AS DateTime), N'КВ1532550', 10, N'984E3TY5N34MQPV8')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00CC27FD AS DateTime), N'КВ1532550', 11, N'c45f3452xd6574')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00CF1882 AS DateTime), N'КВ1532550', 12, N'23')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00CF55BA AS DateTime), N'КВ1532550', 13, N'234к2ав33вв')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00CF8A49 AS DateTime), N'КВ1532550', 14, N'1q2w3e4r5t6y7u8i9o0p')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00D07F95 AS DateTime), N'КВ1532550', 15, N'q1w2e34rt5y67u8i')
+INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00D1B175 AS DateTime), N'КВ1545374', 16, N'6g67')
+SET IDENTITY_INSERT [dbo].[Гарантийный_талон] OFF
+/****** Object:  Table [dbo].[Сотрудник]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Сотрудник](
+	[Номер_паспорта_сотрудника] [nvarchar](15) NOT NULL,
+	[ФИО_сотрудника] [nvarchar](50) NOT NULL,
+	[Дата_рождения] [datetime] NOT NULL,
+	[Адрес_сотрудника] [nvarchar](100) NULL,
+	[Телефон_домашний] [varchar](20) NULL,
+	[Телефон_мобильный] [varchar](20) NULL,
+	[Должность] [nvarchar](50) NULL,
+ CONSTRAINT [XPKСотрудник] PRIMARY KEY CLUSTERED 
+(
+	[Номер_паспорта_сотрудника] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1532550', N'ЖУКОВ Р.С.', CAST(0x000084DE00000000 AS DateTime), N'Могилёв, пр-т Пушкина, 35', N'453919', N'+375296580681', N'Мастер по ремонту оргтехники')
+INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1545374', N'КРАСНОВ О.О.', CAST(0x00006E2000000000 AS DateTime), N'Могилёв, пр-т Непокорённых, 10', N'440516', N'+375259465161', N'Мастер по ремонту оргтехники')
+INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1684611', N'КОКОРЕНКО О.С.', CAST(0x0000707C00000000 AS DateTime), N'Могилёв, Крупской, 95', N'702325', N'+375292436886', N'Глав.Бухгалтер')
+INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1685416', N'ДМИТРОВ Е.А.', CAST(0x00007CCA00000000 AS DateTime), N'Могилёв, пр-т Мира, 15', N'656654', N'+375229466185', N'Менеджер по работе с Клиентами')
+INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1767768', N'НОВИЦКАЯ Е.А.', CAST(0x00007CA100000000 AS DateTime), N'Могилёв, пр-т Дмитрова, 29', N'202125', N'+375299431361', N'Бухгалтер')
+INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1896165', N'КОКОРЕНКО А.А.', CAST(0x00006D8900000000 AS DateTime), N'Могилёв, Крупской, 95', N'702325', N'+375228468548', N'Директор')
+/****** Object:  Trigger [Форматирование_данных_Сотрудник]    Script Date: 12/05/2013 20:13:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TRIGGER [dbo].[Форматирование_данных_Сотрудник]
+   ON  [dbo].[Сотрудник] 
+   FOR UPDATE,Insert
+AS 
 BEGIN
+IF ASCII
+		(Substring((Select Номер_паспорта_сотрудника From inserted ),1,2))>127	
+	BEGIN
+		Raiserror ('Введите серию паспорта латинскими буквами',1,16)
+	
+	Rollback transaction
+	END
+
+declare @Номер_паспорта_ nvarchar(15)
+Set @Номер_паспорта_ = (Select Номер_паспорта_сотрудника
+							from inserted)
+							
+declare @ФИО nvarchar(15)
+Set @ФИО = (Select ФИО_сотрудника
+							from inserted)
+							
+Update Сотрудник
+	Set ФИО_сотрудника=UPPER(@ФИО),Номер_паспорта_сотрудника=Lower(@Номер_паспорта_)
+		Where ( Номер_паспорта_сотрудника=@Номер_паспорта_)
+
+
+END
+GO
+/****** Object:  Table [dbo].[Сервисный_центр]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[Сервисный_центр](
 	[Код_сервисного_центра] [int] IDENTITY(1,1) NOT NULL,
 	[Название_сервисного_центра] [nvarchar](50) NOT NULL,
@@ -927,24 +594,22 @@ CREATE TABLE [dbo].[Сервисный_центр](
 	[Код_сервисного_центра] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-END
 GO
 SET IDENTITY_INSERT [dbo].[Сервисный_центр] ON
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (1, N'Элси (Asus)', N'Могилёв, ул. Лепешинского, 12', N'(0222) 25-91-05')
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (2, N'ЧПУП "Система сервис(Samsung)', N'Могилёв, ул. Ленинская, 29а, 12', N'(0222) 31-05-98')
-INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (3, N'ЦТИ (Sony)', N'г. Минск, ул. Короля 26', N'(017) 210-56-78 ')
+INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (3, N'ЦТИ(Sony)', N'г. Минск, ул. Короля 26', N'(017) 210-56-78 ')
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (4, N'ОДО"КВИНТАСТАДОР"', N'г. Минск, ул. Гикало, 1', N'(017) 284-42-00')
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (5, N'ООО "Компьютеры и периферия (HP)"', N'г. Минск, 1-ый Измайловский пер, д. 51, корп. 5', N' (017) 210 1146')
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (6, N'СЗАО «БелАВМ»', N'Минск, пр-т Машерова, 25', N'+375 (17) 283-22-45 ')
-INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (7, N'Оффиц. предст. D-link Inc.', N'Минск, пр-т Независимости,д.169,оф.801', N'тел.(17)218-13-61')
+INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (7, N'D-link Inc.', N'Минск,пр-т Независимости,д.169,оф.801', N'тел.(17)218-13-61')
 SET IDENTITY_INSERT [dbo].[Сервисный_центр] OFF
-/****** Object:  Trigger [update_сервис_для_товара]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [update_сервис_для_товара]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[update_сервис_для_товара]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[update_сервис_для_товара]
+Create TRIGGER [dbo].[update_сервис_для_товара]
    ON  [dbo].[Товар]
    AFTER  INSERT,UPDATE
 AS 
@@ -962,18 +627,16 @@ If not Exists (select *
   update Товар 
 	Set Код_сервисного_центра=null
 		Where (@ID_товара=ID_товара)
-	Raiserror(''Сервисный центр для данного товара не определён.'',1,16)
+	Raiserror('Сервисный центр для данного товара не определён.',1,16)
 end
 END
-'
 GO
-/****** Object:  Trigger [tU_Сервисный_центр]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tU_Сервисный_центр]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Сервисный_центр]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Сервисный_центр] ON [dbo].[Сервисный_центр] FOR UPDATE AS
+CREATE TRIGGER [dbo].[tU_Сервисный_центр] ON [dbo].[Сервисный_центр] FOR UPDATE AS
 /* ERwin Builtin Trigger */
 /* UPDATE trigger on Сервисный_центр */
 BEGIN
@@ -987,8 +650,8 @@ BEGIN
   SELECT @NUMROWS = @@rowcount
   /* ERwin Builtin Trigger */
   /* Сервисный_центр  Товар on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="000190bd", PARENT_OWNER="", PARENT_TABLE="Сервисный_центр"
-    CHILD_OWNER="", CHILD_TABLE="Товар"
+  /* ERWIN_RELATION:CHECKSUM="00019c04", PARENT_OWNER="dbo", PARENT_TABLE="Сервисный_центр"
+    CHILD_OWNER="dbo", CHILD_TABLE="Товар"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="Relationship_484", FK_COLUMNS="Код_сервисного_центра" */
   IF
@@ -1011,7 +674,7 @@ BEGIN
     ELSE
     BEGIN
       SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Сервисный_центр update because more than one row has been affected.''
+             @errmsg = 'Cannot cascade Сервисный_центр update because more than one row has been affected.'
       GOTO ERROR
     END
   END
@@ -1023,37 +686,32 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Trigger [tD_Сервисный_центр]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tD_Сервисный_центр]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Сервисный_центр]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Сервисный_центр] ON [dbo].[Сервисный_центр] FOR DELETE AS
+CREATE TRIGGER [dbo].[tD_Сервисный_центр] ON [dbo].[Сервисный_центр] FOR DELETE AS
 /* ERwin Builtin Trigger */
 /* DELETE trigger on Сервисный_центр */
 BEGIN
   DECLARE  @errno   int,
            @errmsg  varchar(255)
     /* ERwin Builtin Trigger */
-    /* Сервисный_центр  Товар on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="000101b5", PARENT_OWNER="", PARENT_TABLE="Сервисный_центр"
-    CHILD_OWNER="", CHILD_TABLE="Товар"
+    /* Сервисный_центр  Товар on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000f6cb", PARENT_OWNER="dbo", PARENT_TABLE="Сервисный_центр"
+    CHILD_OWNER="dbo", CHILD_TABLE="Товар"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="Relationship_484", FK_COLUMNS="Код_сервисного_центра" */
-    IF EXISTS (
-      SELECT * FROM deleted,Товар
+    UPDATE Товар
+      SET
+        /* %SetFK(Товар,NULL) */
+        Товар.Код_сервисного_центра = NULL
+      FROM Товар,deleted
       WHERE
-        /*  %JoinFKPK(Товар,deleted," = "," AND") */
+        /* %JoinFKPK(Товар,deleted," = "," AND") */
         Товар.Код_сервисного_центра = deleted.Код_сервисного_центра
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Сервисный_центр because Товар exists.''
-      GOTO ERROR
-    END
 
 
     /* ERwin Builtin Trigger */
@@ -1062,180 +720,13 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Table [dbo].[Заказ_Товар_Поставщик]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [проверка_возраста]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Заказ_Товар_Поставщик](
-	[Код_поставщика] [int] NOT NULL,
-	[Количество_заказано] [int] NULL,
-	[ID_товара] [nvarchar](20) NOT NULL,
-	[ID_Заказа] [int] IDENTITY(1,1) NOT NULL,
-	[Дата_заказа] [datetime] NULL,
-	[Номер_паспорта_клиента] [nvarchar](15) NOT NULL,
- CONSTRAINT [XPKЗаказ_Товар_Поставщик] PRIMARY KEY CLUSTERED 
-(
-	[ID_Заказа] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-SET IDENTITY_INSERT [dbo].[Заказ_Товар_Поставщик] ON
-INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (3, 2, N'CRHP51645A', 2, CAST(0x0000A24A013711CA AS DateTime), N'KB1234567890')
-INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (2, 1, N'CRHPC8766HE', 9, CAST(0x0000A25300B2AEF8 AS DateTime), N'KB1234567890')
-INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (1, 1, N'PRHPLJCM351a', 10, CAST(0x0000A247013711CA AS DateTime), N'KB1234567890')
-INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (4, 4, N'SFMSWinHB7_32bit', 11, CAST(0x0000A25B012A0110 AS DateTime), N'KB1234567890')
-INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (6, 4, N'SFMSWinPro7_64bit', 12, CAST(0x0000A265013711CA AS DateTime), N'KB1234567890')
-INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (5, 2, N'PANASKX-MB1530RUB', 13, CAST(0x0000A2620131938A AS DateTime), N'KB1234567890')
-SET IDENTITY_INSERT [dbo].[Заказ_Товар_Поставщик] OFF
-/****** Object:  Table [dbo].[Клиент]    Script Date: 12/03/2013 05:52:30 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Клиент]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Клиент](
-	[ФИО_клиента] [nvarchar](20) NULL,
-	[Дата_рождения] [datetime] NULL,
-	[Адрес_клиента] [nvarchar](100) NULL,
-	[Телефон_домашний] [nvarchar](15) NULL,
-	[Телефон_мобильный] [nvarchar](20) NULL,
-	[Номер_паспорта_клиента] [nvarchar](15) NOT NULL,
- CONSTRAINT [XPKКлиент] PRIMARY KEY CLUSTERED 
-(
-	[Номер_паспорта_клиента] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'Степанов С.С', CAST(0x0000787B00000000 AS DateTime), N'Могилёв, Димитрова 23', N'483249', N'+375259364593', N'KB1234567890')
-INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'Жукова Ю.С', CAST(0x00007E7900000000 AS DateTime), N'Могилёв, Пушкина 35', N'278165', N'+375291801723', N'KB2343652452')
-INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'Новый', CAST(0x000072F000000000 AS DateTime), N'Могилёв', N'464837', N'3264874', N'qw123456789')
-/****** Object:  Table [dbo].[Кредитный_договор]    Script Date: 12/03/2013 05:52:30 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Кредитный_договор]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Кредитный_договор](
-	[Код_договора] [int] IDENTITY(1,1) NOT NULL,
-	[Ежемесячная_выплата] [money] NULL,
-	[Первоначальный_взнос] [money] NULL,
-	[Срок_оплаты] [int] NULL,
-	[Номер_паспорта_клиента] [nvarchar](15) NOT NULL,
- CONSTRAINT [XPKКредитный_договор] PRIMARY KEY CLUSTERED 
-(
-	[Код_договора] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-SET IDENTITY_INSERT [dbo].[Кредитный_договор] ON
-INSERT [dbo].[Кредитный_договор] ([Код_договора], [Ежемесячная_выплата], [Первоначальный_взнос], [Срок_оплаты], [Номер_паспорта_клиента]) VALUES (10, 230000.0000, 0.0000, 100, N'KB1234567890')
-INSERT [dbo].[Кредитный_договор] ([Код_договора], [Ежемесячная_выплата], [Первоначальный_взнос], [Срок_оплаты], [Номер_паспорта_клиента]) VALUES (13, 20000.0000, 20000.0000, 2, N'KB1234567890')
-SET IDENTITY_INSERT [dbo].[Кредитный_договор] OFF
-/****** Object:  Table [dbo].[Продажа]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Продажа]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Продажа](
-	[Цена] [money] NULL,
-	[Количество] [int] NULL,
-	[ID_товара] [nvarchar](20) NOT NULL,
-	[Код_договора] [int] NULL,
-	[Тип_оплаты] [nvarchar](30) NULL,
-	[Код_гарантийного_талона] [int] NOT NULL,
- CONSTRAINT [XPKПродажа] PRIMARY KEY CLUSTERED 
-(
-	[ID_товара] ASC,
-	[Код_гарантийного_талона] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (2359500.0000, 1, N'COCAMF4550D', 10, N'Наличный', 10)
-INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (3405500.0000, 1, N'COCAMF4570DN', 10, N'Наличный', 10)
-INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (7524500.0000, 1, N'COCAMF5940DN', 10, N'Безналичный', 10)
-INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (832000.0000, 1, N'CRHPC7115A', NULL, N'Наличный', 4)
-INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (638500.0000, 1, N'CRSM1610D2', NULL, N'Наличный', 5)
-INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (1147000.0000, 2, N'IPCAMTPLSC3130G', NULL, N'Наличный', 6)
-/****** Object:  Table [dbo].[Гарантийный_талон]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Гарантийный_талон]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Гарантийный_талон](
-	[Дата_время] [datetime] NOT NULL,
-	[Номер_паспорта_сотрудника] [nvarchar](15) NOT NULL,
-	[Код_гарантийного_талона] [int] IDENTITY(1,1) NOT NULL,
-	[Серийный_номер_экземпляра] [nvarchar](20) NOT NULL,
- CONSTRAINT [XPKГарантийный_талон] PRIMARY KEY CLUSTERED 
-(
-	[Код_гарантийного_талона] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-SET IDENTITY_INSERT [dbo].[Гарантийный_талон] ON
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E100000000 AS DateTime), N'KB1532550', 4, N'UI37YFG38FHB3IFN')
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E500000000 AS DateTime), N'KB1532550', 5, N'G39VBWRUJ74BF93N')
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A26200000000 AS DateTime), N'KB1532550', 6, N'832TBW875NWFEOW3')
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E400000000 AS DateTime), N'KB1532550', 7, N'03BF673L689DS48I')
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1EE00000000 AS DateTime), N'KB1532550', 8, N'04HBG8WEKG74KRY4')
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E100000000 AS DateTime), N'KB1532550', 9, N'9VE67G3IYG238N8W')
-INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A1E200000000 AS DateTime), N'KB1532550', 10, N'1')
-SET IDENTITY_INSERT [dbo].[Гарантийный_талон] OFF
-/****** Object:  Table [dbo].[Сотрудник]    Script Date: 12/03/2013 05:52:30 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Сотрудник]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Сотрудник](
-	[Номер_паспорта_сотрудника] [nvarchar](15) NOT NULL,
-	[ФИО_сотрудника] [nvarchar](50) NOT NULL,
-	[Дата_рождения] [datetime] NOT NULL,
-	[Адрес_сотрудника] [nvarchar](100) NULL,
-	[Телефон_домашний] [varchar](20) NULL,
-	[Телефон_мобильный] [varchar](20) NULL,
-	[Должность] [nvarchar](50) NULL,
- CONSTRAINT [XPKСотрудник] PRIMARY KEY CLUSTERED 
-(
-	[Номер_паспорта_сотрудника] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-SET ANSI_PADDING OFF
-GO
-INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'KB1532550', N'ЖУКОВ РОМАН', CAST(0x000084DE00000000 AS DateTime), N'Могилёв, пр-т Пушкина, 35', N'453919', N'+375296580681', N'Мастер по ремонту оргтехники')
-INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1545374', N'Краснов О.О.', CAST(0x00006E2000000000 AS DateTime), N'Могилёв, пр-т Непокорённых, 10', N'440516', N'+375259465161', N'Мастер по ремонту оргтехники')
-INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1684611', N'Кокоренко О.С.', CAST(0x0000707C00000000 AS DateTime), N'Могилёв, Крупской, 95', N'702325', N'+375292436886', N'Глав.Бухгалтер')
-INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1685416', N'Дмитров Е.А.', CAST(0x00007CCA00000000 AS DateTime), N'Могилёв, пр-т Мира, 15', N'656654', N'+375229466185', N'Менеджер по работе с Клиентами')
-INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1767768', N'Новицкая Е.А.', CAST(0x00007CA100000000 AS DateTime), N'Могилёв, пр-т Дмитрова, 29', N'202125', N'+375299431361', N'Бухгалтер')
-INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1896165', N'Кокоренко А.А.', CAST(0x00006D8900000000 AS DateTime), N'Могилёв, Крупской, 95', N'702325', N'+375228468548', N'Директор')
-/****** Object:  Trigger [проверка_возраста]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[проверка_возраста]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[проверка_возраста]
+CREATE TRIGGER [dbo].[проверка_возраста]
    ON  [dbo].[Сотрудник] 
    for INSERT
 AS 
@@ -1244,26 +735,22 @@ Declare @дата_рожд datetime
 Set @дата_рожд = 
  (Select Дата_рождения from inserted)
 
-	IF not (DATEDIFF(Y,@дата_рожд, GETDATE()) <18) 
+	IF not Year(DATEDIFF(Y,@дата_рожд, GETDATE()) )<18 
 		Begin
-		 IF(DATEDIFF(Y,@дата_рожд, GETDATE()) >62)
+		 IF Year(DATEDIFF(Y,@дата_рожд, GETDATE()) )>62
 			Begin
-				Raiserror (''Этого работника нельзя нанимать'',1,16)
+				Raiserror ('Этого работника нельзя нанимать',1,16)
+				rollback transaction
 			End
 	    End
 END
-'
 GO
-/****** Object:  StoredProcedure [dbo].[Приёмка_Товара]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  StoredProcedure [dbo].[Приёмка_Товара]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Приёмка_Товара]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
 CREATE PROCEDURE [dbo].[Приёмка_Товара]
-	
 	@Название_товара [nvarchar](150),
 	@Категория [nvarchar](75),
 	@Количество_Прибывшего_склад int,
@@ -1272,31 +759,44 @@ CREATE PROCEDURE [dbo].[Приёмка_Товара]
 	@Название_сервисного_центра [nvarchar](50)
 	
 AS 
-	IF @Название_сервисного_центра <> '''' AND 
-		NOT EXISTS (SELECT Код_сервисного_центра
+declare @ID_товара nvarchar(20)
+	Set @ID_товара = (select  Название_товара
+						FROM [Товар]
+							Where (@Название_товара=Название_товара)
+					  )				  
+DECLARE @Код_сервисного_центра int
+
+	IF (@Название_сервисного_центра <>'')
+	begin  
+	  if NOT EXISTS 
+	        (SELECT *
 			   FROM  Сервисный_центр
-			   WHERE Название_сервисного_центра =  @Название_сервисного_центра)	
-	BEGIN
-		RAISERROR (''Не найден Код сервисного центра по переданному названию.'', 16, 1)
+			      WHERE Название_сервисного_центра =  @Название_сервисного_центра)	
+	  BEGIN
+		RAISERROR ('Не найден Код сервисного центра по переданному названию.', 16, 1)
 		RETURN 1
-	END
-	DECLARE @Код_сервисного_центра int
+	  END
+	
 	SET @Код_сервисного_центра = (SELECT Код_сервисного_центра
 				   FROM  Сервисный_центр
 				   WHERE Название_сервисного_центра =  @Название_сервисного_центра)
+	end
+	else
+		begin
+		set @Название_сервисного_центра = null
+		set @Код_сервисного_центра = null
+		end
+	
 	
 	IF (ISNUMERIC(@цена)=0) 
 	BEGIN
-		RAISERROR (''Неправильное значение цены товара'', 16, 1)
+		RAISERROR ('Неправильное значение цены товара', 16, 1)
 		RETURN 1
 	END
-
-Declare	@ID_товара [nvarchar](20)	
-	If (not exists
-		(select  Название_товара FROM [Товар])
-		)
-		Begin              --if not exist - we''ll create it =)
-		INSERT INTO [dbo].[Товар]
+	
+	If (@ID_товара is NULL	) 
+	Begin
+	INSERT INTO [dbo].[Товар]
 		(ID_товара,
 		Название_товара,
 		Категория,
@@ -1306,227 +806,71 @@ Declare	@ID_товара [nvarchar](20)
 		Срок_гарантии,
 		Код_сервисного_центра) 
 	VALUES 
-		(NEWID(),
+		(@ID_товара,
 		@Название_товара,
-		Upper(@Категория),
+		@Категория,
 		@Количество_Прибывшего_склад,
 		0,
 		Convert(money,@Цена),
 		@Срок_гарантии,
 		@Код_сервисного_центра)
+	End
+	Else 
 	
-		End
-		Else
-			begin
-			set @ID_товара = (select  ID_товара
-								 FROM [Товар] Where (Название_товара=@Название_товара))
-			
-			if (select Цена from Товар where(@ID_товара=ID_товара)) <@цена
-				begin
-					Update [Товар]
-						Set [Цена]=@Цена,[Количество_склад] = [Количество_склад]+@Количество_Прибывшего_склад
-							Where (@ID_товара=ID_товара)
-				 end
-				 Else
-				 Begin
-				 Update [Товар]
-						Set [Количество_склад] = [Количество_склад]+@Количество_Прибывшего_склад
-							Where (@ID_товара=ID_товара)
-				 End
-		End ' 
-END
+	Declare @колво_склад int
+	Set @колво_склад = 
+		(
+		Select  [Количество_склад]+@Количество_Прибывшего_склад
+			From [Товар]
+				Where (ID_товара=@ID_товара)
+		) 
+ 	
+	Begin
+		Update [Товар]
+			Set [Цена]=@Цена,[Количество_склад] = @колво_склад
+				Where (@ID_товара=ID_товара)
+	End
 GO
-/****** Object:  View [dbo].[Прайс_фирмы]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  View [dbo].[Прайс_фирмы]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Прайс_фирмы]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Прайс_фирмы]
+CREATE VIEW [dbo].[Прайс_фирмы]
 AS
 SELECT     TOP (100) PERCENT Название_товара, Категория, Цена, Срок_гарантии
 FROM         dbo.Товар
 ORDER BY Категория
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Прайс_фирмы', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 125
-               Right = 252
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Прайс_фирмы'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Прайс_фирмы', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Прайс_фирмы'
-GO
-/****** Object:  StoredProcedure [dbo].[Поиск_названия_товара]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  Trigger [Отслеживание_колва_товара]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Поиск_названия_товара]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-Create PROCEDURE [dbo].[Поиск_названия_товара]
-	@Часть_Названия nvarchar(50)
-AS
-BEGIN
-	(
-	Select PATINDEX (''%''+@Часть_Названия+''%'', @Часть_Названия), Количество_магазин, Количество_склад   
-	  	from [Товар]
-	)   	
-
-END
-' 
-END
-GO
-/****** Object:  Trigger [Отслеживание_колва_товара]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Отслеживание_колва_товара]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[Отслеживание_колва_товара]
+Create TRIGGER [dbo].[Отслеживание_колва_товара]
    ON  [dbo].[Товар]
    for UPDATE
 AS 
 BEGIN
 
 if (select isNull(deleted.Количество_магазин,0)
-	+ ISNULL(deleted.Количество_склад,0) as ''общее количество'' 
+	+ ISNULL(deleted.Количество_склад,0) as 'общее количество' 
 		from Товар inner join deleted
 		on (deleted.ID_товара=Товар.ID_товара)
 	)
 	=0
 	begin
-	raiserror(''Внимание! Данный товар закончился!'',1,16)
+	raiserror('Внимание! Данный товар закончился!',1,16)
 	end
 
 END
-'
 GO
-/****** Object:  StoredProcedure [dbo].[Отправить_в_магазин]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  StoredProcedure [dbo].[Отправить_в_магазин]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Отправить_в_магазин]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Отправить_в_магазин]
+CREATE PROCEDURE [dbo].[Отправить_в_магазин]
 		@Название_товара nvarchar(150),
 		@Количество int
 	AS
@@ -1539,9 +883,9 @@ Set  @ID_товара=
 	 Where (Название_товара=@Название_товара)
 	 )
 	 		
-	 IF(ISNULL(@ID_товара,'''')=0)
+	 IF(ISNULL(@ID_товара,'')=0)
 	 Begin
-		RaisError(''На складе меньше товаров, чем запрошено'',1,16)
+		RaisError('На складе меньше товаров, чем запрошено',1,16)
 		With NoWait Return 1
 	 End
 	 	 
@@ -1554,7 +898,7 @@ Set  @колво_склад=
 	 )				
 	 IF(@колво_склад<@Количество)
 	 Begin
-		RaisError(''На складе меньше товаров, чем запрошено'',1,16)
+		RaisError('На складе меньше товаров, чем запрошено',1,16)
 		With NoWait Return 1
 	 End
 	 
@@ -1571,17 +915,13 @@ Set  @колво_магазин=
 			[Количество_склад]= @колво_склад-@Количество
 			Where (ID_товара=@ID_товара)	
 END
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Обновить_параметры_товаров]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  StoredProcedure [dbo].[Обновить_параметры_товаров]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Обновить_параметры_товаров]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Обновить_параметры_товаров] 
+CREATE PROCEDURE [dbo].[Обновить_параметры_товаров] 
 @ID_товара nvarchar(20),
 @Название_товара nvarchar(150), 
 @Категория nvarchar(75),
@@ -1598,16 +938,13 @@ BEGIN
 		Код_сервисного_центра=@Код_сервисного_центра
 	Where (@ID_товара=ID_товара)
 END
-' 
-END
 GO
-/****** Object:  Trigger [tU_Кредитный_договор]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tU_Кредитный_договор]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Кредитный_договор]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Кредитный_договор] ON [dbo].[Кредитный_договор] FOR UPDATE AS
+CREATE TRIGGER [dbo].[tU_Кредитный_договор] ON [dbo].[Кредитный_договор] FOR UPDATE AS
 /* ERwin Builtin Trigger */
 /* UPDATE trigger on Кредитный_договор */
 BEGIN
@@ -1620,10 +957,10 @@ BEGIN
 
   SELECT @NUMROWS = @@rowcount
   /* ERwin Builtin Trigger */
-  /* Кредитный_договор заключается при Продажа on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="00017316", PARENT_OWNER="", PARENT_TABLE="Кредитный_договор"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="заключается при", C2P_VERB_PHRASE="", 
+  /* Кредитный_договор  Продажа on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="000179b8", PARENT_OWNER="dbo", PARENT_TABLE="Кредитный_договор"
+    CHILD_OWNER="dbo", CHILD_TABLE="Продажа"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="заключается_при", FK_COLUMNS="Код_договора" */
   IF
     /* %ParentPK(" OR",UPDATE) */
@@ -1645,7 +982,7 @@ BEGIN
     ELSE
     BEGIN
       SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Кредитный_договор update because more than one row has been affected.''
+             @errmsg = 'Cannot cascade Кредитный_договор update because more than one row has been affected.'
       GOTO ERROR
     END
   END
@@ -1657,92 +994,25 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Trigger [tI_Продажа]    Script Date: 12/03/2013 05:52:32 ******/
+/****** Object:  Trigger [tD_Кредитный_договор]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tI_Продажа]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tI_Продажа] ON [dbo].[Продажа] FOR INSERT AS
-/* ERwin Builtin Trigger */
-/* INSERT trigger on Продажа */
-BEGIN
-   DECLARE @NUMROWS int,
-           @nullcnt int,
-           @validcnt int,
-           @errno   int,
-           @errmsg  varchar(255)
-
-  SELECT @NUMROWS = @@rowcount
-  /* ERwin Builtin Trigger */
-  /* Кредитный_договор заключается при Продажа on child insert set null */
-  /* ERWIN_RELATION:CHECKSUM="00016df8", PARENT_OWNER="", PARENT_TABLE="Кредитный_договор"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="заключается при", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="заключается_при", FK_COLUMNS="Код_договора" */
-  IF
-    /* %ChildFK(" OR",UPDATE) */
-    UPDATE(Код_договора)
-  BEGIN
-    UPDATE Продажа
-      SET
-        /* %SetFK(Продажа,NULL) */
-        Продажа.Код_договора = NULL
-      FROM Продажа,inserted
-      WHERE
-        /* %JoinPKPK(Продажа,inserted," = "," AND") */
-       Продажа.ID_товара = inserted.ID_товара AND
-        Продажа.Код_гарантийного_талона = inserted.Код_гарантийного_талона AND
-        
-        NOT EXISTS (
-          SELECT * FROM Кредитный_договор
-          WHERE
-            /* %JoinFKPK(inserted,Кредитный_договор," = "," AND") */
-            inserted.Код_договора = Кредитный_договор.Код_договора
-        )
-  END
-
-
-  /* ERwin Builtin Trigger */
-  RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [tD_Кредитный_договор]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Кредитный_договор]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Кредитный_договор] ON [dbo].[Кредитный_договор] FOR DELETE AS
+CREATE TRIGGER [dbo].[tD_Кредитный_договор] ON [dbo].[Кредитный_договор] FOR DELETE AS
 /* ERwin Builtin Trigger */
 /* DELETE trigger on Кредитный_договор */
 BEGIN
   DECLARE  @errno   int,
            @errmsg  varchar(255)
-    /* ERwin Builtin Trigger */
-    /* Кредитный_договор заключается при Продажа on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="00010332", PARENT_OWNER="", PARENT_TABLE="Кредитный_договор"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="заключается при", C2P_VERB_PHRASE="", 
+/* ERwin Builtin Trigger */
+/* Кредитный_договор  Продажа on parent delete set default */
+/* ERWIN_RELATION:CHECKSUM="0000b1f0", PARENT_OWNER="dbo", PARENT_TABLE="Кредитный_договор"
+    CHILD_OWNER="dbo", CHILD_TABLE="Продажа"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="заключается_при", FK_COLUMNS="Код_договора" */
-    IF EXISTS (
-      SELECT * FROM deleted,Продажа
-      WHERE
-        /*  %JoinFKPK(Продажа,deleted," = "," AND") */
-        Продажа.Код_договора = deleted.Код_договора
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Кредитный_договор because Продажа exists.''
-      GOTO ERROR
-    END
-
+/* Application specific.  Left out intentionally. */
 
     /* ERwin Builtin Trigger */
     RETURN
@@ -1750,166 +1020,36 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  View [dbo].[Количество_видов_отсутствующих_на_складе_товаров]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  View [dbo].[Количество_видов_отсутствующих_на_складе_товаров]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Количество_видов_отсутствующих_на_складе_товаров]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Количество_видов_отсутствующих_на_складе_товаров]
+CREATE VIEW [dbo].[Количество_видов_отсутствующих_на_складе_товаров]
 AS
 SELECT     COUNT(ID_товара) AS Количество_товаров
 FROM         dbo.Товар
 WHERE     (Количество_склад = 0)
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Количество_видов_отсутствующих_на_складе_товаров', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 215
-               Right = 252
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 12
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Количество_видов_отсутствующих_на_складе_товаров'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Количество_видов_отсутствующих_на_складе_товаров', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Количество_видов_отсутствующих_на_складе_товаров'
-GO
-/****** Object:  Trigger [Проверка_латиницы_в_серии_паспорта]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [Форматирование_данных_Клиент]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Проверка_латиницы_в_серии_паспорта]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[Проверка_латиницы_в_серии_паспорта] 
+CREATE TRIGGER [dbo].[Форматирование_данных_Клиент]
    ON  [dbo].[Клиент] 
-   For INSERT
+   FOR UPDATE,Insert
 AS 
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
+BEGIN
 IF ASCII
 		(Substring((Select Номер_паспорта_клиента From inserted ),1,2))>127	
 	BEGIN
-		Raiserror (''Введите серию паспорта латинскими буквами'',1,16)
+		Raiserror ('Введите серию паспорта латинскими буквами',1,16)
 	
 	Rollback transaction
-	END'
-GO
-/****** Object:  Trigger [Номер_паспорта_малыми]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Номер_паспорта_малыми]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[Номер_паспорта_малыми]
-   ON  [dbo].[Клиент] 
-   FOR INSERT,UPDATE
-AS 
-BEGIN
+	END
+
 declare @Номер_паспорта_ nvarchar(15)
 Set @Номер_паспорта_ = (Select Номер_паспорта_клиента
 							from inserted)
@@ -1919,210 +1059,81 @@ Set @ФИО = (Select ФИО_клиента
 							from inserted)
 							
 Update Клиент
-	Set Номер_паспорта_клиента=Lower(@Номер_паспорта_)
-		Where (ФИО_клиента=@ФИО)
-	
-	
+	Set ФИО_клиента=UPPER(@ФИО),Номер_паспорта_клиента=Lower(@Номер_паспорта_)
+		Where ( Номер_паспорта_клиента=@Номер_паспорта_)
+
+
 END
-'
 GO
-/****** Object:  View [dbo].[Клиенты_по_возрасту]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  View [dbo].[Клиенты_по_возрасту]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Клиенты_по_возрасту]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Клиенты_по_возрасту]
+CREATE VIEW [dbo].[Клиенты_по_возрасту]
 AS
 SELECT     TOP (100) PERCENT ФИО_клиента, Адрес_клиента, Телефон_мобильный, DATEDIFF(Year, Дата_рождения, GETDATE()) AS Возраст
 FROM         dbo.Клиент
 ORDER BY Возраст
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Клиенты_по_возрасту', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Клиент"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 125
-               Right = 259
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Клиенты_по_возрасту'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Клиенты_по_возрасту', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Клиенты_по_возрасту'
-GO
-/****** Object:  View [dbo].[Информация_о_Сотруднике]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  Trigger [tD_Клиент]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Информация_о_Сотруднике]'))
-EXEC dbo.sp_executesql @statement = N'Create View [dbo].[Информация_о_Сотруднике]
+CREATE TRIGGER [dbo].[tD_Клиент] ON [dbo].[Клиент] FOR DELETE AS
+/* ERwin Builtin Trigger */
+/* DELETE trigger on Клиент */
+BEGIN
+  DECLARE  @errno   int,
+           @errmsg  varchar(255)
+    /* ERwin Builtin Trigger */
+    /* Клиент  Кредитный_договор on parent delete cascade */
+    /* ERWIN_RELATION:CHECKSUM="0000f9ec", PARENT_OWNER="dbo", PARENT_TABLE="Клиент"
+    CHILD_OWNER="dbo", CHILD_TABLE="Кредитный_договор"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="заключает", FK_COLUMNS="Номер_паспорта_клиента" */
+    DELETE Кредитный_договор
+      FROM Кредитный_договор,deleted
+      WHERE
+        /*  %JoinFKPK(Кредитный_договор,deleted," = "," AND") */
+        Кредитный_договор.Номер_паспорта_клиента = deleted.Номер_паспорта_клиента
+
+
+    /* ERwin Builtin Trigger */
+    RETURN
+ERROR:
+    raiserror @errno @errmsg
+    rollback transaction
+END
+GO
+/****** Object:  View [dbo].[Информация_о_Сотруднике]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create View [dbo].[Информация_о_Сотруднике]
 AS
-Select ФИО_сотрудника, Upper(Номер_паспорта_сотрудника)AS ''Номер_паспорта_сотрудника'' ,
-	 CAST(Дата_рождения as nvarchar(10)) as ''Дата_рождения'', Адрес_сотрудника, Телефон_мобильный
+Select ФИО_сотрудника, Upper(Номер_паспорта_сотрудника)AS 'Номер_паспорта_сотрудника' ,
+	 CAST(Дата_рождения as nvarchar(10)) as 'Дата_рождения', Адрес_сотрудника, Телефон_мобильный
 	from Сотрудник
-	'
 GO
-/****** Object:  View [dbo].[Информация_о_Клиенте]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  View [dbo].[Информация_о_Клиенте]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Информация_о_Клиенте]'))
-EXEC dbo.sp_executesql @statement = N'Create View [dbo].[Информация_о_Клиенте]
+Create View [dbo].[Информация_о_Клиенте]
 AS
-Select ФИО_клиента, Upper(Номер_паспорта_клиента)AS ''Номер_паспорта_клиента'' , Адрес_клиента, Телефон_мобильный
+Select ФИО_клиента, Upper(Номер_паспорта_клиента)AS 'Номер_паспорта_клиента' , Адрес_клиента, Телефон_мобильный
 	from Клиент
-	'
 GO
-/****** Object:  Trigger [Изменение_фамилии]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Зарегистрировать_Клиента]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Изменение_фамилии]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[Изменение_фамилии]
-   ON  [dbo].[Сотрудник] 
-   FOR UPDATE,Insert
-AS 
-BEGIN
-
-declare @Номер_паспорта_ nvarchar(15)
-Set @Номер_паспорта_ = (Select Номер_паспорта_сотрудника
-							from inserted)
-							
-declare @ФИО nvarchar(15)
-Set @ФИО = (Select ФИО_сотрудника
-							from inserted)
-							
-Update Сотрудник
-	Set ФИО_сотрудника=UPPER(@ФИО)
-		Where (Номер_паспорта_сотрудника=@Номер_паспорта_)
-
-END'
-GO
-/****** Object:  StoredProcedure [dbo].[Зарегистрировать_Клиента]    Script Date: 12/03/2013 05:52:30 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зарегистрировать_Клиента]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-CREATE PROCEDURE [dbo].[Зарегистрировать_Клиента]
+Create PROCEDURE [dbo].[Зарегистрировать_Клиента]
 	@Номер_паспорта_клиента 	[nvarchar](20),
 	@ФИО_клиента 		[nvarchar](50),
 	@Дата_рождения			[nvarchar](30),
@@ -2132,7 +1143,7 @@ CREATE PROCEDURE [dbo].[Зарегистрировать_Клиента]
 AS 
 	IF ISDATE(@Дата_рождения) = 0
 	BEGIN
-		RAISERROR (''Неверное значение даты рождения Клиента.'', 16, 1)
+		RAISERROR ('Неверное значение даты рождения Клиента.', 16, 1)
 			WITH NOWAIT
 		RETURN 1
 	END
@@ -2151,30 +1162,34 @@ AS
 		@Адрес_клиента,
 		@Телефон_домашний,
 		@Телефон_мобильный)
-
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Заключить_кредитный_договор]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  StoredProcedure [dbo].[Заключить_кредитный_договор]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Заключить_кредитный_договор]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Заключить_кредитный_договор]
-	@Ежемесячная_выплата money,
-	@Первоначальный_взнос money,
+CREATE PROCEDURE [dbo].[Заключить_кредитный_договор]
+	@Ежемесячная_выплата float,
+	@Первоначальный_взнос float,
 	@Срок_оплаты int,
 	@ФИО_клиента nvarchar(50)	
 AS
 BEGIN
-
+	
+	If (ISNumeric(@Ежемесячная_выплата)=0 or IsNumeric(@Первоначальный_взнос)=0)
+	Begin
+		Raiserror('Введите денежные суммы в правильном формате',16,1)
+	    With NoWait RETURN 1
+	End
+	
+	set @Ежемесячная_выплата = CONVERT(money,@Ежемесячная_выплата)
+	set @Первоначальный_взнос = CONVERT(money,@Первоначальный_взнос)
+	
 	Declare @Номер_паспорта_клиента nvarchar(15)
 	set @Номер_паспорта_клиента = 
 		(Select [Номер_паспорта_клиента]
 			From dbo.Клиент
-				Where (ФИО_клиента=@ФИО_клиента) 
+				Where (ФИО_клиента=Upper(@ФИО_клиента)) 
 		)
 	
 	Insert into dbo.[Кредитный_договор]
@@ -2186,23 +1201,19 @@ BEGIN
 		)
 			Values
 			(
-			Convert(money,@Ежемесячная_выплата),
-			Convert(money,@Первоначальный_взнос),
+			@Ежемесячная_выплата,
+			@Первоначальный_взнос,
 			@Срок_оплаты,
 			@Номер_паспорта_клиента	
 			)
 	
 END
-' 
-END
 GO
-/****** Object:  Table [dbo].[Поставщик]    Script Date: 12/03/2013 05:52:30 ******/
+/****** Object:  Table [dbo].[Поставщик]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Поставщик]') AND type in (N'U'))
-BEGIN
 CREATE TABLE [dbo].[Поставщик](
 	[Код_поставщика] [int] IDENTITY(1,1) NOT NULL,
 	[Название_поставщика] [nvarchar](50) NOT NULL,
@@ -2214,7 +1225,6 @@ CREATE TABLE [dbo].[Поставщик](
 	[Код_поставщика] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
 GO
 SET IDENTITY_INSERT [dbo].[Поставщик] ON
 INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_поставщика], [Телефон_поставщика], [Описание]) VALUES (1, N'БелПринт', N'Г.Минск, пр-т Партизанский, 8а', N'', N'Магазин-склад запчастей для печатной техники')
@@ -2226,13 +1236,12 @@ INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_постав
 INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_поставщика], [Телефон_поставщика], [Описание]) VALUES (7, N'Ультра Прайс', N'г. Минск, ул. Сурганова 17', N'(017) 284-08-52', N'')
 INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_поставщика], [Телефон_поставщика], [Описание]) VALUES (8, N'D-Link International', N'220114, г. Минск, пр-т Независимости, 169', N'218-1362', N' Оф. представительство Dlink')
 SET IDENTITY_INSERT [dbo].[Поставщик] OFF
-/****** Object:  Trigger [Удаление_поставщика_с_проверкой_заказов]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [Удаление_поставщика_с_проверкой_заказов]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Удаление_поставщика_с_проверкой_заказов]'))
-EXEC dbo.sp_executesql @statement = N'Create TRIGGER [dbo].[Удаление_поставщика_с_проверкой_заказов] 
+Create TRIGGER [dbo].[Удаление_поставщика_с_проверкой_заказов] 
    ON  [dbo].[Поставщик] 
    for DELETE
 AS 
@@ -2247,20 +1256,17 @@ BEGIN
 			 Where (@код_поставщика=Код_поставщика)
 	) >0
 	Begin
-		raiserror (''Товар от этого поставщика ещё в заказе. Удаление невозможно.'',1,16)
+		raiserror ('Товар от этого поставщика ещё в заказе. Удаление невозможно.',1,16)
 		rollback transaction
 	End	 
 END
-'
 GO
-/****** Object:  StoredProcedure [dbo].[Оформить_заказ_товара]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Оформить_заказ_товара]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Оформить_заказ_товара]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Оформить_заказ_товара]
+CREATE PROCEDURE [dbo].[Оформить_заказ_товара]
 		@ФИО_клиента nvarchar(20),
 		@Название_товара nvarchar(150),
 		@Поставщик nvarchar(50),
@@ -2268,9 +1274,9 @@ EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Оформить_заказ_тов
 		
 AS
 BEGIN
-	if (ISNULL(@поставщик,'''')=0)
+	if (@поставщик IS NULL)
 	Begin
-		RAISERROR (''Не указано имя поставщика'', 16, 1)
+		RAISERROR ('Не указано имя поставщика', 16, 1)
 			WITH NOWAIT
 		RETURN 1
 	End
@@ -2304,16 +1310,100 @@ Declare	@ID_товара nvarchar(20)
 	(Номер_паспорта_клиента,ID_товара,Дата_заказа,Количество_заказано,Код_поставщика)
 		Values (@Номер_паспорта_клиента,@ID_товара, SYSDATETIME(),@Количество,@Код_поставщика)
 END
-' 
-END
 GO
-/****** Object:  Trigger [tU_Поставщик]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tU_Товар]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Поставщик]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Поставщик] ON [dbo].[Поставщик] FOR UPDATE AS
+CREATE TRIGGER [dbo].[tU_Товар] ON [dbo].[Товар] FOR UPDATE AS
+/* ERwin Builtin Trigger */
+/* UPDATE trigger on Товар */
+BEGIN
+  DECLARE  @NUMROWS int,
+           @nullcnt int,
+           @validcnt int,
+           @insID_товара nvarchar(20),
+           @errno   int,
+           @errmsg  varchar(255)
+
+  SELECT @NUMROWS = @@rowcount
+  /* ERwin Builtin Trigger */
+  /* Товар  Заказ_Товар_Поставщик on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="0002dbb0", PARENT_OWNER="dbo", PARENT_TABLE="Товар"
+    CHILD_OWNER="dbo", CHILD_TABLE="Заказ_Товар_Поставщик"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_23", FK_COLUMNS="ID_товара" */
+  IF
+    /* %ParentPK(" OR",UPDATE) */
+    UPDATE(ID_товара)
+  BEGIN
+    IF @NUMROWS = 1
+    BEGIN
+      SELECT @insID_товара = inserted.ID_товара
+        FROM inserted
+      UPDATE Заказ_Товар_Поставщик
+      SET
+        /*  %JoinFKPK(Заказ_Товар_Поставщик,@ins," = ",",") */
+        Заказ_Товар_Поставщик.ID_товара = @insID_товара
+      FROM Заказ_Товар_Поставщик,inserted,deleted
+      WHERE
+        /*  %JoinFKPK(Заказ_Товар_Поставщик,deleted," = "," AND") */
+        Заказ_Товар_Поставщик.ID_товара = deleted.ID_товара
+    END
+    ELSE
+    BEGIN
+      SELECT @errno = 30006,
+             @errmsg = 'Cannot cascade Товар update because more than one row has been affected.'
+      GOTO ERROR
+    END
+  END
+
+  /* ERwin Builtin Trigger */
+  /* Товар  Продажа on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="dbo", PARENT_TABLE="Товар"
+    CHILD_OWNER="dbo", CHILD_TABLE="Продажа"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="участвует_в", FK_COLUMNS="ID_товара" */
+  IF
+    /* %ParentPK(" OR",UPDATE) */
+    UPDATE(ID_товара)
+  BEGIN
+    IF @NUMROWS = 1
+    BEGIN
+      SELECT @insID_товара = inserted.ID_товара
+        FROM inserted
+      UPDATE Продажа
+      SET
+        /*  %JoinFKPK(Продажа,@ins," = ",",") */
+        Продажа.ID_товара = @insID_товара
+      FROM Продажа,inserted,deleted
+      WHERE
+        /*  %JoinFKPK(Продажа,deleted," = "," AND") */
+        Продажа.ID_товара = deleted.ID_товара
+    END
+    ELSE
+    BEGIN
+      SELECT @errno = 30006,
+             @errmsg = 'Cannot cascade Товар update because more than one row has been affected.'
+      GOTO ERROR
+    END
+  END
+
+
+  /* ERwin Builtin Trigger */
+  RETURN
+ERROR:
+    raiserror @errno @errmsg
+    rollback transaction
+END
+GO
+/****** Object:  Trigger [tU_Поставщик]    Script Date: 12/05/2013 20:13:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TRIGGER [dbo].[tU_Поставщик] ON [dbo].[Поставщик] FOR UPDATE AS
 /* ERwin Builtin Trigger */
 /* UPDATE trigger on Поставщик */
 BEGIN
@@ -2327,8 +1417,8 @@ BEGIN
   SELECT @NUMROWS = @@rowcount
   /* ERwin Builtin Trigger */
   /* Поставщик  Заказ_Товар_Поставщик on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="0001a575", PARENT_OWNER="", PARENT_TABLE="Поставщик"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
+  /* ERWIN_RELATION:CHECKSUM="0001aaf1", PARENT_OWNER="dbo", PARENT_TABLE="Поставщик"
+    CHILD_OWNER="dbo", CHILD_TABLE="Заказ_Товар_Поставщик"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="Relationship_456", FK_COLUMNS="Код_поставщика" */
   IF
@@ -2351,7 +1441,7 @@ BEGIN
     ELSE
     BEGIN
       SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Поставщик update because more than one row has been affected.''
+             @errmsg = 'Cannot cascade Поставщик update because more than one row has been affected.'
       GOTO ERROR
     END
   END
@@ -2363,15 +1453,13 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Trigger [tU_Клиент]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tU_Клиент]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Клиент]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Клиент] ON [dbo].[Клиент] FOR UPDATE AS
+CREATE TRIGGER [dbo].[tU_Клиент] ON [dbo].[Клиент] FOR UPDATE AS
 /* ERwin Builtin Trigger */
 /* UPDATE trigger on Клиент */
 BEGIN
@@ -2384,10 +1472,41 @@ BEGIN
 
   SELECT @NUMROWS = @@rowcount
   /* ERwin Builtin Trigger */
-  /* Клиент заключает Кредитный_договор on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="00030449", PARENT_OWNER="", PARENT_TABLE="Клиент"
-    CHILD_OWNER="", CHILD_TABLE="Кредитный_договор"
-    P2C_VERB_PHRASE="заключает", C2P_VERB_PHRASE="", 
+  /* Клиент  Заказ_Товар_Поставщик on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="000375b2", PARENT_OWNER="dbo", PARENT_TABLE="Клиент"
+    CHILD_OWNER="dbo", CHILD_TABLE="Заказ_Товар_Поставщик"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_24", FK_COLUMNS="Номер_паспорта_клиента" */
+  IF
+    /* %ParentPK(" OR",UPDATE) */
+    UPDATE(Номер_паспорта_клиента)
+  BEGIN
+    IF @NUMROWS = 1
+    BEGIN
+      SELECT @insНомер_паспорта_клиента = inserted.Номер_паспорта_клиента
+        FROM inserted
+      UPDATE Заказ_Товар_Поставщик
+      SET
+        /*  %JoinFKPK(Заказ_Товар_Поставщик,@ins," = ",",") */
+        Заказ_Товар_Поставщик.Номер_паспорта_клиента = @insНомер_паспорта_клиента
+      FROM Заказ_Товар_Поставщик,inserted,deleted
+      WHERE
+        /*  %JoinFKPK(Заказ_Товар_Поставщик,deleted," = "," AND") */
+        Заказ_Товар_Поставщик.Номер_паспорта_клиента = deleted.Номер_паспорта_клиента
+    END
+    ELSE
+    BEGIN
+      SELECT @errno = 30006,
+             @errmsg = 'Cannot cascade Клиент update because more than one row has been affected.'
+      GOTO ERROR
+    END
+  END
+
+  /* ERwin Builtin Trigger */
+  /* Клиент  Кредитный_договор on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="dbo", PARENT_TABLE="Клиент"
+    CHILD_OWNER="dbo", CHILD_TABLE="Кредитный_договор"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="заключает", FK_COLUMNS="Номер_паспорта_клиента" */
   IF
     /* %ParentPK(" OR",UPDATE) */
@@ -2409,30 +1528,7 @@ BEGIN
     ELSE
     BEGIN
       SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Клиент update because more than one row has been affected.''
-      GOTO ERROR
-    END
-  END
-
-  /* ERwin Builtin Trigger */
-  /* Клиент  Заказ_Товар_Поставщик on parent update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Клиент"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_24", FK_COLUMNS="Номер_паспорта_клиента" */
-  IF
-    /* %ParentPK(" OR",UPDATE) */
-    UPDATE(Номер_паспорта_клиента)
-  BEGIN
-    IF EXISTS (
-      SELECT * FROM deleted,Заказ_Товар_Поставщик
-      WHERE
-        /*  %JoinFKPK(Заказ_Товар_Поставщик,deleted," = "," AND") */
-        Заказ_Товар_Поставщик.Номер_паспорта_клиента = deleted.Номер_паспорта_клиента
-    )
-    BEGIN
-      SELECT @errno  = 30005,
-             @errmsg = ''Cannot update Клиент because Заказ_Товар_Поставщик exists.''
+             @errmsg = 'Cannot cascade Клиент update because more than one row has been affected.'
       GOTO ERROR
     END
   END
@@ -2444,229 +1540,22 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Trigger [tU_Заказ_Товар_Поставщик]    Script Date: 12/03/2013 05:52:32 ******/
+/****** Object:  StoredProcedure [dbo].[CURSOR_Показать_Ближайшие_Заказы]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Заказ_Товар_Поставщик]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Заказ_Товар_Поставщик] ON [dbo].[Заказ_Товар_Поставщик] FOR UPDATE AS
-/* ERwin Builtin Trigger */
-/* UPDATE trigger on Заказ_Товар_Поставщик */
-BEGIN
-  DECLARE  @NUMROWS int,
-           @nullcnt int,
-           @validcnt int,
-           @insID_Заказа int,
-           @errno   int,
-           @errmsg  varchar(255)
-
-  SELECT @NUMROWS = @@rowcount
-  /* ERwin Builtin Trigger */
-  /* Товар  Заказ_Товар_Поставщик on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="0002a1b4", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_23", FK_COLUMNS="ID_товара" */
-  IF
-    /* %ChildFK(" OR",UPDATE) */
-    UPDATE(ID_товара)
-  BEGIN
-    SELECT @nullcnt = 0
-    SELECT @validcnt = count(*)
-      FROM inserted,Товар
-        WHERE
-          /* %JoinFKPK(inserted,Товар) */
-          inserted.ID_товара = Товар.ID_товара
-    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
-    
-    IF @validcnt + @nullcnt != @NUMROWS
-    BEGIN
-      SELECT @errno  = 30007,
-             @errmsg = ''Cannot update Заказ_Товар_Поставщик because Товар does not exist.''
-      GOTO ERROR
-    END
-  END
-
-  /* ERwin Builtin Trigger */
-  /* Клиент  Заказ_Товар_Поставщик on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Клиент"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_24", FK_COLUMNS="Номер_паспорта_клиента" */
-  IF
-    /* %ChildFK(" OR",UPDATE) */
-    UPDATE(Номер_паспорта_клиента)
-  BEGIN
-    SELECT @nullcnt = 0
-    SELECT @validcnt = count(*)
-      FROM inserted,Клиент
-        WHERE
-          /* %JoinFKPK(inserted,Клиент) */
-          inserted.Номер_паспорта_клиента = Клиент.Номер_паспорта_клиента
-    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
-    
-    IF @validcnt + @nullcnt != @NUMROWS
-    BEGIN
-      SELECT @errno  = 30007,
-             @errmsg = ''Cannot update Заказ_Товар_Поставщик because Клиент does not exist.''
-      GOTO ERROR
-    END
-  END
-
-
-  /* ERwin Builtin Trigger */
-  RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [tD_Клиент]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Клиент]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Клиент] ON [dbo].[Клиент] FOR DELETE AS
-/* ERwin Builtin Trigger */
-/* DELETE trigger on Клиент */
-BEGIN
-  DECLARE  @errno   int,
-           @errmsg  varchar(255)
-    /* ERwin Builtin Trigger */
-    /* Клиент заключает Кредитный_договор on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="000243c2", PARENT_OWNER="", PARENT_TABLE="Клиент"
-    CHILD_OWNER="", CHILD_TABLE="Кредитный_договор"
-    P2C_VERB_PHRASE="заключает", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="заключает", FK_COLUMNS="Номер_паспорта_клиента" */
-    IF EXISTS (
-      SELECT * FROM deleted,Кредитный_договор
-      WHERE
-        /*  %JoinFKPK(Кредитный_договор,deleted," = "," AND") */
-        Кредитный_договор.Номер_паспорта_клиента = deleted.Номер_паспорта_клиента
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Клиент because Кредитный_договор exists.''
-      GOTO ERROR
-    END
-
-    /* ERwin Builtin Trigger */
-    /* Клиент  Заказ_Товар_Поставщик on parent delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Клиент"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_24", FK_COLUMNS="Номер_паспорта_клиента" */
-    IF EXISTS (
-      SELECT * FROM deleted,Заказ_Товар_Поставщик
-      WHERE
-        /*  %JoinFKPK(Заказ_Товар_Поставщик,deleted," = "," AND") */
-        Заказ_Товар_Поставщик.Номер_паспорта_клиента = deleted.Номер_паспорта_клиента
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Клиент because Заказ_Товар_Поставщик exists.''
-      GOTO ERROR
-    END
-
-
-    /* ERwin Builtin Trigger */
-    RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [tD_Заказ_Товар_Поставщик]    Script Date: 12/03/2013 05:52:32 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Заказ_Товар_Поставщик]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Заказ_Товар_Поставщик] ON [dbo].[Заказ_Товар_Поставщик] FOR DELETE AS
-/* ERwin Builtin Trigger */
-/* DELETE trigger on Заказ_Товар_Поставщик */
-BEGIN
-  DECLARE  @errno   int,
-           @errmsg  varchar(255)
-    /* ERwin Builtin Trigger */
-    /* Товар  Заказ_Товар_Поставщик on child delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00028244", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_23", FK_COLUMNS="ID_товара" */
-    IF EXISTS (SELECT * FROM deleted,Товар
-      WHERE
-        /* %JoinFKPK(deleted,Товар," = "," AND") */
-        deleted.ID_товара = Товар.ID_товара AND
-        NOT EXISTS (
-          SELECT * FROM Заказ_Товар_Поставщик
-          WHERE
-            /* %JoinFKPK(Заказ_Товар_Поставщик,Товар," = "," AND") */
-            Заказ_Товар_Поставщик.ID_товара = Товар.ID_товара
-        )
-    )
-    BEGIN
-      SELECT @errno  = 30010,
-             @errmsg = ''Cannot delete last Заказ_Товар_Поставщик because Товар exists.''
-      GOTO ERROR
-    END
-
-    /* ERwin Builtin Trigger */
-    /* Клиент  Заказ_Товар_Поставщик on child delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Клиент"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_24", FK_COLUMNS="Номер_паспорта_клиента" */
-    IF EXISTS (SELECT * FROM deleted,Клиент
-      WHERE
-        /* %JoinFKPK(deleted,Клиент," = "," AND") */
-        deleted.Номер_паспорта_клиента = Клиент.Номер_паспорта_клиента AND
-        NOT EXISTS (
-          SELECT * FROM Заказ_Товар_Поставщик
-          WHERE
-            /* %JoinFKPK(Заказ_Товар_Поставщик,Клиент," = "," AND") */
-            Заказ_Товар_Поставщик.Номер_паспорта_клиента = Клиент.Номер_паспорта_клиента
-        )
-    )
-    BEGIN
-      SELECT @errno  = 30010,
-             @errmsg = ''Cannot delete last Заказ_Товар_Поставщик because Клиент exists.''
-      GOTO ERROR
-    END
-
-
-    /* ERwin Builtin Trigger */
-    RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  StoredProcedure [dbo].[CURSOR_Показать_Ближайшие_Заказы]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CURSOR_Показать_Ближайшие_Заказы]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[CURSOR_Показать_Ближайшие_Заказы]
+CREATE PROCEDURE [dbo].[CURSOR_Показать_Ближайшие_Заказы]
 AS
 BEGIN
 Declare orders cursor local scroll
 	FOR
-	Select Top 50 Str([ID_Заказа]) as ''ID_заказа'',[Номер_паспорта_клиента],[ID_товара],
-			DATEDIFF(D,[Дата_заказа], GETDATE()) as ''Дней_с_регистрации''
+	Select Top 50 Str([ID_Заказа]) as 'ID_заказа',[Номер_паспорта_клиента],[ID_товара],
+			DATEDIFF(D,[Дата_заказа], GETDATE()) as 'Дней_с_регистрации'
 		From Заказ_Товар_Поставщик
 			Where ( DATEDIFF(D,[Дата_заказа],GETDATE())>7)
-			Order By DATEDIFF(D,[Дата_заказа],GETDATE()) Asc
-			
+			Order By DATEDIFF(D,[Дата_заказа],GETDATE()) Asc			
 	Open orders
 	While (@@FETCH_STATUS=0)
 	Begin
@@ -2675,16 +1564,13 @@ Declare orders cursor local scroll
 	Close orders
 	deallocate orders
 END
-' 
-END
 GO
-/****** Object:  View [dbo].[Заемщики]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  View [dbo].[Заемщики]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Заемщики]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Заемщики]
+CREATE VIEW [dbo].[Заемщики]
 AS
 SELECT     dbo.Клиент.ФИО_клиента, SUM(dbo.Продажа.Цена) AS [Общая сумма кредита], COUNT(dbo.Кредитный_договор.Код_договора) 
                       AS [Количество кредитов]
@@ -2692,307 +1578,51 @@ FROM         dbo.Продажа INNER JOIN
                       dbo.Кредитный_договор ON dbo.Продажа.Код_договора = dbo.Кредитный_договор.Код_договора INNER JOIN
                       dbo.Клиент ON dbo.Кредитный_договор.Номер_паспорта_клиента = dbo.Клиент.Номер_паспорта_клиента
 GROUP BY dbo.Клиент.ФИО_клиента
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Заемщики', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Клиент"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 163
-               Right = 259
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Продажа"
-            Begin Extent = 
-               Top = 7
-               Left = 582
-               Bottom = 168
-               Right = 809
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Кредитный_договор"
-            Begin Extent = 
-               Top = 23
-               Left = 317
-               Bottom = 142
-               Right = 538
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 12
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Заемщики'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Заемщики', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Заемщики'
-GO
-/****** Object:  View [dbo].[Детали_наименьшего_количества]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Есть_ли_товар]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Детали_наименьшего_количества]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Детали_наименьшего_количества]
+CREATE PROCEDURE [dbo].[Есть_ли_товар]
+	@Часть_Названия nvarchar(50)
+AS
+BEGIN
+	(
+	Select PATINDEX ('%'+@Часть_Названия+'%', @Часть_Названия)   
+	  	from [Товар]
+	)   	
+
+END
+GO
+/****** Object:  View [dbo].[Детали_наименьшего_количества]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[Детали_наименьшего_количества]
 AS
 SELECT     TOP (15) Название_товара, Категория, Цена, Срок_гарантии, MIN(Количество_склад + Количество_магазин) AS [Осталось,шт]
 FROM         dbo.Товар
 GROUP BY Название_товара, Категория, Цена, Срок_гарантии
 ORDER BY [Осталось,шт]
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Детали_наименьшего_количества', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 125
-               Right = 268
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 12
-         Column = 3465
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Детали_наименьшего_количества'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Детали_наименьшего_количества', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Детали_наименьшего_количества'
-GO
-/****** Object:  View [dbo].[Сотрудник_Прибыль]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  View [dbo].[Сотрудник_Прибыль]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Сотрудник_Прибыль]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Сотрудник_Прибыль]
+CREATE VIEW [dbo].[Сотрудник_Прибыль]
 AS
 SELECT TOP(100) Сотрудник.ФИО_сотрудника, Общая_прибыль 
 	FROM dbo.Сотрудник
 		Inner JOIN
 		(
-			SELECT Номер_паспорта_сотрудника, SUM( Прибыль) AS ''Общая_прибыль''	
+			SELECT Номер_паспорта_сотрудника, SUM( Прибыль) AS 'Общая_прибыль'	
 				FROM Гарантийный_талон
 				 INNER JOIN 
 					( 
-					SELECT SUM(Цена*Количество) AS ''Прибыль'', Код_гарантийного_талона  
+					SELECT SUM(Цена*Количество) AS 'Прибыль', Код_гарантийного_талона  
 						FROM dbo.Продажа
 						   GROUP BY Код_гарантийного_талона
 					) AS tmp1
@@ -3001,330 +1631,46 @@ SELECT TOP(100) Сотрудник.ФИО_сотрудника, Общая_прибыль
 		 ) as tmp2
   ON (tmp2.Номер_паспорта_сотрудника=dbo.Сотрудник.Номер_паспорта_сотрудника)
 ORDER BY Общая_прибыль ASC
-'
 GO
-/****** Object:  View [dbo].[Продажи_за_текущий_месяц]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  View [dbo].[Продажи_за_текущий_месяц]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_текущий_месяц]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Продажи_за_текущий_месяц]
+CREATE VIEW [dbo].[Продажи_за_текущий_месяц]
 AS
 SELECT     dbo.Товар.Название_товара, dbo.Продажа.Количество, dbo.Продажа.Цена, dbo.Гарантийный_талон.Дата_время
 FROM         dbo.Продажа INNER JOIN
                       dbo.Товар ON dbo.Продажа.ID_товара = dbo.Товар.ID_товара INNER JOIN
                       dbo.Гарантийный_талон ON dbo.Продажа.Код_гарантийного_талона = dbo.Гарантийный_талон.Код_гарантийного_талона
 WHERE     (YEAR(dbo.Гарантийный_талон.Дата_время) = YEAR(GETDATE())) AND (MONTH(dbo.Гарантийный_талон.Дата_время) = MONTH(GETDATE()))
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Продажи_за_текущий_месяц', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Продажа"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 125
-               Right = 265
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 303
-               Bottom = 125
-               Right = 517
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Гарантийный_талон"
-            Begin Extent = 
-               Top = 6
-               Left = 555
-               Bottom = 125
-               Right = 795
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Продажи_за_текущий_месяц'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Продажи_за_текущий_месяц', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Продажи_за_текущий_месяц'
-GO
-/****** Object:  View [dbo].[Продажи_за_текущий_год]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  View [dbo].[Продажи_за_текущий_год]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_текущий_год]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Продажи_за_текущий_год]
+CREATE VIEW [dbo].[Продажи_за_текущий_год]
 AS
 SELECT     dbo.Товар.Название_товара, dbo.Продажа.Количество, dbo.Продажа.Цена, dbo.Гарантийный_талон.Дата_время
 FROM         dbo.Продажа INNER JOIN
                       dbo.Товар ON dbo.Продажа.ID_товара = dbo.Товар.ID_товара INNER JOIN
                       dbo.Гарантийный_талон ON dbo.Продажа.Код_гарантийного_талона = dbo.Гарантийный_талон.Код_гарантийного_талона
 WHERE     (YEAR(dbo.Гарантийный_талон.Дата_время) = YEAR(GETDATE()))
-'
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Продажи_за_текущий_год', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Продажа"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 125
-               Right = 265
-            End
-            DisplayFlags = 280
-            TopColumn = 1
-         End
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 303
-               Bottom = 125
-               Right = 517
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Гарантийный_талон"
-            Begin Extent = 
-               Top = 6
-               Left = 555
-               Bottom = 125
-               Right = 795
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Продажи_за_текущий_год'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Продажи_за_текущий_год', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Продажи_за_текущий_год'
-GO
-/****** Object:  StoredProcedure [dbo].[Продажи_за_Месяц_Года]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Продажи_за_Месяц_Года]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_Месяц_Года]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'Create PROCEDURE [dbo].[Продажи_за_Месяц_Года]
+Create PROCEDURE [dbo].[Продажи_за_Месяц_Года]
 	@НомерМесяца int,
 	@НомерГода int
 AS
 BEGIN
 	If((@НомерМесяца<1) or (@НомерМесяца > 12))
 		Begin
-			RaisError ('''',1,16)
+			RaisError ('',1,16)
 			With NoWait
 			Return 1
 		End
@@ -3338,22 +1684,18 @@ BEGIN
 					and MONTH ([Дата_время])= @НомерМесяца)
 		)
 		
- Select Sum([цена]) as ''Выручка'' 
+ Select Sum([цена]) as 'Выручка' 
 	FROM [dbo].Продажа 
 		 Where (@Талон=Код_гарантийного_талона)
 
 END
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Продажи_за_Год]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Продажи_за_Год]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Продажи_за_Год]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'Create PROCEDURE [dbo].[Продажи_за_Год]
+Create PROCEDURE [dbo].[Продажи_за_Год]
 	@НомерГода int
 AS
 BEGIN
@@ -3365,27 +1707,45 @@ BEGIN
 				Where (Year([Дата_время])=@НомерГода)
 		)
 		
- Select Sum([цена]) as ''Выручка'' 
+ Select Sum([цена]) as 'Выручка' 
 	FROM [dbo].Продажа 
 		 Where (@Талон=Код_гарантийного_талона)
 
 END
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Зарегистрировать_покупку]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Получить_номер_гарантийного_талона]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зарегистрировать_покупку]') AND type in (N'P', N'PC'))
+CREATE PROCEDURE [dbo].[Получить_номер_гарантийного_талона] 
+@Серийный_номер_экземпляра nvarchar(50),
+@ФИО_сотрудника nvarchar(50)
+AS
 BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Зарегистрировать_покупку]
+	Select Код_гарантийного_талона
+		from dbo.Гарантийный_талон
+			Where ((@Серийный_номер_экземпляра = Серийный_номер_экземпляра)
+			AND (Номер_паспорта_сотрудника=
+					(Select Номер_паспорта_сотрудника
+						From dbo.[Сотрудник]
+							Where (ФИО_сотрудника=Upper(@ФИО_сотрудника))
+					 )
+				))
+				
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Зарегистрировать_покупку]    Script Date: 12/05/2013 20:13:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Зарегистрировать_покупку]
 	@Название_товара as nvarchar(50),
 	@Количество as int,
 	@Тип_оплаты nvarchar(30),
 	@Серийный_номер_экземпляра nvarchar(20),
-	@Код_договора int
+	@Код_договора varchar(10)=null
 AS
 BEGIN
 	Declare @общ_колво int
@@ -3395,7 +1755,7 @@ BEGIN
 				Where  (@Название_товара=Название_товара)) 
 	If(@общ_колво=0)
 	Begin
-		Raiserror (''Товара нет'',1,16)
+		Raiserror ('',1,16)
 		With NoWait Return 1
 	End	
 	
@@ -3418,25 +1778,27 @@ BEGIN
 		From dbo.[Гарантийный_талон]
 			where (@Серийный_номер_экземпляра=Серийный_номер_экземпляра)
 	 )
-	if (@код_гарантийного_талона = NULL) -- do not work correctly
-	Begin
-		Raiserror(''Нет гарантийного талона с таким серийным номером'',1,16)
-		with nowait return 1
-	End		
+	if(@Код_договора!=null)
+	begin
 	
 	Insert Into dbo.[Продажа](Код_договора,Код_гарантийного_талона,ID_товара,Тип_оплаты,Количество,Цена)
-		Values (@Код_договора,@код_гарантийного_талона,@ID_,@Тип_оплаты,@Количество,@Сумм_цена)	
-END
-' 
+		Values (Cast(@Код_договора as int),@код_гарантийного_талона,@ID_,@Тип_оплаты,@Количество,@Сумм_цена)
+	
+	end	
+	else
+	begin
+	Insert Into dbo.[Продажа](Код_договора,Код_гарантийного_талона,ID_товара,Тип_оплаты,Количество,Цена)
+		Values (@Код_договора,@код_гарантийного_талона,@ID_,@Тип_оплаты,@Количество,@Сумм_цена)
+	end	
+	
 END
 GO
-/****** Object:  Trigger [tU_Сотрудник]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tU_Сотрудник]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Сотрудник]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Сотрудник] ON [dbo].[Сотрудник] FOR UPDATE AS
+CREATE TRIGGER [dbo].[tU_Сотрудник] ON [dbo].[Сотрудник] FOR UPDATE AS
 /* ERwin Builtin Trigger */
 /* UPDATE trigger on Сотрудник */
 BEGIN
@@ -3449,10 +1811,10 @@ BEGIN
 
   SELECT @NUMROWS = @@rowcount
   /* ERwin Builtin Trigger */
-  /* Сотрудник выдает Гарантийный_талон on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="0001cb1a", PARENT_OWNER="", PARENT_TABLE="Сотрудник"
-    CHILD_OWNER="", CHILD_TABLE="Гарантийный_талон"
-    P2C_VERB_PHRASE="выдает", C2P_VERB_PHRASE="", 
+  /* Сотрудник  Гарантийный_талон on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="0001c56c", PARENT_OWNER="dbo", PARENT_TABLE="Сотрудник"
+    CHILD_OWNER="dbo", CHILD_TABLE="Гарантийный_талон"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="выдает", FK_COLUMNS="Номер_паспорта_сотрудника" */
   IF
     /* %ParentPK(" OR",UPDATE) */
@@ -3474,7 +1836,7 @@ BEGIN
     ELSE
     BEGIN
       SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Сотрудник update because more than one row has been affected.''
+             @errmsg = 'Cannot cascade Сотрудник update because more than one row has been affected.'
       GOTO ERROR
     END
   END
@@ -3486,37 +1848,32 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Trigger [tD_Сотрудник]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [tD_Сотрудник]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Сотрудник]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Сотрудник] ON [dbo].[Сотрудник] FOR DELETE AS
+CREATE TRIGGER [dbo].[tD_Сотрудник] ON [dbo].[Сотрудник] FOR DELETE AS
 /* ERwin Builtin Trigger */
 /* DELETE trigger on Сотрудник */
 BEGIN
   DECLARE  @errno   int,
            @errmsg  varchar(255)
     /* ERwin Builtin Trigger */
-    /* Сотрудник выдает Гарантийный_талон on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="000121b6", PARENT_OWNER="", PARENT_TABLE="Сотрудник"
-    CHILD_OWNER="", CHILD_TABLE="Гарантийный_талон"
-    P2C_VERB_PHRASE="выдает", C2P_VERB_PHRASE="", 
+    /* Сотрудник  Гарантийный_талон on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="00011be3", PARENT_OWNER="dbo", PARENT_TABLE="Сотрудник"
+    CHILD_OWNER="dbo", CHILD_TABLE="Гарантийный_талон"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="выдает", FK_COLUMNS="Номер_паспорта_сотрудника" */
-    IF EXISTS (
-      SELECT * FROM deleted,Гарантийный_талон
+    UPDATE Гарантийный_талон
+      SET
+        /* %SetFK(Гарантийный_талон,NULL) */
+        Гарантийный_талон.Номер_паспорта_сотрудника = NULL
+      FROM Гарантийный_талон,deleted
       WHERE
-        /*  %JoinFKPK(Гарантийный_талон,deleted," = "," AND") */
+        /* %JoinFKPK(Гарантийный_талон,deleted," = "," AND") */
         Гарантийный_талон.Номер_паспорта_сотрудника = deleted.Номер_паспорта_сотрудника
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Сотрудник because Гарантийный_талон exists.''
-      GOTO ERROR
-    END
 
 
     /* ERwin Builtin Trigger */
@@ -3525,15 +1882,12 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Table [dbo].[Гарантийный_журнал]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Table [dbo].[Гарантийный_журнал]    Script Date: 12/05/2013 20:13:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Гарантийный_журнал]') AND type in (N'U'))
-BEGIN
 CREATE TABLE [dbo].[Гарантийный_журнал](
 	[Статус_обслуживания] [nvarchar](20) NOT NULL,
 	[Примечание] [ntext] NULL,
@@ -3546,28 +1900,18 @@ CREATE TABLE [dbo].[Гарантийный_журнал](
 	[Код_гарантийного_талона] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-END
 GO
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечание', N'Гарантийный ремонт', CAST(0x0000A26C0169EDE9 AS DateTime), 6)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D000C7790 AS DateTime), 5)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D000C836E AS DateTime), 4)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D000C8694 AS DateTime), 4)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D000C8B5D AS DateTime), 6)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D000C90DB AS DateTime), 8)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D00125053 AS DateTime), 8)
-INSERT [dbo].[Гарантийный_журнал] ([Статус_обслуживания], [Примечание], [Причина_направления_на_замену], [Дата_время], [Код_гарантийного_талона]) VALUES (N'Ремонт', N'примечания', N'Гарантийный ремонт', CAST(0x0000A26D001257F0 AS DateTime), 3)
-/****** Object:  View [dbo].[Товары_с_частой_поломкой]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  View [dbo].[Товары_с_частой_поломкой]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Товары_с_частой_поломкой]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Товары_с_частой_поломкой]
+CREATE VIEW [dbo].[Товары_с_частой_поломкой]
 AS
  -- взять Гарантийный_журнал.Код_гарантийного_талона , найти ID_товара, Найти название.
  --  Найти количество Гарантийный_журнал.Код_гарантийного_талона 
    		
-SELECT top (15) Название_товара, COUNT(Гарантийный_журнал.Код_гарантийного_талона)AS ''Количество_замен'' 
+SELECT top (15) Название_товара, COUNT(Гарантийный_журнал.Код_гарантийного_талона)AS 'Количество_замен' 
   FROM
   ( Товар
   	INNER JOIN 
@@ -3581,175 +1925,27 @@ SELECT top (15) Название_товара, COUNT(Гарантийный_журнал.Код_гарантийного_талон
 		  ON (Гарантийный_журнал.Код_гарантийного_талона= Гарантийный_талон.Код_гарантийного_талона)									
    )
    GROUP BY Название_товара
-   ORDER BY Количество_замен ASC'
+   ORDER BY Количество_замен ASC
 GO
-/****** Object:  View [dbo].[Список_вещей_на_гарантийной_замене]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  View [dbo].[Список_вещей_на_гарантийной_замене]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[Список_вещей_на_гарантийной_замене]'))
-EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[Список_вещей_на_гарантийной_замене]
+CREATE VIEW [dbo].[Список_вещей_на_гарантийной_замене]
 AS
 SELECT     dbo.Товар.Название_товара, dbo.Гарантийный_журнал.Дата_время, dbo.Гарантийный_журнал.Код_гарантийного_талона
 FROM         dbo.Гарантийный_журнал INNER JOIN
                       dbo.Продажа ON dbo.Продажа.Код_гарантийного_талона = dbo.Гарантийный_журнал.Код_гарантийного_талона INNER JOIN
                       dbo.Товар ON dbo.Товар.ID_товара = dbo.Продажа.ID_товара
-WHERE     (CONVERT(nvarchar(50), dbo.Гарантийный_журнал.Причина_направления_на_замену) = ''Гарантийная замена'')
-'
+WHERE     (CONVERT(nvarchar(50), dbo.Гарантийный_журнал.Причина_направления_на_замену) = 'Гарантийная замена')
 GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'Список_вещей_на_гарантийной_замене', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "Гарантийный_журнал"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 150
-               Right = 301
-            End
-            DisplayFlags = 280
-            TopColumn = 1
-         End
-         Begin Table = "Продажа"
-            Begin Extent = 
-               Top = 6
-               Left = 660
-               Bottom = 164
-               Right = 957
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Товар"
-            Begin Extent = 
-               Top = 6
-               Left = 339
-               Bottom = 193
-               Right = 553
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Список_вещей_на_гарантийной_замене'
-GO
-IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'Список_вещей_на_гарантийной_замене', NULL,NULL))
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'Список_вещей_на_гарантийной_замене'
-GO
-/****** Object:  StoredProcedure [dbo].[Количество_гарантийного_ремонта_по_категории]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Количество_гарантийного_ремонта_по_категории]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Количество_гарантийного_ремонта_по_категории]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Количество_гарантийного_ремонта_по_категории]
+CREATE PROCEDURE [dbo].[Количество_гарантийного_ремонта_по_категории]
 	@Категория nvarchar(75)
 AS
 BEGIN
@@ -3769,21 +1965,17 @@ BEGIN
 		)
 		Select Count(Дата_время)
 			From Гарантийный_журнал
-				Where ([Причина_направления_на_замену] Like ''Гарантийная замена'' and
+				Where ([Причина_направления_на_замену] Like 'Гарантийная замена' and
 						[Код_гарантийного_талона] Like @Код_гарантийного_талона)
 				
 END
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Зафиксировать_результаты_ремонта]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Зафиксировать_результаты_ремонта]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зафиксировать_результаты_ремонта]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Зафиксировать_результаты_ремонта]
+CREATE PROCEDURE [dbo].[Зафиксировать_результаты_ремонта]
 		@Код_гарантийного_талона int,
 		@Статус_обслуживания nvarchar(20)
 	AS
@@ -3794,7 +1986,7 @@ BEGIN
 				    	Where ([Код_гарантийного_талона]=@Код_гарантийного_талона) 
 				   	   )
 		Begin
-				RaisError(''В гарантийном журнале такой записи нет'',1,16)
+				RaisError('В гарантийном журнале такой записи нет',1,16)
 		End		    	
 		-- проверка на существование
 
@@ -3803,27 +1995,23 @@ BEGIN
 		Where (@Код_гарантийного_талона =Код_гарантийного_талона)
 		
 END
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Занести_запись_в_гарантийный_журнал]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Занести_запись_в_гарантийный_журнал]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Занести_запись_в_гарантийный_журнал]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Занести_запись_в_гарантийный_журнал]
+CREATE PROCEDURE [dbo].[Занести_запись_в_гарантийный_журнал]
 		@Код_гарантийного_талона nvarchar(10),
 		@Статус_обслуживания nvarchar(20),
 		@Примечание ntext,
-		@Причина_направления_на_замену text
+		@Причина text
 AS
 BEGIN
 Declare @код_талона int
 		IF (ISNUMERIC(@Код_гарантийного_талона)=0)
 			begin
-				RaisError(''Неправильный формат номера гарантийного талона'',1,16)
+				RaisError('Неправильный формат номера гарантийного талона',1,16)
 				With NoWait Return 1
 			end
 			Else
@@ -3833,20 +2021,16 @@ Declare @код_талона int
 		
 		Insert into dbo.[Гарантийный_журнал] 
 			(Код_гарантийного_талона,Дата_время,Статус_обслуживания, Причина_направления_на_замену,Примечание)
-				Values (@код_талона, Getdate(),@Статус_обслуживания, @Причина_направления_на_замену,@Примечание)
+				Values (@код_талона, Getdate(),@Статус_обслуживания, @Причина,@Примечание)
 		
 END
-' 
-END
 GO
-/****** Object:  StoredProcedure [dbo].[Зафиксировать_замену_по_гарантии]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Зафиксировать_замену_по_гарантии]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Зафиксировать_замену_по_гарантии]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Зафиксировать_замену_по_гарантии]
+CREATE PROCEDURE [dbo].[Зафиксировать_замену_по_гарантии]
 	@Название_товара nvarchar(150),
 	@Код_гарантийного_талона int
 		-- нет в магазине, снять со склада
@@ -3877,7 +2061,7 @@ Set  @Дата_время_покупки=
 	 )	 
 		if (DATEDIFF(MONTH,@Дата_время_покупки,GetDate())>=@срок_гарантия)
 			Begin
-				RaisError(''Срок гарантии истёк.'',1,16)
+				RaisError('Срок гарантии истёк.',1,16)
 				With NoWait Return 1
 			End	
 		
@@ -3893,25 +2077,22 @@ Set  @Дата_время_покупки=
 	 Begin
 		If (@колво_магазин<1)
 		  Begin
-				RaisError(''Товара нет'',1,16)
+				RaisError('Товара нет',1,16)
 				With NoWait Return 1
 		  End
 	 End
 	 Execute dbo."Занести_запись_в_гарантийный_журнал"  
-	 @Код_гарантийного_талона,''Только_поступил'','''',''Гарантийная замена''
+	 @Код_гарантийного_талона,'Только_поступил','','Гарантийная замена'
 	 
 	 	
 END
-' 
-END
 GO
-/****** Object:  Trigger [tU_Гарантийный_талон]    Script Date: 12/03/2013 05:52:32 ******/
+/****** Object:  Trigger [tU_Гарантийный_талон]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Гарантийный_талон]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Гарантийный_талон] ON [dbo].[Гарантийный_талон] FOR UPDATE AS
+CREATE TRIGGER [dbo].[tU_Гарантийный_талон] ON [dbo].[Гарантийный_талон] FOR UPDATE AS
 /* ERwin Builtin Trigger */
 /* UPDATE trigger on Гарантийный_талон */
 BEGIN
@@ -3924,10 +2105,41 @@ BEGIN
 
   SELECT @NUMROWS = @@rowcount
   /* ERwin Builtin Trigger */
-  /* Гарантийный_талон выдается при Продажа on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="0002fa9b", PARENT_OWNER="", PARENT_TABLE="Гарантийный_талон"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="выдается при", C2P_VERB_PHRASE="", 
+  /* Гарантийный_талон  Гарантийный_журнал on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="0003507d", PARENT_OWNER="dbo", PARENT_TABLE="Гарантийный_талон"
+    CHILD_OWNER="dbo", CHILD_TABLE="Гарантийный_журнал"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_16", FK_COLUMNS="Код_гарантийного_талона" */
+  IF
+    /* %ParentPK(" OR",UPDATE) */
+    UPDATE(Код_гарантийного_талона)
+  BEGIN
+    IF @NUMROWS = 1
+    BEGIN
+      SELECT @insКод_гарантийного_талона = inserted.Код_гарантийного_талона
+        FROM inserted
+      UPDATE Гарантийный_журнал
+      SET
+        /*  %JoinFKPK(Гарантийный_журнал,@ins," = ",",") */
+        Гарантийный_журнал.Код_гарантийного_талона = @insКод_гарантийного_талона
+      FROM Гарантийный_журнал,inserted,deleted
+      WHERE
+        /*  %JoinFKPK(Гарантийный_журнал,deleted," = "," AND") */
+        Гарантийный_журнал.Код_гарантийного_талона = deleted.Код_гарантийного_талона
+    END
+    ELSE
+    BEGIN
+      SELECT @errno = 30006,
+             @errmsg = 'Cannot cascade Гарантийный_талон update because more than one row has been affected.'
+      GOTO ERROR
+    END
+  END
+
+  /* ERwin Builtin Trigger */
+  /* Гарантийный_талон  Продажа on parent update cascade */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="dbo", PARENT_TABLE="Гарантийный_талон"
+    CHILD_OWNER="dbo", CHILD_TABLE="Продажа"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="выдается_при", FK_COLUMNS="Код_гарантийного_талона" */
   IF
     /* %ParentPK(" OR",UPDATE) */
@@ -3949,21 +2161,36 @@ BEGIN
     ELSE
     BEGIN
       SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Гарантийный_талон update because more than one row has been affected.''
+             @errmsg = 'Cannot cascade Гарантийный_талон update because more than one row has been affected.'
       GOTO ERROR
     END
   END
 
+
   /* ERwin Builtin Trigger */
-  /* Гарантийный_талон  Гарантийный_журнал on parent update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Гарантийный_талон"
-    CHILD_OWNER="", CHILD_TABLE="Гарантийный_журнал"
+  RETURN
+ERROR:
+    raiserror @errno @errmsg
+    rollback transaction
+END
+GO
+/****** Object:  Trigger [tD_Гарантийный_талон]    Script Date: 12/05/2013 20:13:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TRIGGER [dbo].[tD_Гарантийный_талон] ON [dbo].[Гарантийный_талон] FOR DELETE AS
+/* ERwin Builtin Trigger */
+/* DELETE trigger on Гарантийный_талон */
+BEGIN
+  DECLARE  @errno   int,
+           @errmsg  varchar(255)
+    /* ERwin Builtin Trigger */
+    /* Гарантийный_талон  Гарантийный_журнал on parent delete restrict */
+    /* ERWIN_RELATION:CHECKSUM="000235a7", PARENT_OWNER="dbo", PARENT_TABLE="Гарантийный_талон"
+    CHILD_OWNER="dbo", CHILD_TABLE="Гарантийный_журнал"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_16", FK_COLUMNS="Код_гарантийного_талона" */
-  IF
-    /* %ParentPK(" OR",UPDATE) */
-    UPDATE(Код_гарантийного_талона)
-  BEGIN
     IF EXISTS (
       SELECT * FROM deleted,Гарантийный_журнал
       WHERE
@@ -3971,92 +2198,16 @@ BEGIN
         Гарантийный_журнал.Код_гарантийного_талона = deleted.Код_гарантийного_талона
     )
     BEGIN
-      SELECT @errno  = 30005,
-             @errmsg = ''Cannot update Гарантийный_талон because Гарантийный_журнал exists.''
+      SELECT @errno  = 30001,
+             @errmsg = 'Cannot delete Гарантийный_талон because Гарантийный_журнал exists.'
       GOTO ERROR
     END
-  END
 
-
-  /* ERwin Builtin Trigger */
-  RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [tU_Гарантийный_журнал]    Script Date: 12/03/2013 05:52:32 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Гарантийный_журнал]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Гарантийный_журнал] ON [dbo].[Гарантийный_журнал] FOR UPDATE AS
-/* ERwin Builtin Trigger */
-/* UPDATE trigger on Гарантийный_журнал */
-BEGIN
-  DECLARE  @NUMROWS int,
-           @nullcnt int,
-           @validcnt int,
-           @insДата_время datetime, 
-           @insКод_гарантийного_талона int,
-           @errno   int,
-           @errmsg  varchar(255)
-
-  SELECT @NUMROWS = @@rowcount
-  /* ERwin Builtin Trigger */
-  /* Гарантийный_талон  Гарантийный_журнал on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="00018775", PARENT_OWNER="", PARENT_TABLE="Гарантийный_талон"
-    CHILD_OWNER="", CHILD_TABLE="Гарантийный_журнал"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_16", FK_COLUMNS="Код_гарантийного_талона" */
-  IF
-    /* %ChildFK(" OR",UPDATE) */
-    UPDATE(Код_гарантийного_талона)
-  BEGIN
-    SELECT @nullcnt = 0
-    SELECT @validcnt = count(*)
-      FROM inserted,Гарантийный_талон
-        WHERE
-          /* %JoinFKPK(inserted,Гарантийный_талон) */
-          inserted.Код_гарантийного_талона = Гарантийный_талон.Код_гарантийного_талона
-    /* %NotnullFK(inserted," IS NULL","select @nullcnt = count(*) from inserted where"," AND") */
-    
-    IF @validcnt + @nullcnt != @NUMROWS
-    BEGIN
-      SELECT @errno  = 30007,
-             @errmsg = ''Cannot update Гарантийный_журнал because Гарантийный_талон does not exist.''
-      GOTO ERROR
-    END
-  END
-
-
-  /* ERwin Builtin Trigger */
-  RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [tD_Гарантийный_талон]    Script Date: 12/03/2013 05:52:32 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Гарантийный_талон]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Гарантийный_талон] ON [dbo].[Гарантийный_талон] FOR DELETE AS
-/* ERwin Builtin Trigger */
-/* DELETE trigger on Гарантийный_талон */
-BEGIN
-  DECLARE  @errno   int,
-           @errmsg  varchar(255)
     /* ERwin Builtin Trigger */
-    /* Гарантийный_талон выдается при Продажа on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="00024271", PARENT_OWNER="", PARENT_TABLE="Гарантийный_талон"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="выдается при", C2P_VERB_PHRASE="", 
+    /* Гарантийный_талон  Продажа on parent delete restrict */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="dbo", PARENT_TABLE="Гарантийный_талон"
+    CHILD_OWNER="dbo", CHILD_TABLE="Продажа"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="выдается_при", FK_COLUMNS="Код_гарантийного_талона" */
     IF EXISTS (
       SELECT * FROM deleted,Продажа
@@ -4066,25 +2217,7 @@ BEGIN
     )
     BEGIN
       SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Гарантийный_талон because Продажа exists.''
-      GOTO ERROR
-    END
-
-    /* ERwin Builtin Trigger */
-    /* Гарантийный_талон  Гарантийный_журнал on parent delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Гарантийный_талон"
-    CHILD_OWNER="", CHILD_TABLE="Гарантийный_журнал"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_16", FK_COLUMNS="Код_гарантийного_талона" */
-    IF EXISTS (
-      SELECT * FROM deleted,Гарантийный_журнал
-      WHERE
-        /*  %JoinFKPK(Гарантийный_журнал,deleted," = "," AND") */
-        Гарантийный_журнал.Код_гарантийного_талона = deleted.Код_гарантийного_талона
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Гарантийный_талон because Гарантийный_журнал exists.''
+             @errmsg = 'Cannot delete Гарантийный_талон because Продажа exists.'
       GOTO ERROR
     END
 
@@ -4095,60 +2228,13 @@ ERROR:
     raiserror @errno @errmsg
     rollback transaction
 END
-'
 GO
-/****** Object:  Trigger [tD_Гарантийный_журнал]    Script Date: 12/03/2013 05:52:32 ******/
+/****** Object:  StoredProcedure [dbo].[Выписать_гарантийный_талон]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Гарантийный_журнал]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Гарантийный_журнал] ON [dbo].[Гарантийный_журнал] FOR DELETE AS
-/* ERwin Builtin Trigger */
-/* DELETE trigger on Гарантийный_журнал */
-BEGIN
-  DECLARE  @errno   int,
-           @errmsg  varchar(255)
-    /* ERwin Builtin Trigger */
-    /* Гарантийный_талон  Гарантийный_журнал on child delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00018611", PARENT_OWNER="", PARENT_TABLE="Гарантийный_талон"
-    CHILD_OWNER="", CHILD_TABLE="Гарантийный_журнал"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_16", FK_COLUMNS="Код_гарантийного_талона" */
-    IF EXISTS (SELECT * FROM deleted,Гарантийный_талон
-      WHERE
-        /* %JoinFKPK(deleted,Гарантийный_талон," = "," AND") */
-        deleted.Код_гарантийного_талона = Гарантийный_талон.Код_гарантийного_талона AND
-        NOT EXISTS (
-          SELECT * FROM Гарантийный_журнал
-          WHERE
-            /* %JoinFKPK(Гарантийный_журнал,Гарантийный_талон," = "," AND") */
-            Гарантийный_журнал.Код_гарантийного_талона = Гарантийный_талон.Код_гарантийного_талона
-        )
-    )
-    BEGIN
-      SELECT @errno  = 30010,
-             @errmsg = ''Cannot delete last Гарантийный_журнал because Гарантийный_талон exists.''
-      GOTO ERROR
-    END
-
-
-    /* ERwin Builtin Trigger */
-    RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  StoredProcedure [dbo].[Выписать_гарантийный_талон]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Выписать_гарантийный_талон]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Выписать_гарантийный_талон]
+CREATE PROCEDURE [dbo].[Выписать_гарантийный_талон]
 	@Серийный_номер_экземпляра nvarchar(50),
 	@ФИО_сотрудника nvarchar(50)
 AS
@@ -4157,23 +2243,19 @@ BEGIN
 		Set @Номер_паспорта_сотрудника = 
 		(Select Номер_паспорта_сотрудника
 			 From dbo.[Сотрудник]
-				Where (ФИО_сотрудника=@ФИО_сотрудника)
+				Where (ФИО_сотрудника=Upper(@ФИО_сотрудника))
 		)
 		
 		Insert Into dbo.[Гарантийный_талон]
-			([Номер_паспорта_сотрудника],[Серийный_номер_экземпляра])
-				Values (@Номер_паспорта_сотрудника,@Серийный_номер_экземпляра)
-END
-' 
+			([Дата_время],[Номер_паспорта_сотрудника],[Серийный_номер_экземпляра])
+				Values (Getdate(),@Номер_паспорта_сотрудника,@Серийный_номер_экземпляра)
 END
 GO
-/****** Object:  Trigger [Вставка_даты_заказа_товара]    Script Date: 12/03/2013 05:52:32 ******/
+/****** Object:  Trigger [Вставка_даты_заказа_товара]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Вставка_даты_заказа_товара]'))
-EXEC dbo.sp_executesql @statement = N'
 Create TRIGGER [dbo].[Вставка_даты_заказа_товара]
    ON  [dbo].[Заказ_Товар_Поставщик]
    for  INSERT
@@ -4181,49 +2263,39 @@ AS
 BEGIN
 	Update Заказ_Товар_Поставщик SET Заказ_Товар_Поставщик.Дата_заказа = GETDATE()
 END
-'
 GO
-/****** Object:  Trigger [Вставка_даты_заказа_гарантийного_ремонта]    Script Date: 12/03/2013 05:52:32 ******/
+/****** Object:  Trigger [Вставка_даты_заказа_гарантийного_ремонта]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Вставка_даты_заказа_гарантийного_ремонта]'))
-EXEC dbo.sp_executesql @statement = N'
-CREATE TRIGGER [dbo].[Вставка_даты_заказа_гарантийного_ремонта]
+Create TRIGGER [dbo].[Вставка_даты_заказа_гарантийного_ремонта]
    ON  [dbo].[Гарантийный_журнал]
    for  INSERT
 AS 
 BEGIN
 	Update Гарантийный_журнал SET Дата_время = GETDATE()
 END
-'
 GO
-/****** Object:  StoredProcedure [dbo].[Аннулировать_заявку_на_ремонт]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[Аннулировать_заявку_на_ремонт]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Аннулировать_заявку_на_ремонт]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Аннулировать_заявку_на_ремонт]
+CREATE PROCEDURE [dbo].[Аннулировать_заявку_на_ремонт]
 @Код_гарантийного_талона int
 AS
 BEGIN
 	 Update Гарантийный_журнал
-		Set Статус_обслуживания=''Ремонт завершён''
+		Set Статус_обслуживания='Ремонт завершён'
 			Where (@Код_гарантийного_талона=Код_гарантийного_талона)
 END
-' 
-END
 GO
-/****** Object:  Table [dbo].[UserAccess]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Table [dbo].[UserAccess]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserAccess]') AND type in (N'U'))
-BEGIN
 CREATE TABLE [dbo].[UserAccess](
 	[UserName] [nvarchar](50) NOT NULL,
 	[UserGroup] [nvarchar](10) NOT NULL,
@@ -4233,336 +2305,130 @@ CREATE TABLE [dbo].[UserAccess](
 	[UserName] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-END
 GO
-INSERT [dbo].[UserAccess] ([UserName], [UserGroup], [Password]) VALUES (N'root', N'admin', N'??????????')
-INSERT [dbo].[UserAccess] ([UserName], [UserGroup], [Password]) VALUES (N'user', N'user', N'??????????')
-/****** Object:  Trigger [tU_Товар]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  Trigger [Hash_pass]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tU_Товар]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tU_Товар] ON [dbo].[Товар] FOR UPDATE AS
-/* ERwin Builtin Trigger */
-/* UPDATE trigger on Товар */
-BEGIN
-  DECLARE  @NUMROWS int,
-           @nullcnt int,
-           @validcnt int,
-           @insID_товара nvarchar(20),
-           @errno   int,
-           @errmsg  varchar(255)
-
-  SELECT @NUMROWS = @@rowcount
-  /* ERwin Builtin Trigger */
-  /* Товар участвует в Продажа on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="00040a94", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="участвует в", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="участвует_в", FK_COLUMNS="ID_товара" */
-  IF
-    /* %ParentPK(" OR",UPDATE) */
-    UPDATE(ID_товара)
-  BEGIN
-    IF @NUMROWS = 1
-    BEGIN
-      SELECT @insID_товара = inserted.ID_товара
-        FROM inserted
-      UPDATE Продажа
-      SET
-        /*  %JoinFKPK(Продажа,@ins," = ",",") */
-        Продажа.ID_товара = @insID_товара
-      FROM Продажа,inserted,deleted
-      WHERE
-        /*  %JoinFKPK(Продажа,deleted," = "," AND") */
-        Продажа.ID_товара = deleted.ID_товара
-    END
-    ELSE
-    BEGIN
-      SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Товар update because more than one row has been affected.''
-      GOTO ERROR
-    END
-  END
-
-  /* ERwin Builtin Trigger */
-  /* Товар  Товар_Готовое_решение on parent update cascade */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Товар_Готовое_решение"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_10", FK_COLUMNS="ID_товара" */
-  IF
-    /* %ParentPK(" OR",UPDATE) */
-    UPDATE(ID_товара)
-  BEGIN
-    IF @NUMROWS = 1
-    BEGIN
-      SELECT @insID_товара = inserted.ID_товара
-        FROM inserted
-      UPDATE Товар_Готовое_решение
-      SET
-        /*  %JoinFKPK(Товар_Готовое_решение,@ins," = ",",") */
-        Товар_Готовое_решение.ID_товара = @insID_товара
-      FROM Товар_Готовое_решение,inserted,deleted
-      WHERE
-        /*  %JoinFKPK(Товар_Готовое_решение,deleted," = "," AND") */
-        Товар_Готовое_решение.ID_товара = deleted.ID_товара
-    END
-    ELSE
-    BEGIN
-      SELECT @errno = 30006,
-             @errmsg = ''Cannot cascade Товар update because more than one row has been affected.''
-      GOTO ERROR
-    END
-  END
-
-  /* ERwin Builtin Trigger */
-  /* Товар  Заказ_Товар_Поставщик on parent update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_23", FK_COLUMNS="ID_товара" */
-  IF
-    /* %ParentPK(" OR",UPDATE) */
-    UPDATE(ID_товара)
-  BEGIN
-    IF EXISTS (
-      SELECT * FROM deleted,Заказ_Товар_Поставщик
-      WHERE
-        /*  %JoinFKPK(Заказ_Товар_Поставщик,deleted," = "," AND") */
-        Заказ_Товар_Поставщик.ID_товара = deleted.ID_товара
-    )
-    BEGIN
-      SELECT @errno  = 30005,
-             @errmsg = ''Cannot update Товар because Заказ_Товар_Поставщик exists.''
-      GOTO ERROR
-    END
-  END
-
-
-  /* ERwin Builtin Trigger */
-  RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [tD_Товар]    Script Date: 12/03/2013 05:52:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tD_Товар]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[tD_Товар] ON [dbo].[Товар] FOR DELETE AS
-/* ERwin Builtin Trigger */
-/* DELETE trigger on Товар */
-BEGIN
-  DECLARE  @errno   int,
-           @errmsg  varchar(255)
-    /* ERwin Builtin Trigger */
-    /* Товар участвует в Продажа on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="0003154d", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Продажа"
-    P2C_VERB_PHRASE="участвует в", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="участвует_в", FK_COLUMNS="ID_товара" */
-    IF EXISTS (
-      SELECT * FROM deleted,Продажа
-      WHERE
-        /*  %JoinFKPK(Продажа,deleted," = "," AND") */
-        Продажа.ID_товара = deleted.ID_товара
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Товар because Продажа exists.''
-      GOTO ERROR
-    END
-
-    /* ERwin Builtin Trigger */
-    /* Товар  Товар_Готовое_решение on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Товар_Готовое_решение"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_10", FK_COLUMNS="ID_товара" */
-    IF EXISTS (
-      SELECT * FROM deleted,Товар_Готовое_решение
-      WHERE
-        /*  %JoinFKPK(Товар_Готовое_решение,deleted," = "," AND") */
-        Товар_Готовое_решение.ID_товара = deleted.ID_товара
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Товар because Товар_Готовое_решение exists.''
-      GOTO ERROR
-    END
-
-    /* ERwin Builtin Trigger */
-    /* Товар  Заказ_Товар_Поставщик on parent delete no action */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Товар"
-    CHILD_OWNER="", CHILD_TABLE="Заказ_Товар_Поставщик"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_23", FK_COLUMNS="ID_товара" */
-    IF EXISTS (
-      SELECT * FROM deleted,Заказ_Товар_Поставщик
-      WHERE
-        /*  %JoinFKPK(Заказ_Товар_Поставщик,deleted," = "," AND") */
-        Заказ_Товар_Поставщик.ID_товара = deleted.ID_товара
-    )
-    BEGIN
-      SELECT @errno  = 30001,
-             @errmsg = ''Cannot delete Товар because Заказ_Товар_Поставщик exists.''
-      GOTO ERROR
-    END
-
-
-    /* ERwin Builtin Trigger */
-    RETURN
-ERROR:
-    raiserror @errno @errmsg
-    rollback transaction
-END
-'
-GO
-/****** Object:  Trigger [Hash_pass]    Script Date: 12/03/2013 05:52:32 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[Hash_pass]'))
-EXEC dbo.sp_executesql @statement = N'CREATE TRIGGER [dbo].[Hash_pass] 
+Create TRIGGER [dbo].[Hash_pass] 
    ON  [dbo].[UserAccess] 
    After INSERT,UPDATE
 AS 
 BEGIN
 	declare @hash_pass nvarchar(50)
-	set @hash_pass = Convert(nvarchar(50), HASHBYTES(''SHA1'',(select Password from inserted)))
+	set @hash_pass = Convert(nvarchar(50), HASHBYTES('SHA1',(select Password from inserted)))
 	UPDATE UserAccess 
 		Set Password=@hash_pass
 			  WHERE(UserAccess.UserName= (select UserName from inserted)) 
 END
-'
 GO
-/****** Object:  StoredProcedure [dbo].[GetUserGROUP]    Script Date: 12/03/2013 05:52:31 ******/
+/****** Object:  StoredProcedure [dbo].[GetUserGROUP]    Script Date: 12/05/2013 20:13:04 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetUserGROUP]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GetUserGROUP]
+CREATE PROCEDURE [dbo].[GetUserGROUP]
 @Username nvarchar(50),
 @Password nvarchar(50)
 AS
 BEGIN
 	declare @hash_pass nvarchar(50)
-	set @hash_pass = Convert(nvarchar(50), HASHBYTES(''SHA1'',@Password))
+	set @hash_pass = Convert(nvarchar(50), HASHBYTES('SHA1',@Password))
 	IF Exists (Select *
 					From UserAccess 
 							Where(@Username = UserName AND @hash_pass = Password))
 		begin
-			(Select UserGroup as ''UserGroup''
+			(Select UserGroup as 'UserGroup'
 					From UserAccess 
 						Where(@Username = UserName AND @hash_pass = Password) )
 		end
 		Else
 			Begin
-				Raiserror (''Такого пользователя нет в базе. Обратитесь к Администратору.'',16,1)
+				Raiserror ('Такого пользователя нет в базе. Обратитесь к Администратору.',16,1)
 				with nowait return 1 
 			End
 END
-' 
-END
 GO
-/****** Object:  ForeignKey [Relationship_484]    Script Date: 12/03/2013 05:52:29 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_484]') AND parent_object_id = OBJECT_ID(N'[dbo].[Товар]'))
+/****** Object:  Default [CURRENT_TIMESTAMP_2042541508]    Script Date: 12/05/2013 20:13:03 ******/
+ALTER TABLE [dbo].[Заказ_Товар_Поставщик] ADD  CONSTRAINT [CURRENT_TIMESTAMP_2042541508]  DEFAULT (getdate()) FOR [ID_товара]
+GO
+/****** Object:  Default [CURRENT_TIMESTAMP_]    Script Date: 12/05/2013 20:13:03 ******/
+ALTER TABLE [dbo].[Продажа] ADD  CONSTRAINT [CURRENT_TIMESTAMP_]  DEFAULT (getdate()) FOR [ID_товара]
+GO
+/****** Object:  ForeignKey [Relationship_484]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Товар]  WITH CHECK ADD  CONSTRAINT [Relationship_484] FOREIGN KEY([Код_сервисного_центра])
 REFERENCES [dbo].[Сервисный_центр] ([Код_сервисного_центра])
 ON UPDATE CASCADE
+ON DELETE SET NULL
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_484]') AND parent_object_id = OBJECT_ID(N'[dbo].[Товар]'))
 ALTER TABLE [dbo].[Товар] CHECK CONSTRAINT [Relationship_484]
 GO
-/****** Object:  ForeignKey [заключает]    Script Date: 12/03/2013 05:52:30 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Кредитный_договор]'))
+/****** Object:  ForeignKey [заключает]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Кредитный_договор]  WITH CHECK ADD  CONSTRAINT [заключает] FOREIGN KEY([Номер_паспорта_клиента])
 REFERENCES [dbo].[Клиент] ([Номер_паспорта_клиента])
 ON UPDATE CASCADE
+ON DELETE CASCADE
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Кредитный_договор]'))
 ALTER TABLE [dbo].[Кредитный_договор] CHECK CONSTRAINT [заключает]
 GO
-/****** Object:  ForeignKey [R_23]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_23]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
+/****** Object:  ForeignKey [R_23]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик]  WITH CHECK ADD  CONSTRAINT [R_23] FOREIGN KEY([ID_товара])
 REFERENCES [dbo].[Товар] ([ID_товара])
 ON UPDATE CASCADE
+ON DELETE SET DEFAULT
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_23]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик] CHECK CONSTRAINT [R_23]
 GO
-/****** Object:  ForeignKey [R_24]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_24]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
+/****** Object:  ForeignKey [R_24]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик]  WITH CHECK ADD  CONSTRAINT [R_24] FOREIGN KEY([Номер_паспорта_клиента])
 REFERENCES [dbo].[Клиент] ([Номер_паспорта_клиента])
 ON UPDATE CASCADE
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_24]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик] CHECK CONSTRAINT [R_24]
 GO
-/****** Object:  ForeignKey [Relationship_456]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_456]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
+/****** Object:  ForeignKey [Relationship_456]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик]  WITH NOCHECK ADD  CONSTRAINT [Relationship_456] FOREIGN KEY([Код_поставщика])
 REFERENCES [dbo].[Поставщик] ([Код_поставщика])
 ON UPDATE CASCADE
-NOT FOR REPLICATION
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[Relationship_456]') AND parent_object_id = OBJECT_ID(N'[dbo].[Заказ_Товар_Поставщик]'))
-ALTER TABLE [dbo].[Заказ_Товар_Поставщик] NOCHECK CONSTRAINT [Relationship_456]
+ALTER TABLE [dbo].[Заказ_Товар_Поставщик] CHECK CONSTRAINT [Relationship_456]
 GO
-/****** Object:  ForeignKey [выдается_при]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
+/****** Object:  ForeignKey [выдается_при]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Продажа]  WITH CHECK ADD  CONSTRAINT [выдается_при] FOREIGN KEY([Код_гарантийного_талона])
 REFERENCES [dbo].[Гарантийный_талон] ([Код_гарантийного_талона])
 ON UPDATE CASCADE
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
 ALTER TABLE [dbo].[Продажа] CHECK CONSTRAINT [выдается_при]
 GO
-/****** Object:  ForeignKey [заключается_при]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
+/****** Object:  ForeignKey [заключается_при]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Продажа]  WITH CHECK ADD  CONSTRAINT [заключается_при] FOREIGN KEY([Код_договора])
 REFERENCES [dbo].[Кредитный_договор] ([Код_договора])
 ON UPDATE CASCADE
+ON DELETE SET DEFAULT
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[заключается_при]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
 ALTER TABLE [dbo].[Продажа] CHECK CONSTRAINT [заключается_при]
 GO
-/****** Object:  ForeignKey [участвует_в]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[участвует_в]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
+/****** Object:  ForeignKey [участвует_в]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Продажа]  WITH CHECK ADD  CONSTRAINT [участвует_в] FOREIGN KEY([ID_товара])
 REFERENCES [dbo].[Товар] ([ID_товара])
 ON UPDATE CASCADE
+ON DELETE SET DEFAULT
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[участвует_в]') AND parent_object_id = OBJECT_ID(N'[dbo].[Продажа]'))
 ALTER TABLE [dbo].[Продажа] CHECK CONSTRAINT [участвует_в]
 GO
-/****** Object:  ForeignKey [выдает]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_талон]'))
+/****** Object:  ForeignKey [выдает]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Гарантийный_талон]  WITH CHECK ADD  CONSTRAINT [выдает] FOREIGN KEY([Номер_паспорта_сотрудника])
 REFERENCES [dbo].[Сотрудник] ([Номер_паспорта_сотрудника])
 ON UPDATE CASCADE
+ON DELETE SET NULL
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[выдает]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_талон]'))
 ALTER TABLE [dbo].[Гарантийный_талон] CHECK CONSTRAINT [выдает]
 GO
-/****** Object:  ForeignKey [R_16]    Script Date: 12/03/2013 05:52:31 ******/
-IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_16]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_журнал]'))
+/****** Object:  ForeignKey [R_16]    Script Date: 12/05/2013 20:13:03 ******/
 ALTER TABLE [dbo].[Гарантийный_журнал]  WITH NOCHECK ADD  CONSTRAINT [R_16] FOREIGN KEY([Код_гарантийного_талона])
 REFERENCES [dbo].[Гарантийный_талон] ([Код_гарантийного_талона])
 ON UPDATE CASCADE
-NOT FOR REPLICATION
 GO
-IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[R_16]') AND parent_object_id = OBJECT_ID(N'[dbo].[Гарантийный_журнал]'))
-ALTER TABLE [dbo].[Гарантийный_журнал] NOCHECK CONSTRAINT [R_16]
+ALTER TABLE [dbo].[Гарантийный_журнал] CHECK CONSTRAINT [R_16]
 GO

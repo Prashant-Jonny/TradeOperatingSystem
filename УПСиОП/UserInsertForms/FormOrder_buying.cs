@@ -16,14 +16,14 @@ namespace УПСиОП.UserInsertForms
             string Тип_оплаты=comboBox_payment_type.SelectedItem.ToString(),
                 Серийный_номер_экземпляра=textBox_serial.Text,
                 Название_товара=string.Empty;
+
             string[] str=comboBox_goodName.SelectedItem.ToString().Split(' ');
             for (int i=0; i<str.Length-1; i++)
                  Название_товара=string.Concat(Название_товара, str[i]," ");
             
             Название_товара=Название_товара.Trim();
-            int Код_договора=0, 
-                Количество=(int)numericUpDown_count.Value;
-            int.TryParse(textBox_code.Text, out Код_договора);
+            string Код_договора=textBox_code.Text; 
+              int Количество=(int)numericUpDown_count.Value;
 
             try
             {

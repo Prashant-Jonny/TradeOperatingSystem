@@ -390,24 +390,27 @@ namespace Core
             return this.NonQuery_template("Зарегистрировать_Клиента", pars);
             //Зарегистрировать_Клиента
         }
-        public bool Вставить_покупку(string Название_товара, string Тип_оплаты, string Серийный_номер_экземпляра, int Код_договора, int Количество)
+        public bool Вставить_покупку(string Название_товара, string Тип_оплаты, string Серийный_номер_экземпляра, string Код_договора, int Количество)
         {
+            if (Код_договора=="")
+                Код_договора=null;
+
             SqlParameter[] pars= { 
                     new SqlParameter("@Название_товара", Название_товара), 
                     new SqlParameter("@Тип_оплаты", Тип_оплаты), 
                     new SqlParameter("@Серийный_номер_экземпляра", Серийный_номер_экземпляра), 
-                    new SqlParameter("@Код_договора", Код_договора), 
+                    new SqlParameter("@Код_договора", Код_договора ), 
                     new SqlParameter("@Количество", Количество) 
                                  };
             return this.NonQuery_template("Зарегистрировать_покупку", pars);
             //Зарегистрировать_покупку
         }
-        public bool Вставить_заказ(string Название_товара, string ФИО_клиента/*, string Поставщик*/, int Количество)
+        public bool Вставить_заказ(string Название_товара, string ФИО_клиента, string Поставщик, int Количество)
         {
             SqlParameter[] pars= { 
                     new SqlParameter("@Название_товара", Название_товара), 
                     new SqlParameter("@ФИО_клиента", ФИО_клиента),  
-                   // new SqlParameter("@Поставщик", Поставщик), 
+                    new SqlParameter("@Поставщик", Поставщик), 
                     new SqlParameter("@Количество", Количество) 
                                  };
             return this.NonQuery_template("Оформить_заказ_товара", pars);
@@ -613,6 +616,24 @@ namespace Core
             };
             DataTable table= this.GetData_select_storedProcedure("Получить_номер_гарантийного_талона", pars);
            return (table.Rows[0].ItemArray[0].ToString() );
+        }
+
+        public object[] GetAllReleasers()
+        {
+            List<object> list=new List<object>();
+              string queryString="SELECT Название_поставщика FROM dbo.Поставщик";
+                using (SqlConnection conn=new SqlConnection(_connstr))
+                {
+                    SqlCommand cmd=new SqlCommand(queryString, conn);
+                    cmd.Connection.Open();
+                    SqlDataReader reader=cmd.ExecuteReader();
+                    if (reader.HasRows)
+                        while (reader.Read())
+                        {
+                            list.Add(string.Concat(reader.GetValue(0)));
+                        }
+                    return list.ToArray();
+                }
         }
     }
 }
