@@ -33,11 +33,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_serialNum = new System.Windows.Forms.TextBox();
             this.comboBox_Names = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBox_garancycode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(15, 142);
+            this.btn_save.Location = new System.Drawing.Point(122, 151);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 23);
             this.btn_save.TabIndex = 0;
@@ -48,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 73);
+            this.label1.Location = new System.Drawing.Point(12, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 13);
             this.label1.TabIndex = 1;
@@ -65,7 +67,7 @@
             // 
             // textBox_serialNum
             // 
-            this.textBox_serialNum.Location = new System.Drawing.Point(15, 90);
+            this.textBox_serialNum.Location = new System.Drawing.Point(15, 62);
             this.textBox_serialNum.Name = "textBox_serialNum";
             this.textBox_serialNum.Size = new System.Drawing.Size(155, 20);
             this.textBox_serialNum.TabIndex = 3;
@@ -78,11 +80,32 @@
             this.comboBox_Names.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Names.TabIndex = 4;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Код гарантийного талона";
+            this.label3.Visible = false;
+            // 
+            // txtBox_garancycode
+            // 
+            this.txtBox_garancycode.Location = new System.Drawing.Point(15, 116);
+            this.txtBox_garancycode.Name = "txtBox_garancycode";
+            this.txtBox_garancycode.ReadOnly = true;
+            this.txtBox_garancycode.Size = new System.Drawing.Size(155, 20);
+            this.txtBox_garancycode.TabIndex = 6;
+            this.txtBox_garancycode.Visible = false;
+            // 
             // FormInsertTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 186);
+            this.Controls.Add(this.txtBox_garancycode);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox_Names);
             this.Controls.Add(this.textBox_serialNum);
             this.Controls.Add(this.label2);
@@ -102,5 +125,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_serialNum;
         private System.Windows.Forms.ComboBox comboBox_Names;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtBox_garancycode;
     }
 }

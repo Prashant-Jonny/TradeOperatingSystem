@@ -13,15 +13,27 @@ namespace УПСиОП.UserInsertForms
         }
         private void btn_save_Click(object sender, EventArgs e)
         {
-            string Название_товара=comboBox_goodName.SelectedItem.ToString().Split(' ')[0], 
-                Тип_оплаты=comboBox_payment_type.SelectedItem.ToString(),
-                Серийный_номер_экземпляра=textBox_serial.Text;
+            string Тип_оплаты=comboBox_payment_type.SelectedItem.ToString(),
+                Серийный_номер_экземпляра=textBox_serial.Text,
+                Название_товара=string.Empty;
+            string[] str=comboBox_goodName.SelectedItem.ToString().Split(' ');
+            for (int i=0; i<str.Length-1; i++)
+                 Название_товара=string.Concat(Название_товара, str[i]," ");
+            
+            Название_товара=Название_товара.Trim();
             int Код_договора=0, 
                 Количество=(int)numericUpDown_count.Value;
             int.TryParse(textBox_code.Text, out Код_договора);
 
-            Program.DB.Вставить_покупку(Название_товара, Тип_оплаты,
+            try
+            {
+                Program.DB.Вставить_покупку(Название_товара, Тип_оплаты,
                 Серийный_номер_экземпляра, Код_договора, Количество);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

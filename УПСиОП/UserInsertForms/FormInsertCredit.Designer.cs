@@ -41,7 +41,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(197, 186);
+            this.btn_save.Location = new System.Drawing.Point(197, 177);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 23);
             this.btn_save.TabIndex = 0;
@@ -69,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 62);
+            this.label2.Location = new System.Drawing.Point(29, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 13);
             this.label2.TabIndex = 3;
@@ -77,14 +77,14 @@
             // 
             // textBox_firstpayment
             // 
-            this.textBox_firstpayment.Location = new System.Drawing.Point(13, 79);
+            this.textBox_firstpayment.Location = new System.Drawing.Point(13, 70);
             this.textBox_firstpayment.Name = "textBox_firstpayment";
             this.textBox_firstpayment.Size = new System.Drawing.Size(143, 20);
             this.textBox_firstpayment.TabIndex = 4;
             // 
             // textBox_month_payment
             // 
-            this.textBox_month_payment.Location = new System.Drawing.Point(13, 134);
+            this.textBox_month_payment.Location = new System.Drawing.Point(13, 125);
             this.textBox_month_payment.Name = "textBox_month_payment";
             this.textBox_month_payment.Size = new System.Drawing.Size(143, 20);
             this.textBox_month_payment.TabIndex = 6;
@@ -92,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 117);
+            this.label3.Location = new System.Drawing.Point(29, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 13);
             this.label3.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // textBox_period
             // 
-            this.textBox_period.Location = new System.Drawing.Point(13, 186);
+            this.textBox_period.Location = new System.Drawing.Point(13, 177);
             this.textBox_period.Name = "textBox_period";
             this.textBox_period.Size = new System.Drawing.Size(143, 20);
             this.textBox_period.TabIndex = 8;
@@ -108,7 +108,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 169);
+            this.label4.Location = new System.Drawing.Point(29, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 220);
+            this.ClientSize = new System.Drawing.Size(284, 214);
             this.Controls.Add(this.textBox_period);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox_month_payment);

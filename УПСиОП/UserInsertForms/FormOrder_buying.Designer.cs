@@ -134,7 +134,7 @@
             this.comboBox_goodName.FormattingEnabled = true;
             this.comboBox_goodName.Location = new System.Drawing.Point(16, 30);
             this.comboBox_goodName.Name = "comboBox_goodName";
-            this.comboBox_goodName.Size = new System.Drawing.Size(155, 21);
+            this.comboBox_goodName.Size = new System.Drawing.Size(211, 21);
             this.comboBox_goodName.TabIndex = 10;
             // 
             // FormOrder_buying

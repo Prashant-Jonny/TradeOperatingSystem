@@ -8,7 +8,7 @@ namespace УПСиОП
         Form_view_table _form;
         private void Form_tabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (Form_tabControl.SelectedTab.Name=="tabPage_data")
+            if (_tabControl.SelectedTab.Name=="tabPage_data")
                 данныеToolStripMenuItem.Visible=true;
             else
                 данныеToolStripMenuItem.Visible=false;
@@ -20,7 +20,7 @@ namespace УПСиОП
         {
             InitializeComponent();
             if (usergroup!="admin")
-                this.Form_tabControl.TabPages.RemoveAt(0);
+                this._tabControl.TabPages.RemoveAt(0);
             подключитьсяКБазеToolStripMenuItem.Enabled=false;
             отключитьсяОтБазыToolStripMenuItem.Enabled=true;
         }
@@ -165,24 +165,27 @@ namespace УПСиОП
 
         #region tabpage_usability
 
-        #region panel_order
-        private void btn_insert_talon_Click(object sender, EventArgs e)
+        #region Оформление документов
+        private void выписатьГарантийныйТалонToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormInsertTicket()).Show();
-            /* 	@Серийный_номер_экземпляра nvarchar(50),
-                 @ФИО_сотрудника nvarchar(50)*/
+
+            new UserInsertForms.FormInsertTicket().Show();
+                    /* 	@Серийный_номер_экземпляра nvarchar(50),
+                      @ФИО_сотрудника nvarchar(50)*/
         }
-        private void btn_insert_credit_Click(object sender, EventArgs e)
+        private void заключитьКредитныйДоговорToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormInsertCredit()).Show();
-            /*
-              @Ежемесячная_выплата money,
-             @Первоначальный_взнос money,
-             @Срок_оплаты int,
-             @ФИО_клиента nvarchar(50)	
-              */
+            
+                (new UserInsertForms.FormInsertCredit()).Show();
+                /*
+                  @Ежемесячная_выплата money,
+                 @Первоначальный_взнос money,
+                 @Срок_оплаты int,
+                 @ФИО_клиента nvarchar(50)	
+                  */
+            
         }
-        private void btn_insert_client_Click(object sender, EventArgs e)
+        private void зарегистрироватьКлиентаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new UserInsertForms.FormInsertClient()).Show();
             /*
@@ -194,7 +197,7 @@ namespace УПСиОП
 	            @Телефон_мобильный 		[nvarchar](20)
              */
         }
-        private void btn_order_buing_Click(object sender, EventArgs e)
+        private void оформитьПокупкуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new UserInsertForms.FormOrder_buying()).Show();
             /*
@@ -205,7 +208,7 @@ namespace УПСиОП
                 @Код_договора int
              */
         }
-        private void btn_good_preorder_Click(object sender, EventArgs e)
+        private void оформитьЗаказТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new UserInsertForms.FormPreorderGood()).Show();
             /*
@@ -217,17 +220,11 @@ namespace УПСиОП
              * Оформить_заказ_товара
              */
         }
-        private void btn_transfer_to_shop_Click(object sender, EventArgs e)
+        private void заказТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormTransferToShop()).Show();
-            /*	
-              @Название_товара nvarchar(150),
-		      @Количество int
-               
-             * Отправить_в_магазин
-             */
+            (new UserInsertForms.FormPreorderGood()).Show();
         }
-        private void btn_Insert_goods_Click(object sender, EventArgs e)
+        private void приёмкаТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new UserInsertForms.FormAddToWarehouse()).Show();
             /*
@@ -241,92 +238,56 @@ namespace УПСиОП
                  Приёмка_Товара
              */
         }
-        private void btn_good_exists_Click(object sender, EventArgs e)
+        private void удалитьТоварToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new UserInsertForms.FormGoodExists()).Show();
-            //  @Часть_Названия nvarchar(50)   Есть_ли_товар
+            throw new NotImplementedException();
+        }
+        private void отправитьТоварВМагазинToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new UserInsertForms.FormTransferToShop()).Show();
+            /*	
+              @Название_товара nvarchar(150),
+		      @Количество int
+               
+             * Отправить_в_магазин
+             */
         }
         #endregion
 
-        #region panel_stat
-        private void btn_show_nearest_preorders_Click(object sender, EventArgs e)
-        {
-            _form=new Form_view_table(Program.DB.GetData_select_storedProcedure("Показать_Ближайшие_Заказы"));
-            _form.Show();
-            _form=null;
-        }
-        private void btn_GetPriceList_Click(object sender, EventArgs e)
+        #region Отчёты
+        private void прайсФирмыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _form=new Form_view_table(Program.DB.GetData_select_storedProcedure("Сформировать_прайс"));
             _form.Show();
             _form=null;
         }
-        private void btn_sells_for_year_Click(object sender, EventArgs e)
-        {
-            (new UserInsertForms.FormSellsStat(1)).Show();
-            //        @НомерГода int    Продажи_за_Год
-
-        }
-        private void btn_sells_for_Month_year_Click(object sender, EventArgs e)
-        {
-            (new UserInsertForms.FormSellsStat(2)).Show();
-            //        @НомерМесяца int,
-            //        @НомерГода int
-            //Продажи_за_Месяц_Года
-        }
-        #endregion
-        #region panel_garancy
-        private void btn_insert_in_Garancy_list_Click(object sender, EventArgs e)
-        {
-            (new UserInsertForms.FormEnterGarancyList()).Show();
-            //[Занести_запись_в_гарантийный_журнал]
-            //@Код_гарантийного_талона nvarchar(10),
-            //@Статус_обслуживания nvarchar(20),
-            //@Примечание ntext,
-            //@Причина_направления_на_замену text
-        }
-        private void btn_garancy_change_Click(object sender, EventArgs e)
-        {
-            (new UserInsertForms.FormGarancyChange()).Show();
-            //@Название_товара nvarchar(150),
-            //@Код_гарантийного_талона int
-        }
-        private void btn_insert_repair_results_Click(object sender, EventArgs e)
-        {
-            (new UserInsertForms.FormRepairResultsInsertion()).Show();
-            // [Зафиксировать_результаты_ремонта]
-            //@Код_гарантийного_талона int,
-            //@Статус_обслуживания nvarchar(20)
-        }
-        private void btn_num_for_repair_Click(object sender, EventArgs e)// add params
-        {
-            _form=new Form_view_table(
-                Program.DB.GetData_select_storedProcedure
-                ("Количество_гарантийного_ремонта_по_категории")
-                );
-            _form.Show();
-            _form=null;
-        }
-        #endregion
-
-        #endregion
-
-        #region views
-
-        private void btn_absent_goods_Click(object sender, EventArgs e)
+        private void балансовыйПрайсToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                new Form_view_table(Program.DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров"))
-                    .Show();
+                new Form_view_table(
+                Program.DB.GetData_select_storedProcedure("CURSOR_Сформировать_Балансовый_отчёт")
+                ).Show();
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
-
         }
-        private void btn_least_count_Click(object sender, EventArgs e)
+        private void maxЦеныПоКатегориямToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("Max_Цены_по_категориям")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void деталиНаименьшегоКоличестваToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -338,23 +299,33 @@ namespace УПСиОП
             {
                 MessageBox.Show(exc.Message);
             }
-
         }
-        private void btn_balance_price_Click(object sender, EventArgs e)
+        private void клиентыПоВозрастуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 new Form_view_table(
-                Program.DB.GetData_select_storedProcedure("CURSOR_Сформировать_прайс")
-                ).Show();
+                    Program.DB.GetData_table("Клиенты_по_возрасту")
+                    ).Show();
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
-
         }
-        private void btn_50_nearest_orders_Click(object sender, EventArgs e)
+        private void количествоВидовОтсутствующихНаСкладеТоваровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Form_view_table(Program.DB.GetData_table("Количество_видов_отсутствующих_на_складе_товаров"))
+                    .Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void показать50БлижайшихЗаказовToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -368,90 +339,7 @@ namespace УПСиОП
                 MessageBox.Show(exc.Message);
             }
         }
-        private void btn_max_price_category_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("CURSOR_Максимальная_цена_категории")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_AVG_prices_category_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_table("Средняя_Цена_по_категории")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_credit_part_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_table("Доля_покупок_по_кредитному_договору")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_client_info_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_table("Информация_о_Клиенте")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_employer_info_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_table("Информация_о_Сотруднике")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_clients_by_age_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                new Form_view_table(
-                    Program.DB.GetData_table("Клиенты_по_возрасту")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_money_per_this_month_Click(object sender, EventArgs e)
+        private void продажиЗаТекущийМесяцToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -465,13 +353,19 @@ namespace УПСиОП
                 MessageBox.Show(exc.Message);
             }
         }
-        private void btn_often_repairs_list_Click(object sender, EventArgs e)
+        private void продажиЗаМесяцToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new UserInsertForms.FormSellsStat(2)).Show();
+            //        @НомерМесяца int,
+            //        @НомерГода int
+            //Продажи_за_Месяц_Года
+        }
+        private void продажиЗаТекущийГодToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-
                 new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("CURSOR_Товары_с_частой_поломкой")
+                    Program.DB.GetData_select_storedProcedure("Продажи_за_текущий_год")
                     ).Show();
             }
             catch (Exception exc)
@@ -479,35 +373,12 @@ namespace УПСиОП
                 MessageBox.Show(exc.Message);
             }
         }
-        private void btn_list_garancy_safe_Click(object sender, EventArgs e)
+        private void продажиЗаГодToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_table("Список_вещей_на_гарантийной_замене")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            (new UserInsertForms.FormSellsStat(1)).Show();
+            //        @НомерГода int    Продажи_за_Год
         }
-        private void btn_money_per_this_year_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("CURSOR_Продажи_за_Год")
-                    ).Show();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
-        private void btn_money_of_employer_Click(object sender, EventArgs e)
+        private void прибыльПоСотрудникамToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -521,7 +392,132 @@ namespace УПСиОП
                 MessageBox.Show(exc.Message);
             }
         }
+        private void средняяЦенаПоКатегорииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Средняя_Цена_по_категории")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void товарыСЧастойПоломкойToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("Товары_с_частой_поломкой")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void товарыБезГарантииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_select_storedProcedure("Товары_без_гарантии")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+#endregion
+
+        #region Информация
+        private void информацияОКлиентеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_table("Информация_о_Клиенте")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void информацияОСотрудникеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_table("Информация_о_Сотруднике")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void информацияОЗаемщикахToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void обновитьПараметрыТоваровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void поискНазванияТовараToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                    (new UserInsertForms.FormGoodExists()).Show();
+            //  @Часть_Названия nvarchar(50)   Есть_ли_товар
+        }
         #endregion
 
+        #region Гарантийная деятельность
+        private void зафиксироватьРезультатыРемонтаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         (new UserInsertForms.FormRepairResultsInsertion()).Show();
+            // [Зафиксировать_результаты_ремонта]
+            //@Код_гарантийного_талона int,
+            //@Статус_обслуживания nvarchar(20)
+        }
+        private void занестиЗаписьВГарантийныйЖурналToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                        (new UserInsertForms.FormEnterGarancyList()).Show();
+            //[Занести_запись_в_гарантийный_журнал]
+            //@Код_гарантийного_талона nvarchar(10),
+            //@Статус_обслуживания nvarchar(20),
+            //@Примечание ntext,
+            //@Причина_направления_на_замену text
+        }
+        private void зафиксироватьЗаменуПоГарантииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new UserInsertForms.FormGarancyChange()).Show();
+            //@Название_товара nvarchar(150),
+            //@Код_гарантийного_талона int
+        }
+        private void вещиНаГарантийнойЗаменеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             try
+            {
+
+                new Form_view_table(
+                    Program.DB.GetData_table("Список_вещей_на_гарантийной_замене")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void аннулироватьЗаявкуНаРемонтToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+#endregion
     }
 }

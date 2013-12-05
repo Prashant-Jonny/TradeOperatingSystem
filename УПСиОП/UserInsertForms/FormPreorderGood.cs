@@ -16,7 +16,8 @@ namespace УПСиОП.UserInsertForms
         private void btn_save_Click(object sender, EventArgs e)
         {
             string Название_товара=comboBox_goodName.SelectedItem.ToString().Split(' ')[0],
-                     ФИО_клиента=comboBox_FIO.SelectedItem.ToString().Split(' ')[0] 
+             ФИО_клиента= comboBox_FIO.SelectedItem.ToString().Split(' ')[0]+' '+comboBox_FIO.SelectedItem.ToString().Split(' ')[1];
+         
                      /*, Поставщик=string.Empty*/  ;
             int Количество=(int)numericUpDown_count.Value;
 

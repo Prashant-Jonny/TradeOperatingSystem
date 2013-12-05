@@ -37,8 +37,9 @@ namespace УПСиОП
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Auth());
-            Application.Run(new MainForm(userAccessLevel));
+        //    Application.Run(new Form_Auth());
+        //    Application.Run(new MainForm(userAccessLevel));
+            Application.Run(new MainForm("admin"));
         }
     }
 }

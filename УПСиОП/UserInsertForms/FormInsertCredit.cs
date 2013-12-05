@@ -19,8 +19,7 @@ namespace УПСиОП.UserInsertForms
             Double Ежемесячная_выплата=double.Parse(textBox_month_payment.Text),
                 Первоначальный_взнос=double.Parse(textBox_firstpayment.Text);
             int Срок_оплаты=int.Parse(textBox_period.Text);
-            string ФИО_клиента=comboBox_Names.SelectedItem.ToString().Split(' ').FirstOrDefault();           
-
+            string ФИО_клиента= comboBox_Names.SelectedItem.ToString().Split(' ')[0]+' '+comboBox_Names.SelectedItem.ToString().Split(' ')[1];
             Program.DB.Вставить_кредитный_договор(Ежемесячная_выплата, Первоначальный_взнос, Срок_оплаты, ФИО_клиента);
            
             /*
