@@ -5,7 +5,6 @@ namespace УПСиОП
 {
     public partial class MainForm : Form
     {
-        Form_view_table _form;
         private void Form_tabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (_tabControl.SelectedTab.Name=="tabPage_data")
@@ -240,7 +239,7 @@ namespace УПСиОП
         }
         private void удалитьТоварToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            (new UserInsertForms.FormDeleteGood()).Show();
         }
         private void отправитьТоварВМагазинToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -257,9 +256,8 @@ namespace УПСиОП
         #region Отчёты
         private void прайсФирмыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _form=new Form_view_table(Program.DB.GetData_select_storedProcedure("Сформировать_прайс"));
-            _form.Show();
-            _form=null;
+            new Form_view_table(Program.DB.GetData_table("Прайс_фирмы"))
+           .Show();
         }
         private void балансовыйПрайсToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -279,7 +277,7 @@ namespace УПСиОП
             try
             {
                 new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("Max_Цены_по_категориям")
+                    Program.DB.GetData_table("Max_Цены_по_категориям")
                     ).Show();
             }
             catch (Exception exc)
@@ -365,7 +363,7 @@ namespace УПСиОП
             try
             {
                 new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("Продажи_за_текущий_год")
+                    Program.DB.GetData_table("Продажи_за_текущий_год")
                     ).Show();
             }
             catch (Exception exc)
@@ -411,7 +409,7 @@ namespace УПСиОП
             try
             {
                 new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("Товары_с_частой_поломкой")
+                    Program.DB.GetData_table("Товары_с_частой_поломкой")
                     ).Show();
             }
             catch (Exception exc)
@@ -424,7 +422,7 @@ namespace УПСиОП
             try
             {
                 new Form_view_table(
-                    Program.DB.GetData_select_storedProcedure("Товары_без_гарантии")
+                    Program.DB.GetData_table("Товары_без_гарантии")
                     ).Show();
             }
             catch (Exception exc)
@@ -463,23 +461,28 @@ namespace УПСиОП
         }
         private void информацияОЗаемщикахToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-        private void обновитьПараметрыТоваровToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+          try
+            {
+                new Form_view_table(
+                    Program.DB.GetData_table("Заемщики")
+                    ).Show();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            } 
         }
         private void поискНазванияТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
                     (new UserInsertForms.FormGoodExists()).Show();
-            //  @Часть_Названия nvarchar(50)   Есть_ли_товар
+            //  @Часть_Названия nvarchar(50)   Поиск товара
         }
         #endregion
 
         #region Гарантийная деятельность
         private void зафиксироватьРезультатыРемонтаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         (new UserInsertForms.FormRepairResultsInsertion()).Show();
+            (new UserInsertForms.FormRepairResultsInsertion("OpenRepair")).Show();
             // [Зафиксировать_результаты_ремонта]
             //@Код_гарантийного_талона int,
             //@Статус_обслуживания nvarchar(20)
@@ -515,7 +518,7 @@ namespace УПСиОП
         }
         private void аннулироватьЗаявкуНаРемонтToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            new UserInsertForms.FormRepairResultsInsertion("CloseRepair").Show();
         }
         #endregion
 #endregion

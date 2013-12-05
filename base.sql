@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ComputerFirm]    Script Date: 12/05/2013 20:13:02 ******/
+/****** Object:  Database [ComputerFirm]    Script Date: 12/06/2013 00:22:43 ******/
 CREATE DATABASE [ComputerFirm] ON  PRIMARY 
 ( NAME = N'ComputerFirm', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\ComputerFirm.mdf' , SIZE = 2304KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
@@ -73,7 +73,7 @@ EXEC sys.sp_db_vardecimal_storage_format N'ComputerFirm', N'ON'
 GO
 USE [ComputerFirm]
 GO
-/****** Object:  Table [dbo].[Товар]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Товар]    Script Date: 12/06/2013 00:22:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +104,7 @@ INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_с
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHP4844', N'Картридж C4844AE HP', N'Расходные_материалы', 16, 429000.0000, 5, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHP51645A', N'Картридж 51645A HP', N'Расходные_материалы', 10, 392000.0000, 4, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHP6656ae', N'Картридж C6656AE HP', N'Расходные_материалы', 8, 257500.0000, 2, 12, NULL)
-INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHP6657ae', N'Картридж C6657AE HP', N'Расходные_материалы', 23, 422000.0000, 6, 12, NULL)
+INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHP6657ae', N'Картридж C6657AE HP', N'Расходные_материалы', 22, 422000.0000, 7, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHPC4092A', N'Картридж C4092A HP', N'Расходные_материалы', 20, 764000.0000, 7, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHPC6578AE', N'Картридж C6578A HP', N'Расходные_материалы', 14, 716500.0000, 7, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'CRHPC6578DE', N'Картридж C6578D HP', N'Расходные_материалы', 16, 420000.0000, 11, 12, NULL)
@@ -288,20 +288,20 @@ INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_с
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'SFMSWinPro7_box', N'FQC-00265 Windows Pro 7 Russian DVD  / FQC-05347 Win Pro 7 Russian Russia Only DVD', N'Операционные_Системы', 22, 2433000.0000, 13, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'SFMSWinUlt7_64bit', N'ПО MS Win Ultimate 7 SP1 64-bit Russian 1pk DSP OEI DVD (GLC-01860)', N'Операционные_Системы', 14, 1957500.0000, 14, 12, NULL)
 INSERT [dbo].[Товар] ([ID_товара], [Название_товара], [Категория], [Количество_склад], [Цена], [Количество_магазин], [Срок_гарантии], [Код_сервисного_центра]) VALUES (N'SFMSWS2008_R2', N'P73-05121 Windows Server Std 2008 R2 w/SP1 x64 Russian 1pk DSP OEI DVD 1-4CPU 5 Clt', N'Операционные_Системы', 16, 7266000.0000, 8, 12, NULL)
-/****** Object:  StoredProcedure [dbo].[Удалить_товар]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Удалить_товар]    Script Date: 12/06/2013 00:22:45 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[Удалить_товар]
-@ID_товара nvarchar(20)
+@Название_товара nvarchar(20)
 AS
 BEGIN
-	Delete from Товар
-		Where (ID_товара=@ID_товара)
+	Delete From Товар
+		Where (Название_товара=@Название_товара)
 END
 GO
-/****** Object:  View [dbo].[Товары_без_гарантии]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Товары_без_гарантии]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -314,7 +314,7 @@ WHERE     (Срок_гарантии = 0) OR
                       (Срок_гарантии IS NULL)
 ORDER BY Название_товара
 GO
-/****** Object:  Trigger [tD_Товар]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tD_Товар]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -347,7 +347,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  View [dbo].[Max_Цены_по_категориям]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Max_Цены_по_категориям]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -358,7 +358,7 @@ SELECT     MAX(Цена) AS [Max Цена], Категория
 FROM         dbo.Товар
 GROUP BY Категория
 GO
-/****** Object:  StoredProcedure [dbo].[CURSOR_Сформировать_Балансовый_отчёт]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[CURSOR_Сформировать_Балансовый_отчёт]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -366,31 +366,30 @@ GO
 CREATE PROCEDURE [dbo].[CURSOR_Сформировать_Балансовый_отчёт]
 AS
 BEGIN
-Declare price cursor local FORWARD_ONLY
+Declare price cursor local 
 	For
 	Select
-				[Название_товара],
-				[Категория],
-				ISNull([Количество_склад],0) as "Количество_склад",
-				IsNull([Количество_магазин],0) as "Количество_магазин",
-				ISNull([Количество_склад],0)+IsNull([Количество_магазин],0) as "Общее_Количество",
-				[Цена],
-				[Срок_гарантии],
-				[Цена]*(ISNull([Количество_склад],0)+IsNull([Количество_магазин],0)) as "Балансовая стоимость" 
-		   From [Товар]
-		   Order by  [Категория] ASC
+		[Название_товара],
+		[Категория],
+		ISNull([Количество_склад],0) as "Количество_склад",
+		IsNull([Количество_магазин],0) as "Количество_магазин",
+		ISNull([Количество_склад],0)+IsNull([Количество_магазин],0) as "Общее_Количество",
+		[Цена],
+		[Срок_гарантии],
+		[Цена]*(ISNull([Количество_склад],0)+IsNull([Количество_магазин],0)) as "Балансовая стоимость" 
+     From [Товар]
+	 Order by  [Категория] ASC
   
  Open price  
    While (@@FETCH_STATUS=0)
 	 BEGIN
 		Fetch next from price 
-
 	 END
 CLOSE price
 DEALLOCATE price
 END
 GO
-/****** Object:  View [dbo].[Средняя_Цена_по_категории]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Средняя_Цена_по_категории]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -401,7 +400,7 @@ SELECT     Категория, AVG(Цена) AS [Средняя цена]
 FROM         dbo.Товар
 GROUP BY Категория
 GO
-/****** Object:  Table [dbo].[Заказ_Товар_Поставщик]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Заказ_Товар_Поставщик]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -424,7 +423,7 @@ INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [
 INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (2, 1, N'COCAMF4450', 2, CAST(0x0000A28B013017DE AS DateTime), N'kb1532550')
 INSERT [dbo].[Заказ_Товар_Поставщик] ([Код_поставщика], [Количество_заказано], [ID_товара], [ID_Заказа], [Дата_заказа], [Номер_паспорта_клиента]) VALUES (6, 1, N'CRHPC8771HE', 3, CAST(0x0000A28B013017DE AS DateTime), N'qw2332422')
 SET IDENTITY_INSERT [dbo].[Заказ_Товар_Поставщик] OFF
-/****** Object:  Table [dbo].[Клиент]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Клиент]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -445,7 +444,7 @@ GO
 INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'Жуков Р.С.', CAST(0x000084DE00000000 AS DateTime), N'МОгилёв', N'1242342342423', N'2342424234', N'kb1532550')
 INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'НОВЫЙ ЧЕЛОВЕК', CAST(0x0000836E00000000 AS DateTime), N'Могилёв', N'486158', N'375296587681', N'qe1412414')
 INSERT [dbo].[Клиент] ([ФИО_клиента], [Дата_рождения], [Адрес_клиента], [Телефон_домашний], [Телефон_мобильный], [Номер_паспорта_клиента]) VALUES (N'КРАВЦОВ И.С.', CAST(0x0000798E00000000 AS DateTime), N'Могилёв', N'461546', N'37529654825', N'qw2332422')
-/****** Object:  Table [dbo].[Кредитный_договор]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Кредитный_договор]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -466,7 +465,7 @@ SET IDENTITY_INSERT [dbo].[Кредитный_договор] ON
 INSERT [dbo].[Кредитный_договор] ([Код_договора], [Ежемесячная_выплата], [Первоначальный_взнос], [Срок_оплаты], [Номер_паспорта_клиента]) VALUES (3, 2414142.0000, 123123.0000, 10, N'kb1532550')
 INSERT [dbo].[Кредитный_договор] ([Код_договора], [Ежемесячная_выплата], [Первоначальный_взнос], [Срок_оплаты], [Номер_паспорта_клиента]) VALUES (4, 23423424.0000, 324242.0000, 12, N'qe1412414')
 SET IDENTITY_INSERT [dbo].[Кредитный_договор] OFF
-/****** Object:  Table [dbo].[Продажа]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Продажа]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -486,7 +485,7 @@ CREATE TABLE [dbo].[Продажа](
 ) ON [PRIMARY]
 GO
 INSERT [dbo].[Продажа] ([Цена], [Количество], [ID_товара], [Код_договора], [Тип_оплаты], [Код_гарантийного_талона]) VALUES (392000.0000, 1, N'CRHP51645A', NULL, N'Наличный', 7)
-/****** Object:  Table [dbo].[Гарантийный_талон]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Гарантийный_талон]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -517,7 +516,7 @@ INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Ко
 INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00D07F95 AS DateTime), N'КВ1532550', 15, N'q1w2e34rt5y67u8i')
 INSERT [dbo].[Гарантийный_талон] ([Дата_время], [Номер_паспорта_сотрудника], [Код_гарантийного_талона], [Серийный_номер_экземпляра]) VALUES (CAST(0x0000A28B00D1B175 AS DateTime), N'КВ1545374', 16, N'6g67')
 SET IDENTITY_INSERT [dbo].[Гарантийный_талон] OFF
-/****** Object:  Table [dbo].[Сотрудник]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Сотрудник]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -546,7 +545,7 @@ INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_р
 INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1685416', N'ДМИТРОВ Е.А.', CAST(0x00007CCA00000000 AS DateTime), N'Могилёв, пр-т Мира, 15', N'656654', N'+375229466185', N'Менеджер по работе с Клиентами')
 INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1767768', N'НОВИЦКАЯ Е.А.', CAST(0x00007CA100000000 AS DateTime), N'Могилёв, пр-т Дмитрова, 29', N'202125', N'+375299431361', N'Бухгалтер')
 INSERT [dbo].[Сотрудник] ([Номер_паспорта_сотрудника], [ФИО_сотрудника], [Дата_рождения], [Адрес_сотрудника], [Телефон_домашний], [Телефон_мобильный], [Должность]) VALUES (N'КВ1896165', N'КОКОРЕНКО А.А.', CAST(0x00006D8900000000 AS DateTime), N'Могилёв, Крупской, 95', N'702325', N'+375228468548', N'Директор')
-/****** Object:  Trigger [Форматирование_данных_Сотрудник]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [Форматирование_данных_Сотрудник]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -579,7 +578,7 @@ Update Сотрудник
 
 END
 GO
-/****** Object:  Table [dbo].[Сервисный_центр]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Сервисный_центр]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -604,7 +603,7 @@ INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_це
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (6, N'СЗАО «БелАВМ»', N'Минск, пр-т Машерова, 25', N'+375 (17) 283-22-45 ')
 INSERT [dbo].[Сервисный_центр] ([Код_сервисного_центра], [Название_сервисного_центра], [Адрес], [Телефон]) VALUES (7, N'D-link Inc.', N'Минск,пр-т Независимости,д.169,оф.801', N'тел.(17)218-13-61')
 SET IDENTITY_INSERT [dbo].[Сервисный_центр] OFF
-/****** Object:  Trigger [update_сервис_для_товара]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [update_сервис_для_товара]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -631,7 +630,7 @@ If not Exists (select *
 end
 END
 GO
-/****** Object:  Trigger [tU_Сервисный_центр]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Сервисный_центр]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -687,7 +686,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [tD_Сервисный_центр]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tD_Сервисный_центр]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -721,7 +720,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [проверка_возраста]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [проверка_возраста]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -745,7 +744,7 @@ Set @дата_рожд =
 	    End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Приёмка_Товара]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Приёмка_Товара]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -831,7 +830,7 @@ DECLARE @Код_сервисного_центра int
 				Where (@ID_товара=ID_товара)
 	End
 GO
-/****** Object:  View [dbo].[Прайс_фирмы]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Прайс_фирмы]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -842,7 +841,24 @@ SELECT     TOP (100) PERCENT Название_товара, Категория, Цена, Срок_гарантии
 FROM         dbo.Товар
 ORDER BY Категория
 GO
-/****** Object:  Trigger [Отслеживание_колва_товара]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Поиск_товар]    Script Date: 12/06/2013 00:22:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Поиск_товар]
+	@Часть_Названия nvarchar(10)
+AS
+BEGIN
+	
+	Select  Название_товара , Категория , Цена  
+	  	from [Товар]
+	  	 where (Название_товара like '%'+@Часть_Названия+'%')
+	  	
+
+END
+GO
+/****** Object:  Trigger [Отслеживание_колва_товара]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -865,7 +881,7 @@ if (select isNull(deleted.Количество_магазин,0)
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Отправить_в_магазин]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Отправить_в_магазин]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -875,17 +891,17 @@ CREATE PROCEDURE [dbo].[Отправить_в_магазин]
 		@Количество int
 	AS
 BEGIN
-Declare @ID_товара nvarchar(20)
-Set  @ID_товара= 
+	Declare @ID_товара nvarchar(20)
+	Set  @ID_товара= 
 	 (
 	 Select [ID_товара] 
 	 From [Товар]
 	 Where (Название_товара=@Название_товара)
 	 )
 	 		
-	 IF(ISNULL(@ID_товара,'')=0)
+	 IF(@ID_товара IS NULL )
 	 Begin
-		RaisError('На складе меньше товаров, чем запрошено',1,16)
+		RaisError('На складе нет такого товара',1,16)
 		With NoWait Return 1
 	 End
 	 	 
@@ -916,30 +932,7 @@ Set  @колво_магазин=
 			Where (ID_товара=@ID_товара)	
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Обновить_параметры_товаров]    Script Date: 12/05/2013 20:13:03 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE PROCEDURE [dbo].[Обновить_параметры_товаров] 
-@ID_товара nvarchar(20),
-@Название_товара nvarchar(150), 
-@Категория nvarchar(75),
-@Цена money,
-@Срок_гарантии int,
-@Код_сервисного_центра int
-AS
-BEGIN
-	Update Товар
-	Set Название_товара=@Название_товара, 
-		Категория = @Категория,
-		Цена = @Цена,
-		Срок_гарантии = @Срок_гарантии,
-		Код_сервисного_центра=@Код_сервисного_центра
-	Where (@ID_товара=ID_товара)
-END
-GO
-/****** Object:  Trigger [tU_Кредитный_договор]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Кредитный_договор]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -995,7 +988,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [tD_Кредитный_договор]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tD_Кредитный_договор]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1021,18 +1014,18 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  View [dbo].[Количество_видов_отсутствующих_на_складе_товаров]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Количество_видов_отсутствующих_на_складе_товаров]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE VIEW [dbo].[Количество_видов_отсутствующих_на_складе_товаров]
 AS
-SELECT     COUNT(ID_товара) AS Количество_товаров
+SELECT     COUNT(*) AS Количество_товаров
 FROM         dbo.Товар
-WHERE     (Количество_склад = 0)
+WHERE     (Количество_склад = 0) or (Количество_склад is null)
 GO
-/****** Object:  Trigger [Форматирование_данных_Клиент]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [Форматирование_данных_Клиент]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1065,7 +1058,7 @@ Update Клиент
 
 END
 GO
-/****** Object:  View [dbo].[Клиенты_по_возрасту]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Клиенты_по_возрасту]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1076,7 +1069,7 @@ SELECT     TOP (100) PERCENT ФИО_клиента, Адрес_клиента, Телефон_мобильный, DATE
 FROM         dbo.Клиент
 ORDER BY Возраст
 GO
-/****** Object:  Trigger [tD_Клиент]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tD_Клиент]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1107,7 +1100,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  View [dbo].[Информация_о_Сотруднике]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Информация_о_Сотруднике]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1118,7 +1111,7 @@ Select ФИО_сотрудника, Upper(Номер_паспорта_сотрудника)AS 'Номер_паспорта_сотруд
 	 CAST(Дата_рождения as nvarchar(10)) as 'Дата_рождения', Адрес_сотрудника, Телефон_мобильный
 	from Сотрудник
 GO
-/****** Object:  View [dbo].[Информация_о_Клиенте]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Информация_о_Клиенте]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1128,7 +1121,7 @@ AS
 Select ФИО_клиента, Upper(Номер_паспорта_клиента)AS 'Номер_паспорта_клиента' , Адрес_клиента, Телефон_мобильный
 	from Клиент
 GO
-/****** Object:  StoredProcedure [dbo].[Зарегистрировать_Клиента]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Зарегистрировать_Клиента]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1163,7 +1156,7 @@ AS
 		@Телефон_домашний,
 		@Телефон_мобильный)
 GO
-/****** Object:  StoredProcedure [dbo].[Заключить_кредитный_договор]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Заключить_кредитный_договор]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1209,7 +1202,7 @@ BEGIN
 	
 END
 GO
-/****** Object:  Table [dbo].[Поставщик]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Поставщик]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1236,7 +1229,7 @@ INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_постав
 INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_поставщика], [Телефон_поставщика], [Описание]) VALUES (7, N'Ультра Прайс', N'г. Минск, ул. Сурганова 17', N'(017) 284-08-52', N'')
 INSERT [dbo].[Поставщик] ([Код_поставщика], [Название_поставщика], [Адрес_поставщика], [Телефон_поставщика], [Описание]) VALUES (8, N'D-Link International', N'220114, г. Минск, пр-т Независимости, 169', N'218-1362', N' Оф. представительство Dlink')
 SET IDENTITY_INSERT [dbo].[Поставщик] OFF
-/****** Object:  Trigger [Удаление_поставщика_с_проверкой_заказов]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [Удаление_поставщика_с_проверкой_заказов]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1261,7 +1254,7 @@ BEGIN
 	End	 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Оформить_заказ_товара]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Оформить_заказ_товара]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1311,7 +1304,7 @@ Declare	@ID_товара nvarchar(20)
 		Values (@Номер_паспорта_клиента,@ID_товара, SYSDATETIME(),@Количество,@Код_поставщика)
 END
 GO
-/****** Object:  Trigger [tU_Товар]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Товар]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1398,7 +1391,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [tU_Поставщик]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Поставщик]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1454,7 +1447,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [tU_Клиент]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Клиент]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1541,7 +1534,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CURSOR_Показать_Ближайшие_Заказы]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[CURSOR_Показать_Ближайшие_Заказы]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1565,7 +1558,7 @@ Declare orders cursor local scroll
 	deallocate orders
 END
 GO
-/****** Object:  View [dbo].[Заемщики]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Заемщики]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1579,7 +1572,7 @@ FROM         dbo.Продажа INNER JOIN
                       dbo.Клиент ON dbo.Кредитный_договор.Номер_паспорта_клиента = dbo.Клиент.Номер_паспорта_клиента
 GROUP BY dbo.Клиент.ФИО_клиента
 GO
-/****** Object:  StoredProcedure [dbo].[Есть_ли_товар]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Есть_ли_товар]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1595,7 +1588,7 @@ BEGIN
 
 END
 GO
-/****** Object:  View [dbo].[Детали_наименьшего_количества]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Детали_наименьшего_количества]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1607,7 +1600,7 @@ FROM         dbo.Товар
 GROUP BY Название_товара, Категория, Цена, Срок_гарантии
 ORDER BY [Осталось,шт]
 GO
-/****** Object:  View [dbo].[Сотрудник_Прибыль]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Сотрудник_Прибыль]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1632,7 +1625,7 @@ SELECT TOP(100) Сотрудник.ФИО_сотрудника, Общая_прибыль
   ON (tmp2.Номер_паспорта_сотрудника=dbo.Сотрудник.Номер_паспорта_сотрудника)
 ORDER BY Общая_прибыль ASC
 GO
-/****** Object:  View [dbo].[Продажи_за_текущий_месяц]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Продажи_за_текущий_месяц]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1645,7 +1638,7 @@ FROM         dbo.Продажа INNER JOIN
                       dbo.Гарантийный_талон ON dbo.Продажа.Код_гарантийного_талона = dbo.Гарантийный_талон.Код_гарантийного_талона
 WHERE     (YEAR(dbo.Гарантийный_талон.Дата_время) = YEAR(GETDATE())) AND (MONTH(dbo.Гарантийный_талон.Дата_время) = MONTH(GETDATE()))
 GO
-/****** Object:  View [dbo].[Продажи_за_текущий_год]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  View [dbo].[Продажи_за_текущий_год]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1658,7 +1651,7 @@ FROM         dbo.Продажа INNER JOIN
                       dbo.Гарантийный_талон ON dbo.Продажа.Код_гарантийного_талона = dbo.Гарантийный_талон.Код_гарантийного_талона
 WHERE     (YEAR(dbo.Гарантийный_талон.Дата_время) = YEAR(GETDATE()))
 GO
-/****** Object:  StoredProcedure [dbo].[Продажи_за_Месяц_Года]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Продажи_за_Месяц_Года]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1690,7 +1683,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Продажи_за_Год]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Продажи_за_Год]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1713,7 +1706,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Получить_номер_гарантийного_талона]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Получить_номер_гарантийного_талона]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1735,7 +1728,7 @@ BEGIN
 				
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Зарегистрировать_покупку]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  StoredProcedure [dbo].[Зарегистрировать_покупку]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1793,7 +1786,7 @@ BEGIN
 	
 END
 GO
-/****** Object:  Trigger [tU_Сотрудник]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Сотрудник]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1849,7 +1842,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [tD_Сотрудник]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tD_Сотрудник]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1883,7 +1876,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Table [dbo].[Гарантийный_журнал]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Table [dbo].[Гарантийный_журнал]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1901,7 +1894,7 @@ CREATE TABLE [dbo].[Гарантийный_журнал](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[Товары_с_частой_поломкой]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  View [dbo].[Товары_с_частой_поломкой]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1927,7 +1920,7 @@ SELECT top (15) Название_товара, COUNT(Гарантийный_журнал.Код_гарантийного_талон
    GROUP BY Название_товара
    ORDER BY Количество_замен ASC
 GO
-/****** Object:  View [dbo].[Список_вещей_на_гарантийной_замене]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  View [dbo].[Список_вещей_на_гарантийной_замене]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1940,7 +1933,7 @@ FROM         dbo.Гарантийный_журнал INNER JOIN
                       dbo.Товар ON dbo.Товар.ID_товара = dbo.Продажа.ID_товара
 WHERE     (CONVERT(nvarchar(50), dbo.Гарантийный_журнал.Причина_направления_на_замену) = 'Гарантийная замена')
 GO
-/****** Object:  StoredProcedure [dbo].[Количество_гарантийного_ремонта_по_категории]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Количество_гарантийного_ремонта_по_категории]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1970,7 +1963,7 @@ BEGIN
 				
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Зафиксировать_результаты_ремонта]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Зафиксировать_результаты_ремонта]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1996,7 +1989,7 @@ BEGIN
 		
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Занести_запись_в_гарантийный_журнал]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Занести_запись_в_гарантийный_журнал]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2025,7 +2018,7 @@ Declare @код_талона int
 		
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Зафиксировать_замену_по_гарантии]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Зафиксировать_замену_по_гарантии]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2087,7 +2080,7 @@ Set  @Дата_время_покупки=
 	 	
 END
 GO
-/****** Object:  Trigger [tU_Гарантийный_талон]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tU_Гарантийный_талон]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2174,7 +2167,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  Trigger [tD_Гарантийный_талон]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [tD_Гарантийный_талон]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2229,7 +2222,7 @@ ERROR:
     rollback transaction
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Выписать_гарантийный_талон]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Выписать_гарантийный_талон]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2251,7 +2244,7 @@ BEGIN
 				Values (Getdate(),@Номер_паспорта_сотрудника,@Серийный_номер_экземпляра)
 END
 GO
-/****** Object:  Trigger [Вставка_даты_заказа_товара]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [Вставка_даты_заказа_товара]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2264,7 +2257,7 @@ BEGIN
 	Update Заказ_Товар_Поставщик SET Заказ_Товар_Поставщик.Дата_заказа = GETDATE()
 END
 GO
-/****** Object:  Trigger [Вставка_даты_заказа_гарантийного_ремонта]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [Вставка_даты_заказа_гарантийного_ремонта]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2277,7 +2270,7 @@ BEGIN
 	Update Гарантийный_журнал SET Дата_время = GETDATE()
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Аннулировать_заявку_на_ремонт]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[Аннулировать_заявку_на_ремонт]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2291,7 +2284,7 @@ BEGIN
 			Where (@Код_гарантийного_талона=Код_гарантийного_талона)
 END
 GO
-/****** Object:  Table [dbo].[UserAccess]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Table [dbo].[UserAccess]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2306,7 +2299,7 @@ CREATE TABLE [dbo].[UserAccess](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Trigger [Hash_pass]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  Trigger [Hash_pass]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2323,7 +2316,7 @@ BEGIN
 			  WHERE(UserAccess.UserName= (select UserName from inserted)) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GetUserGROUP]    Script Date: 12/05/2013 20:13:04 ******/
+/****** Object:  StoredProcedure [dbo].[GetUserGROUP]    Script Date: 12/06/2013 00:22:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2350,13 +2343,13 @@ BEGIN
 			End
 END
 GO
-/****** Object:  Default [CURRENT_TIMESTAMP_2042541508]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Default [CURRENT_TIMESTAMP_2042541508]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик] ADD  CONSTRAINT [CURRENT_TIMESTAMP_2042541508]  DEFAULT (getdate()) FOR [ID_товара]
 GO
-/****** Object:  Default [CURRENT_TIMESTAMP_]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  Default [CURRENT_TIMESTAMP_]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Продажа] ADD  CONSTRAINT [CURRENT_TIMESTAMP_]  DEFAULT (getdate()) FOR [ID_товара]
 GO
-/****** Object:  ForeignKey [Relationship_484]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [Relationship_484]    Script Date: 12/06/2013 00:22:43 ******/
 ALTER TABLE [dbo].[Товар]  WITH CHECK ADD  CONSTRAINT [Relationship_484] FOREIGN KEY([Код_сервисного_центра])
 REFERENCES [dbo].[Сервисный_центр] ([Код_сервисного_центра])
 ON UPDATE CASCADE
@@ -2364,7 +2357,7 @@ ON DELETE SET NULL
 GO
 ALTER TABLE [dbo].[Товар] CHECK CONSTRAINT [Relationship_484]
 GO
-/****** Object:  ForeignKey [заключает]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [заключает]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Кредитный_договор]  WITH CHECK ADD  CONSTRAINT [заключает] FOREIGN KEY([Номер_паспорта_клиента])
 REFERENCES [dbo].[Клиент] ([Номер_паспорта_клиента])
 ON UPDATE CASCADE
@@ -2372,7 +2365,7 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Кредитный_договор] CHECK CONSTRAINT [заключает]
 GO
-/****** Object:  ForeignKey [R_23]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [R_23]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик]  WITH CHECK ADD  CONSTRAINT [R_23] FOREIGN KEY([ID_товара])
 REFERENCES [dbo].[Товар] ([ID_товара])
 ON UPDATE CASCADE
@@ -2380,28 +2373,28 @@ ON DELETE SET DEFAULT
 GO
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик] CHECK CONSTRAINT [R_23]
 GO
-/****** Object:  ForeignKey [R_24]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [R_24]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик]  WITH CHECK ADD  CONSTRAINT [R_24] FOREIGN KEY([Номер_паспорта_клиента])
 REFERENCES [dbo].[Клиент] ([Номер_паспорта_клиента])
 ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик] CHECK CONSTRAINT [R_24]
 GO
-/****** Object:  ForeignKey [Relationship_456]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [Relationship_456]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик]  WITH NOCHECK ADD  CONSTRAINT [Relationship_456] FOREIGN KEY([Код_поставщика])
 REFERENCES [dbo].[Поставщик] ([Код_поставщика])
 ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[Заказ_Товар_Поставщик] CHECK CONSTRAINT [Relationship_456]
 GO
-/****** Object:  ForeignKey [выдается_при]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [выдается_при]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Продажа]  WITH CHECK ADD  CONSTRAINT [выдается_при] FOREIGN KEY([Код_гарантийного_талона])
 REFERENCES [dbo].[Гарантийный_талон] ([Код_гарантийного_талона])
 ON UPDATE CASCADE
 GO
 ALTER TABLE [dbo].[Продажа] CHECK CONSTRAINT [выдается_при]
 GO
-/****** Object:  ForeignKey [заключается_при]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [заключается_при]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Продажа]  WITH CHECK ADD  CONSTRAINT [заключается_при] FOREIGN KEY([Код_договора])
 REFERENCES [dbo].[Кредитный_договор] ([Код_договора])
 ON UPDATE CASCADE
@@ -2409,7 +2402,7 @@ ON DELETE SET DEFAULT
 GO
 ALTER TABLE [dbo].[Продажа] CHECK CONSTRAINT [заключается_при]
 GO
-/****** Object:  ForeignKey [участвует_в]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [участвует_в]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Продажа]  WITH CHECK ADD  CONSTRAINT [участвует_в] FOREIGN KEY([ID_товара])
 REFERENCES [dbo].[Товар] ([ID_товара])
 ON UPDATE CASCADE
@@ -2417,7 +2410,7 @@ ON DELETE SET DEFAULT
 GO
 ALTER TABLE [dbo].[Продажа] CHECK CONSTRAINT [участвует_в]
 GO
-/****** Object:  ForeignKey [выдает]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [выдает]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Гарантийный_талон]  WITH CHECK ADD  CONSTRAINT [выдает] FOREIGN KEY([Номер_паспорта_сотрудника])
 REFERENCES [dbo].[Сотрудник] ([Номер_паспорта_сотрудника])
 ON UPDATE CASCADE
@@ -2425,7 +2418,7 @@ ON DELETE SET NULL
 GO
 ALTER TABLE [dbo].[Гарантийный_талон] CHECK CONSTRAINT [выдает]
 GO
-/****** Object:  ForeignKey [R_16]    Script Date: 12/05/2013 20:13:03 ******/
+/****** Object:  ForeignKey [R_16]    Script Date: 12/06/2013 00:22:47 ******/
 ALTER TABLE [dbo].[Гарантийный_журнал]  WITH NOCHECK ADD  CONSTRAINT [R_16] FOREIGN KEY([Код_гарантийного_талона])
 REFERENCES [dbo].[Гарантийный_талон] ([Код_гарантийного_талона])
 ON UPDATE CASCADE

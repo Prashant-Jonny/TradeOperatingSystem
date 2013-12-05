@@ -8,13 +8,14 @@ namespace УПСиОП.UserInsertForms
         public FormGoodExists()
         {
             InitializeComponent();
-            this.Name="Наличие товара";
+            this.Name="Поиск товара";
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            String Часть_Названия=textBox_name.Text;
-            dataGridView1.DataSource=(Program.DB.Товар_существует(Часть_Названия));
+            String Часть_Названия = textBox_name.Text;
+            System.Data.DataTable table = (Program.DB.Поиск_товара(Часть_Названия));
+            dataGridView1.DataSource=table;
         }
     }
 }

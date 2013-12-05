@@ -59,6 +59,34 @@ namespace Core
                 return dt;
             }
         }
+        public DataTable GetData_select_Cursor_storedProcedure(string procedurename)
+        {
+            object[] arr ;
+            System.Data.DataTable dt=new System.Data.DataTable();
+            using (SqlConnection conn=new SqlConnection(_connstr))
+            {
+                SqlCommand cmd=new SqlCommand(procedurename, conn);
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Connection.Open();
+                
+                SqlDataReader reader=cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    for (int i=0; i<reader.FieldCount; i++)
+                    {
+                        dt.Columns.Add();   
+                    }
+
+                   while (reader.Read())
+                   {
+                      arr = new object[reader.FieldCount];    
+                     reader.GetSqlValues(arr);
+                        dt.Rows.Add(  arr);
+                    }
+                }
+                return dt;
+            }
+        }
 
         public void InsertRow(string tableName, DataTable table)
         {
@@ -435,19 +463,19 @@ namespace Core
                                  };
             return this.NonQuery_template("Приёмка_Товара", pars);
         }
-        public DataTable Товар_существует(string Часть_Названия)
+        public DataTable Поиск_товара(string Часть_Названия)
         {
                 SqlParameter[] pars= { 
                     new SqlParameter("@Часть_Названия", Часть_Названия)
                                  };
-            return  GetData_select_storedProcedure("Есть_ли_товар", pars);
+                return GetData_select_storedProcedure("Поиск_товар", pars);
         }
         public decimal Показать_продажи_за_год(int НомерГода)
         {
             SqlParameter[] pars= { 
                     new SqlParameter("@НомерГода", НомерГода), 
                                  };
-            return (Decimal)GetData_select_storedProcedure("Продажи_за_Год", pars).Rows[0]["Выручка"];
+           return (Decimal)GetData_select_storedProcedure("Продажи_за_Год", pars).Rows[0]["Выручка"];
 
         }
         public decimal Показать_продажи_за_месяц_года(int НомерМесяца, int НомерГода)
@@ -634,6 +662,24 @@ namespace Core
                         }
                     return list.ToArray();
                 }
+        }
+        public void Удалить_товар(string Название_товара)
+        {
+            SqlParameter[] pars= 
+            {
+                new SqlParameter("Название_товара",Название_товара)
+            };    
+            this.NonQuery_template("Удалить_товар", pars);
+            
+        }
+
+        public void Аннулировать_талон(int код_талона)
+        {
+            SqlParameter[] pars=new SqlParameter[]
+            {
+                new SqlParameter("Код_гарантийного_талона",код_талона)
+            };
+            this.NonQuery_template("Аннулировать_заявку_на_ремонт", pars);
         }
     }
 }

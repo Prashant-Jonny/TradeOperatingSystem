@@ -93,6 +93,12 @@
     <Compile Include="UserInsertForms\FormAddToWarehouse.Designer.cs">
       <DependentUpon>FormAddToWarehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInsertForms\FormDeleteGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInsertForms\FormDeleteGood.Designer.cs">
+      <DependentUpon>FormDeleteGood.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInsertForms\FormEnterGarancyList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </Compile>
     <EmbeddedResource Include="UserInsertForms\FormAddToWarehouse.resx">
       <DependentUpon>FormAddToWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInsertForms\FormDeleteGood.resx">
+      <DependentUpon>FormDeleteGood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInsertForms\FormEnterGarancyList.resx">
       <DependentUpon>FormEnterGarancyList.cs</DependentUpon>
