@@ -634,7 +634,6 @@ namespace Core
                 }
         }
 
-
         public string ПолучитьКодТалона(string Серийный_номер_экземпляра, string ФИО_сотрудника)
         {
             SqlParameter[] pars= 
