@@ -84,9 +84,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 157);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.Size = new System.Drawing.Size(137, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Код договора";
+            this.label4.Text = "Код кредитного договора";
             // 
             // label5
             // 
@@ -114,6 +114,7 @@
             this.textBox_serial.Name = "textBox_serial";
             this.textBox_serial.Size = new System.Drawing.Size(155, 20);
             this.textBox_serial.TabIndex = 7;
+            this.textBox_serial.Text = "23";
             // 
             // textBox_code
             // 
@@ -121,6 +122,7 @@
             this.textBox_code.Name = "textBox_code";
             this.textBox_code.Size = new System.Drawing.Size(155, 20);
             this.textBox_code.TabIndex = 8;
+            this.textBox_code.Text = "4";
             // 
             // numericUpDown_count
             // 

@@ -544,7 +544,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 483);
+            this.ClientSize = new System.Drawing.Size(782, 540);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this._tabControl);
             this.Name = "MainForm";
