@@ -102,7 +102,8 @@
             this.comboBox_payment_type.FormattingEnabled = true;
             this.comboBox_payment_type.Items.AddRange(new object[] {
             "Безналичный",
-            "Наличный"});
+            "Наличный",
+            "Кредит"});
             this.comboBox_payment_type.Location = new System.Drawing.Point(16, 80);
             this.comboBox_payment_type.Name = "comboBox_payment_type";
             this.comboBox_payment_type.Size = new System.Drawing.Size(155, 21);

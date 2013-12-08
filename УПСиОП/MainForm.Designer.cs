@@ -38,40 +38,39 @@
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оформлениеДокументовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.зарегистрироватьКлиентаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оформитьПокупкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выписатьГарантийныйТалонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заключитьКредитныйДоговорToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оформитьПокупкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оформитьЗаказТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.зарегистрироватьКлиентаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.заказТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.приёмкаТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьТоварToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отправитьТоварВМагазинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчётыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прайсФирмыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.продажиЗаТекущийМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.продажиЗаМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.продажиЗаГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.продажиЗаТекущийГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.балансовыйПрайсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maxЦеныПоКатегориямToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.деталиНаименьшегоКоличестваToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыПоВозрастуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.количествоВидовОтсутствующихНаСкладеТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.показать50БлижайшихЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продажиЗаТекущийМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продажиЗаМесяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продажиЗаТекущийГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.продажиЗаГодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прибыльПоСотрудникамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.средняяЦенаПоКатегорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.товарыСЧастойПоломкойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.товарыБезГарантииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поискНазванияТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияОКлиентеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияОСотрудникеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияОЗаемщикахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поискНазванияТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.гарантийнаяДеятельностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зафиксироватьРезультатыРемонтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вещиНаГарантийнойЗаменеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.аннулироватьЗаявкуНаРемонтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage_data = new System.Windows.Forms.TabPage();
@@ -168,79 +167,71 @@
             // оформлениеДокументовToolStripMenuItem
             // 
             this.оформлениеДокументовToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.зарегистрироватьКлиентаToolStripMenuItem,
+            this.оформитьПокупкуToolStripMenuItem,
             this.выписатьГарантийныйТалонToolStripMenuItem,
             this.заключитьКредитныйДоговорToolStripMenuItem,
-            this.оформитьПокупкуToolStripMenuItem,
             this.оформитьЗаказТовараToolStripMenuItem,
-            this.зарегистрироватьКлиентаToolStripMenuItem,
-            this.заказТовараToolStripMenuItem,
             this.приёмкаТовараToolStripMenuItem,
-            this.удалитьТоварToolStripMenuItem,
-            this.отправитьТоварВМагазинToolStripMenuItem});
+            this.отправитьТоварВМагазинToolStripMenuItem,
+            this.удалитьТоварToolStripMenuItem});
             this.оформлениеДокументовToolStripMenuItem.Name = "оформлениеДокументовToolStripMenuItem";
             this.оформлениеДокументовToolStripMenuItem.Size = new System.Drawing.Size(161, 20);
             this.оформлениеДокументовToolStripMenuItem.Text = "Оформление документов";
             // 
+            // зарегистрироватьКлиентаToolStripMenuItem
+            // 
+            this.зарегистрироватьКлиентаToolStripMenuItem.Name = "зарегистрироватьКлиентаToolStripMenuItem";
+            this.зарегистрироватьКлиентаToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.зарегистрироватьКлиентаToolStripMenuItem.Text = "Внести информацию о клиенте";
+            this.зарегистрироватьКлиентаToolStripMenuItem.Click += new System.EventHandler(this.зарегистрироватьКлиентаToolStripMenuItem_Click);
+            // 
+            // оформитьПокупкуToolStripMenuItem
+            // 
+            this.оформитьПокупкуToolStripMenuItem.Name = "оформитьПокупкуToolStripMenuItem";
+            this.оформитьПокупкуToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.оформитьПокупкуToolStripMenuItem.Text = "Зарегистрировать покупку";
+            this.оформитьПокупкуToolStripMenuItem.Click += new System.EventHandler(this.оформитьПокупкуToolStripMenuItem_Click);
+            // 
             // выписатьГарантийныйТалонToolStripMenuItem
             // 
             this.выписатьГарантийныйТалонToolStripMenuItem.Name = "выписатьГарантийныйТалонToolStripMenuItem";
-            this.выписатьГарантийныйТалонToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.выписатьГарантийныйТалонToolStripMenuItem.Text = "Выписать гарантийный талон";
+            this.выписатьГарантийныйТалонToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.выписатьГарантийныйТалонToolStripMenuItem.Text = "Сформировать гарантийный талон";
             this.выписатьГарантийныйТалонToolStripMenuItem.Click += new System.EventHandler(this.выписатьГарантийныйТалонToolStripMenuItem_Click);
             // 
             // заключитьКредитныйДоговорToolStripMenuItem
             // 
             this.заключитьКредитныйДоговорToolStripMenuItem.Name = "заключитьКредитныйДоговорToolStripMenuItem";
-            this.заключитьКредитныйДоговорToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.заключитьКредитныйДоговорToolStripMenuItem.Text = "Заключить кредитный договор";
+            this.заключитьКредитныйДоговорToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.заключитьКредитныйДоговорToolStripMenuItem.Text = "Сформировать кредитный договор";
             this.заключитьКредитныйДоговорToolStripMenuItem.Click += new System.EventHandler(this.заключитьКредитныйДоговорToolStripMenuItem_Click);
-            // 
-            // оформитьПокупкуToolStripMenuItem
-            // 
-            this.оформитьПокупкуToolStripMenuItem.Name = "оформитьПокупкуToolStripMenuItem";
-            this.оформитьПокупкуToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.оформитьПокупкуToolStripMenuItem.Text = "Оформить покупку";
-            this.оформитьПокупкуToolStripMenuItem.Click += new System.EventHandler(this.оформитьПокупкуToolStripMenuItem_Click);
             // 
             // оформитьЗаказТовараToolStripMenuItem
             // 
             this.оформитьЗаказТовараToolStripMenuItem.Name = "оформитьЗаказТовараToolStripMenuItem";
-            this.оформитьЗаказТовараToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.оформитьЗаказТовараToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.оформитьЗаказТовараToolStripMenuItem.Text = "Оформить заказ товара";
             this.оформитьЗаказТовараToolStripMenuItem.Click += new System.EventHandler(this.оформитьЗаказТовараToolStripMenuItem_Click);
-            // 
-            // зарегистрироватьКлиентаToolStripMenuItem
-            // 
-            this.зарегистрироватьКлиентаToolStripMenuItem.Name = "зарегистрироватьКлиентаToolStripMenuItem";
-            this.зарегистрироватьКлиентаToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.зарегистрироватьКлиентаToolStripMenuItem.Text = "Зарегистрировать клиента ";
-            this.зарегистрироватьКлиентаToolStripMenuItem.Click += new System.EventHandler(this.зарегистрироватьКлиентаToolStripMenuItem_Click);
-            // 
-            // заказТовараToolStripMenuItem
-            // 
-            this.заказТовараToolStripMenuItem.Name = "заказТовараToolStripMenuItem";
-            this.заказТовараToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.заказТовараToolStripMenuItem.Text = "Заказ товара ";
-            this.заказТовараToolStripMenuItem.Click += new System.EventHandler(this.заказТовараToolStripMenuItem_Click);
             // 
             // приёмкаТовараToolStripMenuItem
             // 
             this.приёмкаТовараToolStripMenuItem.Name = "приёмкаТовараToolStripMenuItem";
-            this.приёмкаТовараToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.приёмкаТовараToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.приёмкаТовараToolStripMenuItem.Text = "Приёмка Товара ";
             this.приёмкаТовараToolStripMenuItem.Click += new System.EventHandler(this.приёмкаТовараToolStripMenuItem_Click);
             // 
             // удалитьТоварToolStripMenuItem
             // 
             this.удалитьТоварToolStripMenuItem.Name = "удалитьТоварToolStripMenuItem";
-            this.удалитьТоварToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.удалитьТоварToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.удалитьТоварToolStripMenuItem.Text = "Удалить товар ";
             this.удалитьТоварToolStripMenuItem.Click += new System.EventHandler(this.удалитьТоварToolStripMenuItem_Click);
             // 
             // отправитьТоварВМагазинToolStripMenuItem
             // 
             this.отправитьТоварВМагазинToolStripMenuItem.Name = "отправитьТоварВМагазинToolStripMenuItem";
-            this.отправитьТоварВМагазинToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.отправитьТоварВМагазинToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.отправитьТоварВМагазинToolStripMenuItem.Text = "Отправить товар в магазин";
             this.отправитьТоварВМагазинToolStripMenuItem.Click += new System.EventHandler(this.отправитьТоварВМагазинToolStripMenuItem_Click);
             // 
@@ -248,16 +239,16 @@
             // 
             this.отчётыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.прайсФирмыToolStripMenuItem,
+            this.продажиЗаТекущийМесяцToolStripMenuItem,
+            this.продажиЗаМесяцToolStripMenuItem,
+            this.продажиЗаГодToolStripMenuItem,
+            this.продажиЗаТекущийГодToolStripMenuItem,
             this.балансовыйПрайсToolStripMenuItem,
             this.maxЦеныПоКатегориямToolStripMenuItem,
             this.деталиНаименьшегоКоличестваToolStripMenuItem,
             this.клиентыПоВозрастуToolStripMenuItem,
             this.количествоВидовОтсутствующихНаСкладеТоваровToolStripMenuItem,
             this.показать50БлижайшихЗаказовToolStripMenuItem,
-            this.продажиЗаТекущийМесяцToolStripMenuItem,
-            this.продажиЗаМесяцToolStripMenuItem,
-            this.продажиЗаТекущийГодToolStripMenuItem,
-            this.продажиЗаГодToolStripMenuItem,
             this.прибыльПоСотрудникамToolStripMenuItem,
             this.средняяЦенаПоКатегорииToolStripMenuItem,
             this.товарыСЧастойПоломкойToolStripMenuItem,
@@ -272,6 +263,34 @@
             this.прайсФирмыToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
             this.прайсФирмыToolStripMenuItem.Text = "Прайс фирмы";
             this.прайсФирмыToolStripMenuItem.Click += new System.EventHandler(this.прайсФирмыToolStripMenuItem_Click);
+            // 
+            // продажиЗаТекущийМесяцToolStripMenuItem
+            // 
+            this.продажиЗаТекущийМесяцToolStripMenuItem.Name = "продажиЗаТекущийМесяцToolStripMenuItem";
+            this.продажиЗаТекущийМесяцToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
+            this.продажиЗаТекущийМесяцToolStripMenuItem.Text = "Продажи за текущий месяц";
+            this.продажиЗаТекущийМесяцToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаТекущийМесяцToolStripMenuItem_Click);
+            // 
+            // продажиЗаМесяцToolStripMenuItem
+            // 
+            this.продажиЗаМесяцToolStripMenuItem.Name = "продажиЗаМесяцToolStripMenuItem";
+            this.продажиЗаМесяцToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
+            this.продажиЗаМесяцToolStripMenuItem.Text = "Продажи за месяц";
+            this.продажиЗаМесяцToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаМесяцToolStripMenuItem_Click);
+            // 
+            // продажиЗаГодToolStripMenuItem
+            // 
+            this.продажиЗаГодToolStripMenuItem.Name = "продажиЗаГодToolStripMenuItem";
+            this.продажиЗаГодToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
+            this.продажиЗаГодToolStripMenuItem.Text = "Продажи за год";
+            this.продажиЗаГодToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаГодToolStripMenuItem_Click);
+            // 
+            // продажиЗаТекущийГодToolStripMenuItem
+            // 
+            this.продажиЗаТекущийГодToolStripMenuItem.Name = "продажиЗаТекущийГодToolStripMenuItem";
+            this.продажиЗаТекущийГодToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
+            this.продажиЗаТекущийГодToolStripMenuItem.Text = "Продажи за текущий Год";
+            this.продажиЗаТекущийГодToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаТекущийГодToolStripMenuItem_Click);
             // 
             // балансовыйПрайсToolStripMenuItem
             // 
@@ -315,34 +334,6 @@
             this.показать50БлижайшихЗаказовToolStripMenuItem.Text = "Показать 50 Ближайших Заказов";
             this.показать50БлижайшихЗаказовToolStripMenuItem.Click += new System.EventHandler(this.показать50БлижайшихЗаказовToolStripMenuItem_Click);
             // 
-            // продажиЗаТекущийМесяцToolStripMenuItem
-            // 
-            this.продажиЗаТекущийМесяцToolStripMenuItem.Name = "продажиЗаТекущийМесяцToolStripMenuItem";
-            this.продажиЗаТекущийМесяцToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
-            this.продажиЗаТекущийМесяцToolStripMenuItem.Text = "Продажи за текущий месяц";
-            this.продажиЗаТекущийМесяцToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаТекущийМесяцToolStripMenuItem_Click);
-            // 
-            // продажиЗаМесяцToolStripMenuItem
-            // 
-            this.продажиЗаМесяцToolStripMenuItem.Name = "продажиЗаМесяцToolStripMenuItem";
-            this.продажиЗаМесяцToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
-            this.продажиЗаМесяцToolStripMenuItem.Text = "Продажи за месяц";
-            this.продажиЗаМесяцToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаМесяцToolStripMenuItem_Click);
-            // 
-            // продажиЗаТекущийГодToolStripMenuItem
-            // 
-            this.продажиЗаТекущийГодToolStripMenuItem.Name = "продажиЗаТекущийГодToolStripMenuItem";
-            this.продажиЗаТекущийГодToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
-            this.продажиЗаТекущийГодToolStripMenuItem.Text = "Продажи за текущий Год";
-            this.продажиЗаТекущийГодToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаТекущийГодToolStripMenuItem_Click);
-            // 
-            // продажиЗаГодToolStripMenuItem
-            // 
-            this.продажиЗаГодToolStripMenuItem.Name = "продажиЗаГодToolStripMenuItem";
-            this.продажиЗаГодToolStripMenuItem.Size = new System.Drawing.Size(365, 22);
-            this.продажиЗаГодToolStripMenuItem.Text = "Продажи за год";
-            this.продажиЗаГодToolStripMenuItem.Click += new System.EventHandler(this.продажиЗаГодToolStripMenuItem_Click);
-            // 
             // прибыльПоСотрудникамToolStripMenuItem
             // 
             this.прибыльПоСотрудникамToolStripMenuItem.Name = "прибыльПоСотрудникамToolStripMenuItem";
@@ -374,13 +365,20 @@
             // информацияToolStripMenuItem
             // 
             this.информацияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.поискНазванияТовараToolStripMenuItem,
             this.информацияОКлиентеToolStripMenuItem,
             this.информацияОСотрудникеToolStripMenuItem,
-            this.информацияОЗаемщикахToolStripMenuItem,
-            this.поискНазванияТовараToolStripMenuItem});
+            this.информацияОЗаемщикахToolStripMenuItem});
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
             this.информацияToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.информацияToolStripMenuItem.Text = "Информация";
+            // 
+            // поискНазванияТовараToolStripMenuItem
+            // 
+            this.поискНазванияТовараToolStripMenuItem.Name = "поискНазванияТовараToolStripMenuItem";
+            this.поискНазванияТовараToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.поискНазванияТовараToolStripMenuItem.Text = "Поиск названия товара";
+            this.поискНазванияТовараToolStripMenuItem.Click += new System.EventHandler(this.поискНазванияТовараToolStripMenuItem_Click);
             // 
             // информацияОКлиентеToolStripMenuItem
             // 
@@ -403,57 +401,50 @@
             this.информацияОЗаемщикахToolStripMenuItem.Text = "Информация о Заемщиках";
             this.информацияОЗаемщикахToolStripMenuItem.Click += new System.EventHandler(this.информацияОЗаемщикахToolStripMenuItem_Click);
             // 
-            // поискНазванияТовараToolStripMenuItem
-            // 
-            this.поискНазванияТовараToolStripMenuItem.Name = "поискНазванияТовараToolStripMenuItem";
-            this.поискНазванияТовараToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.поискНазванияТовараToolStripMenuItem.Text = "Поиск названия товара";
-            this.поискНазванияТовараToolStripMenuItem.Click += new System.EventHandler(this.поискНазванияТовараToolStripMenuItem_Click);
-            // 
             // гарантийнаяДеятельностьToolStripMenuItem
             // 
             this.гарантийнаяДеятельностьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.зафиксироватьРезультатыРемонтаToolStripMenuItem,
             this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem,
             this.зафиксироватьЗаменуПоГарантииToolStripMenuItem,
+            this.зафиксироватьРезультатыРемонтаToolStripMenuItem,
             this.вещиНаГарантийнойЗаменеToolStripMenuItem,
             this.аннулироватьЗаявкуНаРемонтToolStripMenuItem});
             this.гарантийнаяДеятельностьToolStripMenuItem.Name = "гарантийнаяДеятельностьToolStripMenuItem";
             this.гарантийнаяДеятельностьToolStripMenuItem.Size = new System.Drawing.Size(165, 20);
             this.гарантийнаяДеятельностьToolStripMenuItem.Text = "Гарантийная деятельность";
             // 
+            // зафиксироватьЗаменуПоГарантииToolStripMenuItem
+            // 
+            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Name = "зафиксироватьЗаменуПоГарантииToolStripMenuItem";
+            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Text = "Выдать товар на замену по гарантии";
+            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Click += new System.EventHandler(this.зафиксироватьЗаменуПоГарантииToolStripMenuItem_Click);
+            // 
             // зафиксироватьРезультатыРемонтаToolStripMenuItem
             // 
             this.зафиксироватьРезультатыРемонтаToolStripMenuItem.Name = "зафиксироватьРезультатыРемонтаToolStripMenuItem";
-            this.зафиксироватьРезультатыРемонтаToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
-            this.зафиксироватьРезультатыРемонтаToolStripMenuItem.Text = "Сохранить результаты ремонта";
+            this.зафиксироватьРезультатыРемонтаToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.зафиксироватьРезультатыРемонтаToolStripMenuItem.Text = "Зафиксирвоать результаты ремонта";
             this.зафиксироватьРезультатыРемонтаToolStripMenuItem.Click += new System.EventHandler(this.зафиксироватьРезультатыРемонтаToolStripMenuItem_Click);
             // 
             // занестиЗаписьВГарантийныйЖурналToolStripMenuItem
             // 
             this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem.Name = "занестиЗаписьВГарантийныйЖурналToolStripMenuItem";
-            this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
-            this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem.Text = "Занести запись в гарантийный журнал";
+            this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem.Text = "Добавить заявку на гарантийный ремонт";
             this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem.Click += new System.EventHandler(this.занестиЗаписьВГарантийныйЖурналToolStripMenuItem_Click);
-            // 
-            // зафиксироватьЗаменуПоГарантииToolStripMenuItem
-            // 
-            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Name = "зафиксироватьЗаменуПоГарантииToolStripMenuItem";
-            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
-            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Text = "Замена по гарантии";
-            this.зафиксироватьЗаменуПоГарантииToolStripMenuItem.Click += new System.EventHandler(this.зафиксироватьЗаменуПоГарантииToolStripMenuItem_Click);
             // 
             // вещиНаГарантийнойЗаменеToolStripMenuItem
             // 
             this.вещиНаГарантийнойЗаменеToolStripMenuItem.Name = "вещиНаГарантийнойЗаменеToolStripMenuItem";
-            this.вещиНаГарантийнойЗаменеToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.вещиНаГарантийнойЗаменеToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
             this.вещиНаГарантийнойЗаменеToolStripMenuItem.Text = "Вещи на гарантийной замене";
             this.вещиНаГарантийнойЗаменеToolStripMenuItem.Click += new System.EventHandler(this.вещиНаГарантийнойЗаменеToolStripMenuItem_Click);
             // 
             // аннулироватьЗаявкуНаРемонтToolStripMenuItem
             // 
             this.аннулироватьЗаявкуНаРемонтToolStripMenuItem.Name = "аннулироватьЗаявкуНаРемонтToolStripMenuItem";
-            this.аннулироватьЗаявкуНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.аннулироватьЗаявкуНаРемонтToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
             this.аннулироватьЗаявкуНаРемонтToolStripMenuItem.Text = "Аннулировать заявку на ремонт";
             this.аннулироватьЗаявкуНаРемонтToolStripMenuItem.Click += new System.EventHandler(this.аннулироватьЗаявкуНаРемонтToolStripMenuItem_Click);
             // 
@@ -596,7 +587,6 @@
         private System.Windows.Forms.ToolStripMenuItem товарыБезГарантииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem информацияОЗаемщикахToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem зарегистрироватьКлиентаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem заказТовараToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem приёмкаТовараToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьТоварToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отправитьТоварВМагазинToolStripMenuItem;

@@ -219,10 +219,6 @@ namespace УПСиОП
              * Оформить_заказ_товара
              */
         }
-        private void заказТовараToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            (new UserInsertForms.FormPreorderGood()).Show();
-        }
         private void приёмкаТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new UserInsertForms.FormAddToWarehouse()).Show();
