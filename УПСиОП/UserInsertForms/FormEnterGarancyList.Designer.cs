@@ -77,7 +77,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(159, 167);
+            this.btn_save.Location = new System.Drawing.Point(155, 40);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 23);
             this.btn_save.TabIndex = 4;
@@ -91,6 +91,7 @@
             this.textBox_garancy_code.Name = "textBox_garancy_code";
             this.textBox_garancy_code.Size = new System.Drawing.Size(100, 20);
             this.textBox_garancy_code.TabIndex = 5;
+            this.textBox_garancy_code.Text = "12";
             // 
             // textBox_status
             // 
@@ -103,14 +104,14 @@
             // 
             this.textBox_problem.Location = new System.Drawing.Point(16, 105);
             this.textBox_problem.Name = "textBox_problem";
-            this.textBox_problem.Size = new System.Drawing.Size(100, 20);
+            this.textBox_problem.Size = new System.Drawing.Size(171, 20);
             this.textBox_problem.TabIndex = 7;
             // 
             // textBox_comments
             // 
             this.textBox_comments.Location = new System.Drawing.Point(16, 149);
             this.textBox_comments.Name = "textBox_comments";
-            this.textBox_comments.Size = new System.Drawing.Size(100, 20);
+            this.textBox_comments.Size = new System.Drawing.Size(171, 20);
             this.textBox_comments.TabIndex = 8;
             // 
             // FormEnterGarancyList

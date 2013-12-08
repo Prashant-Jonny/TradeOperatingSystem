@@ -17,14 +17,24 @@ namespace УПСиОП.UserInsertForms
                 case "OpenRepair":
                 {
                     this.btn_save.Text="Сохранить результаты";
+                     label3.Visible=false;
+                     label4.Visible=false;
+                     textBox_reason.Visible=false;
+                     textBox_note.Visible=false;
                 }
                 break;
 
                 case "CloseRepair":
                 {
+                  
+                    this.btn_save.Text="Аннулировать";
                     textBox_status.Visible=false;
                     label1.Visible=false;
-                    this.btn_save.Text="Аннулировать";
+                    label3.Visible=false;
+                    label4.Visible=false;
+                    textBox_reason.Visible=false;
+                    textBox_note.Visible=false;
+                        
                 }
                 break;
             }
@@ -35,20 +45,22 @@ namespace УПСиОП.UserInsertForms
             {
                 case "OpenRepair":
                 {
-                    string Статус_обслуживания=textBox_status.Text;
+                    string Статус_обслуживания=textBox_status.Text
+                     //   ,причина = textBox_reason.Text,
+                    //    примечание = textBox_note.Text
+                    ;
                     int Код_гарантийного_талона=int.Parse(textBox_garancy_code.Text);
 
-                    Program.DB.Обновить_Результаты_ремонта(Код_гарантийного_талона, Статус_обслуживания);
+                    Program.DB.Зафиксировать_результаты_ремонта(Код_гарантийного_талона, Статус_обслуживания);
                     // [Зафиксировать_результаты_ремонта]
                 }
                 break;
 
                 case "CloseRepair":
                 {
-                    textBox_status.Visible=false;
-                    label1.Visible=false;
+                    
                     int код_талона=int.Parse(this.textBox_garancy_code.Text);
-                    Program.DB.Аннулировать_талон(код_талона);
+                    Program.DB.Аннулировать_заявку_на_ремонт(код_талона);
                 }
                 break;
 

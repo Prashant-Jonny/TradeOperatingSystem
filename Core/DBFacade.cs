@@ -492,25 +492,25 @@ namespace Core
                     new SqlParameter("@Код_гарантийного_талона", Код_гарантийного_талона), 
                     new SqlParameter("@Статус_обслуживания", Статус_обслуживания),  
                     new SqlParameter("@Примечание", Примечание), 
-                    new SqlParameter("@Причина_направления_на_замену", Причина_направления_на_замену) 
+                    new SqlParameter("@Причина", Причина_направления_на_замену) 
                                  };
             return this.NonQuery_template("Занести_запись_в_гарантийный_журнал", pars);
         }
-        public bool Обновить_на_гарантийную_замену(string Название_товара, int Код_гарантийного_талона)
+        public bool Зафиксировать_замену_по_гарантии(string Название_товара, int Код_гарантийного_талона)
         {
             SqlParameter[] pars= { 
                     new SqlParameter("@Название_товара", Название_товара),  
                     new SqlParameter("@Код_гарантийного_талона", Код_гарантийного_талона)
                                  };
-            return this.NonQuery_template("Занести_запись_в_гарантийный_журнал", pars);
+            return this.NonQuery_template("Зафиксировать_замену_по_гарантии", pars);
         }
-        public bool Обновить_Результаты_ремонта(int Код_гарантийного_талона, string Статус_обслуживания)
+        public bool Зафиксировать_результаты_ремонта(int Код_гарантийного_талона, string Статус_обслуживания)
         {
             SqlParameter[] pars= { 
                     new SqlParameter("@Код_гарантийного_талона", Код_гарантийного_талона), 
                     new SqlParameter("@Статус_обслуживания", Статус_обслуживания)
                                  };
-            return this.NonQuery_template("Занести_запись_в_гарантийный_журнал", pars);
+            return this.NonQuery_template("Зафиксировать_результаты_ремонта", pars);
         }
 
         public object[] GetAllEmployers()
@@ -672,7 +672,7 @@ namespace Core
             
         }
 
-        public void Аннулировать_талон(int код_талона)
+        public void Аннулировать_заявку_на_ремонт(int код_талона)
         {
             SqlParameter[] pars=new SqlParameter[]
             {

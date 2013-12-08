@@ -77,6 +77,7 @@
             this.textBox_garancy_code.Name = "textBox_garancy_code";
             this.textBox_garancy_code.Size = new System.Drawing.Size(136, 20);
             this.textBox_garancy_code.TabIndex = 4;
+            this.textBox_garancy_code.Text = "12";
             // 
             // FormGarancyChange
             // 

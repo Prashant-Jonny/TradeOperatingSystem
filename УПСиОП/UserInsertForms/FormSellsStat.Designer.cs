@@ -83,7 +83,7 @@
             this.numericUpDown_month.Size = new System.Drawing.Size(56, 20);
             this.numericUpDown_month.TabIndex = 3;
             this.numericUpDown_month.Value = new decimal(new int[] {
-            1,
+            12,
             0,
             0,
             0});
@@ -91,9 +91,24 @@
             // numericUpDown_year
             // 
             this.numericUpDown_year.Location = new System.Drawing.Point(15, 26);
+            this.numericUpDown_year.Maximum = new decimal(new int[] {
+            2200,
+            0,
+            0,
+            0});
+            this.numericUpDown_year.Minimum = new decimal(new int[] {
+            1887,
+            0,
+            0,
+            0});
             this.numericUpDown_year.Name = "numericUpDown_year";
             this.numericUpDown_year.Size = new System.Drawing.Size(56, 20);
             this.numericUpDown_year.TabIndex = 4;
+            this.numericUpDown_year.Value = new decimal(new int[] {
+            2013,
+            0,
+            0,
+            0});
             // 
             // label_output
             // 

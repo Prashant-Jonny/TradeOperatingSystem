@@ -16,8 +16,11 @@ namespace УПСиОП.UserInsertForms
             InitializeComponent();
             this.Name="Продажи";
             _mode=mode;
-           if (_mode==1)
-               numericUpDown_month.Visible=false;      
+            if (_mode==1)
+            {
+                label1.Visible=false;
+                numericUpDown_month.Visible=false;
+            } 
         }
         
 
